@@ -1,0 +1,36 @@
+@import "master.css";
+
+#erros{
+    background-color: white;
+    text-align: center;
+    margin: 5% 5%;
+    padding: 1%;
+}
+
+#erros h1{
+    /* cor */
+    background-image: linear-gradient(180deg, #1C2152 34.38%, #313A98 61.46%, rgba(49, 58, 152, 0) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+    /* fonte */
+    font-weight: bold;
+    font-size: 250px;
+    line-height: 250px;
+    letter-spacing: 0.05em;
+    margin: 5% 0 0;
+}
+
+#erros h2{
+    /* fonte */
+    font-size: 35px;
+
+    margin: 0% 0%;
+}
+
+#erros p{  
+    /* fonte */
+    font-size: 28px;
+
+    margin: 0 35%;
+}
