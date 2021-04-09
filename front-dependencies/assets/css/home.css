@@ -50,6 +50,52 @@
 	background-size: 170vh;
 }
 
+header{
+	background-color: #0D0D2B;
+    padding: 10px;
+}
+header ul{
+    list-style: none;
+}
+header ul li{
+    display: inline;
+    margin: 0 8px 0 8px;
+    color: var(--branco);
+    font-weight: 700;
+    font-size: 15px;
+    cursor: pointer;
+}
+header #logo{
+    height: 100%;
+    width: 50px;
+}
+
+header #header_registrar{
+	color: white;
+    text-align: right;
+}
+header #header_registrar p{
+    color: var(--branco);
+    font-size: 30px;
+}
+header #header_registrar button{
+    color: var(--branco);
+    font-weight: 700;
+    font-size: 15px;
+    background-color: transparent;
+    border: 1px;
+    border-style: solid;
+    border-radius: 20px;
+    border-color: var(--branco);
+    padding: 8px 15px 8px 15px;
+}
+header #header_registrar button#header-login{
+    border: 0;
+}
+
+
+
+
 
 
 
