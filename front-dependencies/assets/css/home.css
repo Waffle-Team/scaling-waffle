@@ -44,6 +44,11 @@
 }
 
 
+#banner-home{
+	background-image: url('../images/home/background1.png');
+	height: 100vh;
+	background-size: 170vh;
+}
 
 
 
