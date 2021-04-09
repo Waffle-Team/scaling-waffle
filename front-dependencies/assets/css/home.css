@@ -6,6 +6,7 @@
     --text-B: #E0E0E0;
 }
 
+/*  */
 header{
 	background-color: #0D0D2B;
     padding: 10px;
@@ -48,6 +49,7 @@ header #header_registrar button{
 header #header_registrar button#header-login{
     border: 0;
 }
+/*  */
 
 /* BACKGROUNDS */
 #banner-home{
@@ -64,8 +66,7 @@ header #header_registrar button#header-login{
 }
 #degrade{
 	background-image: linear-gradient(var(--primary),var(--secondary));
-	height: 129px;
-	background-size: 190vh;
+	height: 13vh;
 }
 #features{
 	background-image: url('../images/home/background3.png');
@@ -87,40 +88,26 @@ footer{
 }
 /* BACKGROUNDS */
 
-#banner-home #statistics{
-    padding: 5vh 0;
-}
-#banner-home #statistics .statistic-warp{
-    display: inline-flex;
-}
-#banner-home #statistics .statistic-warp img{
-    width: 100px;
-    height: auto;
-}
-#banner-home #statistics .statistic-warp ul{
-    margin-left: 20px;
-    list-style: none;
-}
-#banner-home #statistics .statistic-warp ul h2{
-    font-size: 30px;
-    font-weight: bold;
-    line-height: 50px;
-}
-#banner-home #statistics .statistic-warp ul p{
-    font-size: 20px;
-    color: var(--text-B);
-}
-
 /*  */
+
+#banner-home #call-text{
+	position: absolute;
+    top: 20vh;
+    left: 20vh;
+    right: 20vh;
+	padding-top: 10vh;
+}
 #banner-home #call-text h3{
     margin: 30px 0;
-    font-size: 40px;
+    font-size: 60px;
 }
 #banner-home #call-text p{
     font-size: 18px;
     color: var(--text-B);
 }
+/*  */
 
+/*  */
 #porque-usar #statistics{
     padding: 5vh 0;
 }
@@ -144,8 +131,16 @@ footer{
     font-size: 20px;
     color: var(--text-B);
 }
+/*  */
 
 /*  */
+#porque-usar #call-text{
+	position: absolute;
+    top: 130vh;
+    left: 20vh;
+    right: 20vh;
+	padding-top: 10vh;
+}
 #porque-usar #call-text h3{
     margin: 30px 0;
     font-size: 40px;
@@ -154,5 +149,11 @@ footer{
     font-size: 18px;
     color: var(--text-B);
 }
-
 /*  */
+
+
+#features-title h3{
+    font-size: 70px;
+	text-align: center;
+	padding-top: 100px;
+}
