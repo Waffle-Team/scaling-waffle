@@ -1,55 +1,12 @@
 @import "master.css";
 :root{
     --primary: #0D0D2B;
+	--secondary: #2B076E;
     --text-A: #fff;
     --text-B: #E0E0E0;
 }
-#porque-usar{
-    background-color: var(--primary);
-    color: var(--text-A);
-    height: 100vh;
-}
-#porque-usar #statistics{
-    padding: 5vh 0;
-}
-#porque-usar #statistics .statistic-warp{
-    display: inline-flex;
-}
-#porque-usar #statistics .statistic-warp img{
-    width: 100px;
-    height: auto;
-}
-#porque-usar #statistics .statistic-warp ul{
-    margin-left: 20px;
-    list-style: none;
-}
-#porque-usar #statistics .statistic-warp ul h2{
-    font-size: 30px;
-    font-weight: bold;
-    line-height: 50px;
-}
-#porque-usar #statistics .statistic-warp ul p{
-    font-size: 20px;
-    color: var(--text-B);
-}
 
 /*  */
-#porque-usar #call-text h3{
-    margin: 30px 0;
-    font-size: 40px;
-}
-#porque-usar #call-text p{
-    font-size: 18px;
-    color: var(--text-B);
-}
-
-
-#banner-home{
-	background-image: url('../images/home/background1.png');
-	height: 100vh;
-	background-size: 170vh;
-}
-
 header{
 	background-color: #0D0D2B;
     padding: 10px;
@@ -92,22 +49,148 @@ header #header_registrar button{
 header #header_registrar button#header-login{
     border: 0;
 }
+/*  */
 
+/* Backgrounds */
+#banner-home{
+	background-image: url('../images/home/background1.png');
+	color: var(--text-A);
+	height: 100vh;
+	background-size: 190vh;
+}
+#porque-usar{
+    background-image: url('../images/home/background2.png');
+	color: var(--text-A);
+    height: 100vh;
+	background-size: 100vh;
+}
+#degrade{
+	background-image: linear-gradient(var(--primary),var(--secondary));
+	height: 13vh;
+}
+#features{
+	background-image: url('../images/home/background3.png');
+	color: var(--text-A);
+	height: 290vh;
+	background-size: 190vh;
+}
+#email{
+	background-image: url('../images/home/background4.png');
+	color: var(--text-A);
+	height: 36vh;
+	background-size: 135vh;
+}
+footer{
+	background-image: url('../images/home/background5.png');
+	color: var(--text-A);
+	height: 51vh;
+	background-size: 100vh;
+}
+/* Backgrounds */
 
+/* Posição das seções */
+#banner-home #call-text{
+	position: absolute;
+    top: 30vh;
+    left: 20vh;
+    right: 20vh;
+}
+#porque-usar #call-text{
+	position: absolute;
+    top: 140vh;
+    left: 20vh;
+    right: 20vh;
+}
+#features #call-text1{
+	position: absolute;
+    top: 255vh;
+    left: 20vh;
+    right: 20vh;
+}
+#features #call-text2{
+	position: absolute;
+    top: 345vh;
+    left: 20vh;
+    right: 20vh;
+}
+#features #call-text3{
+	position: absolute;
+    top: 435vh;
+    left: 20vh;
+    right: 20vh;
+}
+/* Posição das seções */
 
+/* Títulos e descrições */
+#banner-home #call-text h3{
+    margin: 30px 0;
+    font-size: 60px;
+}
+#banner-home #call-text p{
+    font-size: 18px;
+    color: var(--text-B);
+}
+#porque-usar #call-text h3{
+    margin: 30px 0;
+    font-size: 40px;
+}
+#porque-usar #call-text p{
+    font-size: 18px;
+    color: var(--text-B);
+}
+#features #features-title h3{
+    font-size: 70px;
+	text-align: center;
+	padding-top: 8vh;
+}
+#features #call-text1 h3{
+    margin: 30px 0;
+    font-size: 40px;
+}
+#features #call-text1 p{
+    font-size: 18px;
+    color: var(--text-B);
+}
+#features #call-text2 h3{
+    margin: 30px 0;
+    font-size: 40px;
+}
+#features #call-text2 p{
+    font-size: 18px;
+    color: var(--text-B);
+}
+#features #call-text3 h3{
+    margin: 30px 0;
+    font-size: 40px;
+}
+#features #call-text3 p{
+    font-size: 18px;
+    color: var(--text-B);
+}
+/* Títulos e descrições */
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+/*  */
+#porque-usar #statistics{
+	padding-top: 7vh;
+}
+#porque-usar #statistics .statistic-warp{
+    display: inline-flex;
+}
+#porque-usar #statistics .statistic-warp img{
+    width: 100px;
+    height: auto;
+}
+#porque-usar #statistics .statistic-warp ul{
+    margin-left: 20px;
+    list-style: none;
+}
+#porque-usar #statistics .statistic-warp ul h2{
+    font-size: 30px;
+    font-weight: bold;
+    line-height: 50px;
+}
+#porque-usar #statistics .statistic-warp ul p{
+    font-size: 20px;
+    color: var(--text-B);
+}
 /*  */
