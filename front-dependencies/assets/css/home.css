@@ -1,6 +1,7 @@
 @import "master.css";
 :root{
     --primary: #0D0D2B;
+	--secondary: #2B076E;
     --text-A: #fff;
     --text-B: #E0E0E0;
 }
@@ -48,6 +49,7 @@ header #header_registrar button#header-login{
     border: 0;
 }
 
+/* BACKGROUNDS */
 #banner-home{
 	background-image: url('../images/home/background1.png');
 	color: var(--text-A);
@@ -59,6 +61,11 @@ header #header_registrar button#header-login{
 	color: var(--text-A);
     height: 100vh;
 	background-size: 100vh;
+}
+#degrade{
+	background-image: linear-gradient(var(--primary),var(--secondary));
+	height: 129px;
+	background-size: 190vh;
 }
 #features{
 	background-image: url('../images/home/background3.png');
@@ -78,6 +85,7 @@ footer{
 	height: 51vh;
 	background-size: 100vh;
 }
+/* BACKGROUNDS */
 
 #banner-home #statistics{
     padding: 5vh 0;
