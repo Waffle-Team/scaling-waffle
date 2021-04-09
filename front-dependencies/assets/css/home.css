@@ -51,7 +51,7 @@ header #header_registrar button#header-login{
 }
 /*  */
 
-/* BACKGROUNDS */
+/* Backgrounds */
 #banner-home{
 	background-image: url('../images/home/background1.png');
 	color: var(--text-A);
@@ -71,7 +71,7 @@ header #header_registrar button#header-login{
 #features{
 	background-image: url('../images/home/background3.png');
 	color: var(--text-A);
-	height: 372vh;
+	height: 290vh;
 	background-size: 190vh;
 }
 #email{
@@ -86,17 +86,42 @@ footer{
 	height: 51vh;
 	background-size: 100vh;
 }
-/* BACKGROUNDS */
+/* Backgrounds */
 
-/*  */
-
+/* Posição das seções */
 #banner-home #call-text{
 	position: absolute;
-    top: 20vh;
+    top: 30vh;
     left: 20vh;
     right: 20vh;
-	padding-top: 10vh;
 }
+#porque-usar #call-text{
+	position: absolute;
+    top: 140vh;
+    left: 20vh;
+    right: 20vh;
+}
+#features #call-text1{
+	position: absolute;
+    top: 255vh;
+    left: 20vh;
+    right: 20vh;
+}
+#features #call-text2{
+	position: absolute;
+    top: 345vh;
+    left: 20vh;
+    right: 20vh;
+}
+#features #call-text3{
+	position: absolute;
+    top: 435vh;
+    left: 20vh;
+    right: 20vh;
+}
+/* Posição das seções */
+
+/* Títulos e descrições */
 #banner-home #call-text h3{
     margin: 30px 0;
     font-size: 60px;
@@ -105,11 +130,48 @@ footer{
     font-size: 18px;
     color: var(--text-B);
 }
-/*  */
+#porque-usar #call-text h3{
+    margin: 30px 0;
+    font-size: 40px;
+}
+#porque-usar #call-text p{
+    font-size: 18px;
+    color: var(--text-B);
+}
+#features #features-title h3{
+    font-size: 70px;
+	text-align: center;
+	padding-top: 8vh;
+}
+#features #call-text1 h3{
+    margin: 30px 0;
+    font-size: 40px;
+}
+#features #call-text1 p{
+    font-size: 18px;
+    color: var(--text-B);
+}
+#features #call-text2 h3{
+    margin: 30px 0;
+    font-size: 40px;
+}
+#features #call-text2 p{
+    font-size: 18px;
+    color: var(--text-B);
+}
+#features #call-text3 h3{
+    margin: 30px 0;
+    font-size: 40px;
+}
+#features #call-text3 p{
+    font-size: 18px;
+    color: var(--text-B);
+}
+/* Títulos e descrições */
 
 /*  */
 #porque-usar #statistics{
-    padding: 5vh 0;
+	padding-top: 7vh;
 }
 #porque-usar #statistics .statistic-warp{
     display: inline-flex;
@@ -132,28 +194,3 @@ footer{
     color: var(--text-B);
 }
 /*  */
-
-/*  */
-#porque-usar #call-text{
-	position: absolute;
-    top: 130vh;
-    left: 20vh;
-    right: 20vh;
-	padding-top: 10vh;
-}
-#porque-usar #call-text h3{
-    margin: 30px 0;
-    font-size: 40px;
-}
-#porque-usar #call-text p{
-    font-size: 18px;
-    color: var(--text-B);
-}
-/*  */
-
-
-#features-title h3{
-    font-size: 70px;
-	text-align: center;
-	padding-top: 100px;
-}
