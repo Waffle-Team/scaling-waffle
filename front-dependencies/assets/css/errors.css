@@ -3,7 +3,7 @@
 #erros{
     background-color: white;
     text-align: center;
-    margin: 5% 5%;
+    margin: 3% 3%;
     padding: 1%;
 }
 
@@ -15,7 +15,7 @@
 
     /* fonte */
     font-weight: bold;
-    font-size: 250px;
+    font-size: 30vh;
     line-height: 250px;
     letter-spacing: 0.05em;
     margin: 5% 0 0;
@@ -23,14 +23,13 @@
 
 #erros h2{
     /* fonte */
-    font-size: 35px;
-
-    margin: 0% 0%;
+    font-size: 5vh;
+    margin: 0;
 }
 
-#erros p{  
+#erros p{
     /* fonte */
-    font-size: 28px;
+    font-size: 3.5vh;
 
     margin: 0 35%;
 }
