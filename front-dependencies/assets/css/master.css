@@ -14,8 +14,8 @@ a{
     text-decoration: none;
 }
 .botao-secundario, .botao-primario{
-    font-size: 20px;
-    padding: 10px;
+    font-size: 18px;
+    padding: 4px 20px;
     border-radius: 20000px;
     margin: 5px;
     border: 2px;

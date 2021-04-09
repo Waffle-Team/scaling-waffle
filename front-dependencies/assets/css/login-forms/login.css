@@ -1,190 +1,85 @@
-body {
-    background-color: #E5E5E5;
-    font-family: 'Roboto', sans-serif;
-    font-size: 16px;
-    line-height: 1.25;
-    letter-spacing: 1px;
-}
-.aaa{
-    width: 818px;
-    height: 192px;
-    left: 68px;
-    top: 216px;
-    font-family: Roboto;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 45px;
-    line-height: 53px;
-    color: #FFFFFF;
-}
-* {/*Deixa mais bonitinho*/
-    box-sizing: border-box;
-    transition: .25s all ease;
-}
+@import "../master.css";
 
-.login-container { /*BOX*/
-    display: block;
-    border-radius: 31px;
-    position: relative;
-    z-index: 0;
-    margin: 307px auto 307px auto;
-    padding: 5rem 4rem 0 4rem;
-    width: 100%;
-    max-width: 525px;
-    background: #2B076E;/* Colocar a imagem de fundo background-image:*/
-    width: 523.64px;
+#formulario{
+    margin-top: 20px;
+    margin-bottom: 20px;
 }
-
-.login-container:after {
-    content: '';
-    display: inline-block;
-    position: absolute;
-    z-index: 0;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
+#formulario #titulo{
+    font-size: 30px;
 }
-
-.form-login {
-    position: relative;
-    z-index: 1;
-    padding-bottom: 4.5rem;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.25);
+#formulario #form-warper {
+	background-image: url('../../images/forms-login/background.png');
+	width: max-content;
+	padding: 28px;
+	margin: 0 auto;
+	background-size: cover;
+	border-radius: 35px;
+	min-width: 420px;
 }
-
-.login-nav {
-    position: relative;
-    padding: 0;
-    margin: 0 0 6em 1rem;
+#formulario #form-warper #mensage{
+    color: #fff;
+    font-size: 25px;
+    display: table-cell;
+    vertical-align: middle;
 }
-
-.login-nav__item {
-    list-style: none;
-    display: inline-block;
-}
-
-.login-nav__item + .login-nav__item {
-    margin-left: 2.25rem;
-}
-
-.login-nav__item a {
-    position: relative;
-    color: rgba(255, 255, 255, 0.5);
-    text-decoration: none;
-    text-transform: uppercase;
-    font-weight: 500;
-    font-size: 1.25rem;
-    padding-bottom: .5rem;
-    transition: .20s all ease;
-}
-
-.login-nav__item.active a,
-.login-nav__item a:hover{
-    color: #ffffff;
-    transition: .15s all ease;
-}
-
-.login-nav__item a:after {
-  
-  display: inline-block;
-  height: 10px;
-  background-color: rgb(255, 255, 255);
-  position: absolute;
-  right: 100%;
-  bottom: -1px;
-  left: 0;
-  border-radius: 50%;
-  transition: .15s all ease;
-}
-
-.login-nav__item a:hover:after,
-.login-nav__item.active a:after{
-    background-color: rgb(17, 97, 237);
-    height: 2px;
-    right: 0;
-    bottom: 2px;
-    border-radius: 0;
-    transition: .20s all ease;
-}
-.login__label {
-    display: block;
-    padding-left: 1rem;
-}
-
-.login__label,/*noem usario*/
-.login__label--checkbox {
-    color: rgba(255, 255, 255, 0.5);
-    text-transform: uppercase;
-    font-size: .75rem;
-    margin-bottom: 1rem;
-}
-
-.login__input {
-    color: white;
-    font-size: 1.15rem;
-    width: 100%;
-    padding: .5rem 1rem;
-    border: 2px solid transparent;
-    outline: none;
-    border-radius: 31px;
-    background-color: #FFFFFF;
-    letter-spacing: 1px;
-}
-
-.login__input:hover,
-.login__input:focus{
-    color: white;
-    border: 2px solid rgba(255, 255, 255, 0.5);
-    background-color: transparent;
-}
-
-.login__input + .login__label {
-    margin-top: 1.5rem;
-}
-
-.login__submit {/*login*/
-    color: #ffffff;
-    font-size: 1rem;
-    font-family: Rubik;
-    font-style: normal;
-    font-weight: bold;
-    font-size: 16px;
-    line-height: 150%;
-    margin-top: 1rem;
-    padding: .75rem;
-    border-radius: 32px;
-    display: block;
-    width: 100%;
-    background: #3671E9;
-    cursor: pointer;
-}
-
-.login__submit:hover {
-    background-color: rgba(17, 97, 237, 1);
-}
-
-.login__forgot {/*NAo possue conta*/
-    display: block;
-    margin-top: 3rem;
+#formulario #form-warper .label-login{
     text-align: center;
-    color: #FFFFFF;
-    font-size: .75rem;
-    text-decoration: none;
-    position: relative;
-    z-index: 1;
+    width: 100%;
+    float: inline-start;
+}
+#formulario #form-warper #input-codigo{
+    width: 90%;
+    font-size: 30px;
+    border-radius: 2000px;
+    margin-bottom: 30px;
+    text-align: center;
+    letter-spacing: 0.5em;
+    font-weight: bold;
+}
+/* formulario de login */
+#formulario .login-form #bt-login{
+    margin: 20px;
+    width: 80%;
+    margin-bottom: 0;
+}
+#formulario .login-form label{
+    color: #fff;
+    float: left;
+    margin-left: 12px;
+}
+#formulario .login-form input{
+    font-size: 25px;
+    border-radius: 2000px;
+    width: 100%;
+}
+#formulario .login-form .input-warp{
+    margin: 20px 0;
+}
+#formulario .login-form .mensage-link{
+    color:#f4f4f4;
+    text-decoration: underline;
+}
+#formulario #alert-area{
+    font-size: 12px;
+    border-radius: 25px;
+    width: 100%;
+    margin: 10px 0;
+    resize: none;
+}
+#formulario .register-form .input-warp{
+    margin: 10px 0;
 }
 
-.esqueceu_senha{
-    font-size: .75rem;
-    text-decoration: none;
-    position: relative;
-    margin-left: 150px;
-    color: #FFFFFF;
-}
-.esqueceu_senha:hover {
-    color: rgb(17, 97, 237);
-}
-.login__forgot:hover {
-    color: rgb(17, 97, 237);
-}
+
+
+
+
+
+
+
+
+
+
+
+
+/*  */
