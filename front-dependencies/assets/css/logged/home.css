@@ -1,0 +1,15 @@
+@import "../master.css";
+
+header{
+    background-color: #2B076E;
+    padding: 5px;
+}
+header #logo-header{
+    height: 30px;
+}
+header .header-warp{
+    margin: 0 2%;
+}
+#user-atibutes{
+    text-align: left;
+}
