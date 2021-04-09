@@ -7,3 +7,29 @@
 img{
     max-width: 100%;
 }
+
+/* Botões */
+a{
+    color: unset;
+    text-decoration: none;
+}
+.botao-secundario, .botao-primario{
+    font-size: 20px;
+    padding: 10px;
+    border-radius: 20000px;
+    margin: 5px;
+    border: 2px;
+    border-style: solid;
+    border-color: #3671E9;
+}
+.botao-secundario:hover, .botao-primario:hover{
+    cursor: pointer;
+}
+.botao-secundario{
+    color: #3671E9;
+    background-color: #fff;
+}
+.botao-primario{
+    color: #fff;
+    background-color: #3671E9;
+}
