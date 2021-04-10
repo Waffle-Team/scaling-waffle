@@ -51,6 +51,7 @@
     font-size: 25px;
     border-radius: 2000px;
     width: 100%;
+    padding: 10px;
 }
 #formulario .login-form .input-warp{
     margin: 20px 0;
