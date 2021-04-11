@@ -35,8 +35,10 @@
     text-align: center;
     letter-spacing: 0.5em;
     font-weight: bold;
+    border: 0;
 }
 /* formulario de login */
+
 #formulario .login-form #bt-login{
     margin: 20px;
     width: 80%;
@@ -52,6 +54,7 @@
     border-radius: 2000px;
     width: 100%;
     padding: 10px;
+    border: 0;
 }
 #formulario .login-form .input-warp{
     margin: 20px 0;
@@ -66,6 +69,9 @@
     width: 100%;
     margin: 10px 0;
     resize: none;
+    border: 0;
+    background: #fff;
+    padding: 10px;
 }
 #formulario .register-form .input-warp{
     margin: 10px 0;
