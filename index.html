@@ -1,152 +1,205 @@
 <!DOCTYPE html>
-<html lang="pt-br" dir="ltr">
+<html lang="pt-BR" dir="ltr">
     <head>
+        <!-- meta tags -->
         <meta charset="utf-8">
-        <title>waffle aplicativo daora</title>
-        <link rel="stylesheet" href="./front-dependencies/lib/bootstrap/css/bootstrap-grid.css">
-        <link rel="stylesheet" href="./front-dependencies/assets/css/home.css">
+        <title>Waffle aplicativo daora</title>
+        <!-- libs -->
+        <link rel="stylesheet" href="./front-dependencies/lib/bootstrap/css/bootstrap.min.css">
+        <script type="text/javascript" src="./front-dependencies/lib/bootstrap/js/bootstrap.min.js"></script>
+
+        <script type="text/javascript" src="./front-dependencies/lib/jquery/jquery-3.6.0.min.js"></script>
+
+        <!-- assets -->
+        <link rel="stylesheet" href="./front-dependencies/assets/css/home/main_home.css">
+        <script type="text/javascript" src="./front-dependencies/assets/js/master.js"></script>
     </head>
     <body>
-		<header id="header-home">
-		<div class="container">
-			<div class="row">
-				<div class="col-6">
-					<ul>
-						<li id="logo_home"><img id="logo" src="./front-dependencies/assets/images/logoteste.svg" alt="logo"></li>
-					</ul>
-				</div>
-				<div id="header_registrar" class="col-6">
-					<button id="header-login"><a href="form-login.html">Login</a></button>
-					|
-					<button id="bt_login_registrar"><a href="form-register.html">Registrar</a></button>
-				</div>
-			</div>
-		</div>
-
-		</header>
-		<section id="banner-home">
-			<div class="container">
-                <div class="row" id="call-text">
+        <header>
+            <div class="container-fluid">
+                <div class="row">
                     <div class="col-6">
-                        <h3>Rapido & Seguro
-						plataforma de<br>
-						gestão de equipes</h3>
-                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+                        <img id="logo" src="./front-dependencies/assets/images/logoteste.svg" alt="Logo">
                     </div>
-					<div class="col-6">
-                        <img class="icon-statistics" src="./front-dependencies/assets/images/home/man.png" alt="">
+                    <div class="col-6">
+                        <div id="nav-warp">
+                            <div id="nav">
+                                <a href="./form-login.html">Login</a>
+                                <a href="./form-register.html">Register</a>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-		</section>
+        </header>
 
-		<section id="porque-usar">
+        <section id="banner">
             <div class="container">
-                <div class="row" id="statistics">
-                    <div class="col-4 statistic-warp">
-                        <img class="icon-statistics" src="./front-dependencies/assets/images/home/icon-graph.svg" alt="">
-                        <ul>
-                            <li>
-                                <h2>R$ 0,50</h2>
-                            </li>
-                            <li>
-                                <p>Gerados em projetos</p>
-                            </li>
-                        </ul>
+                <div class="row">
+                    <div class="col-12 col-md-6 order-2 order-md-1">
+                        <h1>Rapido & seguro platforma de gestão de projetos</h1>
+                        <h2>Gerencie suas equipes de desenvolvimento com tarefas e metodologias ageis aplicadas sem complicação.</h2>
                     </div>
-                    <div class="col-4 statistic-warp">
-                        <img class="icon-statistics" src="./front-dependencies/assets/images/home/icon-user.svg" alt="">
-                        <ul>
-                            <li>
-                                <h2>10M+</h2>
-                            </li>
-                            <li>
-                                <p>Usuarios</p>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="col-4 statistic-warp">
-                        <img class="icon-statistics" src="./front-dependencies/assets/images/home/icon-word.svg" alt="">
-                        <ul>
-                            <li>
-                                <h2>195</h2>
-                            </li>
-                            <li>
-                                <p>Tarefas em andamento</p>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="row" id="call-text">
-                    <div class="col-6">
-                        <img class="icon-statistics" src="./front-dependencies/assets/images/home/boy.png" alt="">
-                    </div>
-                    <div class="col-6">
-                        <h3>Por que usar o scaling waffle ao invez de outras plataformas?</h3>
-                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+                    <div class="col-12 col-md-6 order-1 order-md-2" id="img-waper">
+                        <img src="./front-dependencies/assets/images/home/man.png" alt="ilustração sala de reunião">
                     </div>
                 </div>
             </div>
         </section>
 
-		<section id="degrade"></section>
+        <section id="porque-usar">
+            <div class="container">
+                <div class="row">
+                    <div class="col-4">
+                        <ul class="statistics">
+                            <li class="icon-warper">
+                                <img src="./front-dependencies/assets/images/home/icon-graph.svg" alt="">
+                            </li>
+                            <li>
+                                <h3>R$ 0,50</h3>
+                                <span>Gerados em projetos</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-4">
+                        <ul class="statistics">
+                            <li class="icon-warper">
+                                <img src="./front-dependencies/assets/images/home/icon-user.svg" alt="">
+                            </li>
+                            <li>
+                                <h3>10M+</h3>
+                                <span>Usuarios</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-4">
+                        <ul class="statistics">
+                            <li class="icon-warper">
+                                <img src="./front-dependencies/assets/images/home/icon-word.svg" alt="">
+                            </li>
+                            <li>
+                                <h3>195</h3>
+                                <span>Tarefas em andamento</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 col-md-6">
+                        <img src="./front-dependencies/assets/images/home/boy.png" alt="menino tech">
+                    </div>
+                    <div class="col-12 col-md-6">
+                        <h1>Por que usar o Scalling-Waffle ao invez de outras plataformas?</h1>
+                        <h2>Sem nenhum bom motivos, apenas um trabalho universitario open-source.</h2>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <section id="features">
-			<div class="container">
-				<div id="features-title">
-					<h3>Lorem Ipsum</h3>
-				</div>
-                <div class="row" id="call-text1">
-                    <div class="col-6">
-                        <h3>Vizualização em Calendário</h3>
-                        <p>Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit...</p>
-						<button class="botao-primario">Leia Mais</button>
-                    </div>
-					<div class="col-6">
-                        <img class="icon-statistics" src="./front-dependencies/assets/images/home/blank.png" alt="">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <h1 id="titulo">Features</h1>
                     </div>
                 </div>
-				<div class="row" id="call-text2">
-                    <div class="col-6">
-                        <img class="icon-statistics" src="./front-dependencies/assets/images/home/blank.png" alt="">
+                <div class="row content-warp">
+                    <div class="col-12 col-md-5 order-2 order-md-1">
+                        <div class="text-warp">
+                            <div class="text-content">
+                                <h2>Visualização em calendario</h2>
+                                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s</p>
+                            </div>
+                        </div>
                     </div>
-					<div class="col-6">
-                        <h3>Estatisticas detalhadas</h3>
-                        <p>Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit...</p>
-						<button class="botao-primario">Leia Mais</button>
+                    <div class="col-12 col-md-7 order-1 order-md-2">
+                        <img src="./front-dependencies/assets/images/home/blank.png" alt="">
                     </div>
                 </div>
-				<div class="row" id="call-text3">
-                    <div class="col-6">
-                        <h3>Kambam personalizavel e de facil visualização</h3>
-                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s</p>
-						<button class="botao-primario">Leia Mais</button>
+                <div class="row content-warp">
+                    <div class="col-12 col-md-7 order-1 order-md-1">
+                        <img src="./front-dependencies/assets/images/home/blank.png" alt="">
                     </div>
-					<div class="col-6">
-                        <img class="icon-statistics" src="./front-dependencies/assets/images/home/blank.png" alt="">
+                    <div class="col-12 col-md-5 order-2 order-md-2">
+                        <div class="text-warp">
+                            <div class="text-content">
+                                <h2>Estatisticas detalhadas</h2>
+                                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row content-warp">
+                    <div class="col-12 col-md-5 order-2 order-md-1">
+                        <div class="text-warp">
+                            <div class="text-content">
+                                <h2>Kambam personalizavel e de facil visualização</h2>
+                                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-7 order-1 order-md-2">
+                        <img src="./front-dependencies/assets/images/home/blank.png" alt="">
                     </div>
                 </div>
             </div>
         </section>
-		<section id="email">
-			<div class="container">
-				<div class="row" id="inscrever-news">
-					<div class="col-4">
-						<h3>News</h3>
-						<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-					</div>
-					<div class="col-4">
-						<input placeholder="Digite seu Email"></input>
-					</div>
-					<div class="col-4">
-						<button class="botao-secundario" id="inscreva-se">Inscreva-se</button>
-					</div>
-				</div>
-			</div>
-		</section>
-		<footer>
-			<div class="container">
 
-			</div>
-		</footer>
+        <footer>
+            <div class="container">
+                <div class="row">
+                    <div class="col-12 col-md-1">
+                        <img id="logo" src="./front-dependencies/assets/images/logoteste.svg" alt="">
+                    </div>
+                    <div class="col-12 col-md-3">
+                        <ul id="colum-docs">
+                            <li>
+                                <h2>Documentação</h2>
+                            </li>
+                            <li>
+                                <a href="#">Topico da doc</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-12 col-md-8">
+                        <h2>Equipe</h2>
+                        <div class="row">
+                            <div class="member col-12 col-md-3">
+                                <img src="./front-dependencies/assets/images/user-generic.png" alt="">
+                                <p>Gustavo Schmidt</p>
+                                <div class="social-icons-member">
+                                    <img src="./front-dependencies/assets/images/github-brands.svg" alt="">
+                                    <img src="./front-dependencies/assets/images//linkedin-in-brands.svg" alt="">
+                                </div>
+                            </div>
+                            <div class="member col-12 col-md-3">
+                                <img src="./front-dependencies/assets/images/user-generic.png" alt="">
+                                <p>Gabriel Wesley</p>
+                                <div class="social-icons-member">
+                                    <img src="./front-dependencies/assets/images/github-brands.svg" alt="">
+                                    <img src="./front-dependencies/assets/images//linkedin-in-brands.svg" alt="">
+                                </div>
+                            </div>
+                            <div class="member col-12 col-md-3">
+                                <img src="./front-dependencies/assets/images/user-generic.png" alt="">
+                                <p>Aleister Edward</p>
+                                <div class="social-icons-member">
+                                    <img src="./front-dependencies/assets/images/github-brands.svg" alt="">
+                                    <img src="./front-dependencies/assets/images//linkedin-in-brands.svg" alt="">
+                                </div>
+                            </div>
+                            <div class="member col-12 col-md-3">
+                                <img src="./front-dependencies/assets/images/user-generic.png" alt="">
+                                <p>Felipe Noleto</p>
+                                <div class="social-icons-member">
+                                    <img src="./front-dependencies/assets/images/github-brands.svg" alt="">
+                                    <img src="./front-dependencies/assets/images//linkedin-in-brands.svg" alt="">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
     </body>
 </html>
