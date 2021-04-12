@@ -37,3 +37,7 @@ se tudo deu boa print true se não false
 
 $registrar = false // true (registrou o usuario na tabela temp) e false(não registrou o usuario)
 print($registrar);//funciona como nosso return só que para enviar pro front
+
+
+
+?>
