@@ -1,5 +1,11 @@
 @import "../master.css";
 
+
+/*
+coloquei o css de todos os formularios aqui mas é bom criar novos estilos um para cada
+por que alguns tamanhos ficam estranhos, acho que copiar esse css e editar o que falta em cada form
+resolve
+*/
 #formulario{
     margin-top: 20px;
     margin-bottom: 20px;
@@ -15,6 +21,7 @@
 	background-size: cover;
 	border-radius: 35px;
 	min-width: 420px;
+    max-width: 100%;
 }
 #formulario #form-warper #mensage{
     color: #fff;
@@ -50,10 +57,10 @@
     margin-left: 12px;
 }
 #formulario .login-form input{
-    font-size: 25px;
+    font-size: 19px;
     border-radius: 2000px;
     width: 100%;
-    padding: 10px;
+    padding: 7px;
     border: 0;
 }
 #formulario .login-form .input-warp{
@@ -77,7 +84,9 @@
     margin: 10px 0;
 }
 
-
+#formulario .register-form .submit-warp{
+    margin-top: 24%;
+}
 
 
 

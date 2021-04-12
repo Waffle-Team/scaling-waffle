@@ -1,13 +1,20 @@
 <!DOCTYPE html>
 <html lang="pt-BR" dir="ltr">
 	<head>
+		<!-- metatags -->
 		<meta charset="utf-8">
-		<title></title>
+		<title>Register</title>
+
+		<!-- libs -->
 		<script type="text/javascript" src="./front-dependencies/lib/jquery/jquery-3.6.0.min.js"></script>
 		<script type="text/javascript" src="./front-dependencies/assets/js/master.js"></script>
-		<script type="text/javascript" src="./front-dependencies/assets/js/register.js"></script>
 		<link rel="stylesheet" href="./front-dependencies/lib/bootstrap/css/bootstrap.min.css">
+		<script type="text/javascript" src="./front-dependencies/lib/CryptoSJCl/sjcl.js"></script>
+
+		<!-- assets -->
 		<link rel="stylesheet" href="./front-dependencies/assets/css/login-forms/login.css">
+		<script type="text/javascript" src="./front-dependencies/assets/js/register.js"></script>
+
 	</head>
 	<body>
 		<section id="formulario">
@@ -37,7 +44,7 @@
 								<div class="col-12">
 									<div class="input-warp">
 										<label for="login-email">Email</label><br>
-										<input id="email" type="text" name="login-email"><br>
+										<input id="email" type="email" name="login-email"><br>
 									</div>
 								</div>
 							</div>
@@ -74,8 +81,10 @@
 									<textarea id="alert-area" name="name" rows="5" cols="30" disabled></textarea>
 								</div>
 								<div class="col-12 col-md-6">
-									<button type="button" class="botao-primario" id="bt-registrar">Registrar</button><br>
-									<a class="mensage-link" href="./form-login.html">Já possui uma conta? Login</a>
+									<div class="submit-warp">
+										<button type="button" class="botao-primario" id="bt-registrar">Registrar</button><br>
+										<a class="mensage-link" href="./form-login.html">Já possui uma conta? Login</a>
+									</div>
 								</div>
 							</div>
 						</div>
