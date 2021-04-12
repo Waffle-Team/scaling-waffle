@@ -1,14 +1,14 @@
 @import "../master.css";
 
 
-body#form-login #formulario{
+body#form_register #formulario{
     margin-top: 20px;
     margin-bottom: 20px;
 }
-body#form-login #formulario #titulo{
+body#form_register #formulario #titulo{
     font-size: 30px;
 }
-body#form-login #formulario #form-warper {
+body#form_register #formulario #form-warper {
 	background-image: url('../../images/forms-login/background.png');
 	width: max-content;
 	padding: 28px;
@@ -18,18 +18,18 @@ body#form-login #formulario #form-warper {
 	min-width: 420px;
     max-width: 100%;
 }
-body#form-login #formulario #form-warper #mensage{
+body#form_register #formulario #form-warper #mensage{
     color: #fff;
     font-size: 25px;
     display: table-cell;
     vertical-align: middle;
 }
-body#form-login #formulario #form-warper .label-login{
+body#form_register #formulario #form-warper .label-login{
     text-align: center;
     width: 100%;
     float: inline-start;
 }
-body#form-login #formulario #form-warper #input-codigo{
+body#form_register #formulario #form-warper #input-codigo{
     width: 90%;
     font-size: 30px;
     border-radius: 2000px;
@@ -39,31 +39,7 @@ body#form-login #formulario #form-warper #input-codigo{
     font-weight: bold;
     border: 0;
 }
-body#form-login #formulario .login-form #bt-login{
-    margin: 20px;
-    width: 80%;
-    margin-bottom: 0;
-}
-body#form-login #formulario .login-form label{
-    color: #fff;
-    float: left;
-    margin-left: 12px;
-}
-body#form-login #formulario .login-form input{
-    font-size: 19px;
-    border-radius: 2000px;
-    width: 100%;
-    padding: 7px;
-    border: 0;
-}
-body#form-login #formulario .login-form .input-warp{
-    margin: 20px 0;
-}
-body#form-login #formulario .login-form .mensage-link{
-    color:#f4f4f4;
-    text-decoration: underline;
-}
-body#form-login #formulario #alert-area{
+body#form_register #formulario #alert-area{
     font-size: 12px;
     border-radius: 25px;
     width: 100%;
@@ -73,21 +49,34 @@ body#form-login #formulario #alert-area{
     background: #fff;
     padding: 10px;
 }
-body#form-login #formulario .register-form .input-warp{
-    margin: 10px 0;
-}
-body#form-login #formulario .register-form .submit-warp{
+body#form_register #formulario .register-form .submit-warp{
     margin-top: 24%;
 }
+body#form_register #formulario .register-form .input-warp{
+    margin: 10px 0;
+}
 
-
-
-
-
-
-
-
-
-
-
-/*  */
+body#form_register #formulario .register-form #bt-login{
+    margin: 20px;
+    width: 80%;
+    margin-bottom: 0;
+}
+body#form_register #formulario .register-form label{
+    color: #fff;
+    float: left;
+    margin-left: 12px;
+}
+body#form_register #formulario .register-form input{
+    font-size: 19px;
+    border-radius: 2000px;
+    width: 100%;
+    padding: 7px;
+    border: 0;
+}
+body#form_register #formulario .register-form .input-warp{
+    margin: 20px 0;
+}
+body#form_register #formulario .register-form .mensage-link{
+    color:#f4f4f4;
+    text-decoration: underline;
+}

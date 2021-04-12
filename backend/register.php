@@ -35,6 +35,5 @@ registar usuario em uma tabela de usuarios temporarios
 se tudo deu boa print true se não false
 */
 
-
-print(true); // deu boa registrar na tabela
-print(false); //não deu boa alguma coisa n passou nos testes
+$registrar = false // true (registrou o usuario na tabela temp) e false(não registrou o usuario)
+print($registrar);//funciona como nosso return só que para enviar pro front
