@@ -24,6 +24,28 @@ function hash(entrada){
     var hashHex = sjcl.codec.hex.fromBits(hash);
     return hashHex;
 }
+function login_user(login, senha){
+    var password_hashed = hash(senha);
+    var data = {
+        user: login,
+        pass: password_hashed
+    }
+    request = $.ajax({
+        url: "./backend/login.php",
+        type: "post",
+        dataType: 'json',
+        data: data,
+        async: false
+    });
+    user_passUser_match = request.responseText;
+
+    if(user_passUser_match == "login_sucess"){
+        return true;
+        window.location.href = './form-codigo.html';
+    }else{
+        return false;
+    }
+}
 function register_user(_nome, _sobrenome, _email, _apelido, _telefone, _senha){
     var password = hash(senha);
     var userData = {

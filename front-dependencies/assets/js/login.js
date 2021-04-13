@@ -5,8 +5,15 @@ function login(pass, user){
     return session_token;
 }
 $(document).ready(function() {
-    var user = $('#login').val();
-    var pass = $('#senha').val();
-
+    $("#bt-login").click(function() {
+        var user = $('#login').val();
+        var pass = $('#senha').val();
+        var login_result = login_user(user, pass);
+        // se login não deu boa da um alert
+        //se deu boa tratar a mudança de pagina la no master.js
+        if(!login_result){
+            alert("usuario ou senha incorretos");
+        }
+    });
 
 });
