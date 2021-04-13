@@ -4,7 +4,7 @@ $senha = $_POST['pass'];
 
 //gerar seção
 
-print('login sucess');
+print(true);
 
 
 

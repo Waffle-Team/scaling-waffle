@@ -27,6 +27,7 @@ A fazer
 
 *$senha
     -Se o recebido é um valor de sha256
+        -Regex \b[A-Fa-f0-9]{64}\b
     -Fazer o salt do hash recebido (redundancia), salt deve ser "aleatorio";
 
 

@@ -13,6 +13,7 @@ $(document).ready(function() {
         //se deu boa tratar a mudança de pagina la no master.js
         if(!login_result){
             alert("usuario ou senha incorretos");
+            // mudar para um elemento html no layout um texto vemelhão cai bem
         }
     });
 

@@ -1,3 +1,4 @@
+// funções de uso geral
 function validaSenha(senha){
     /*
 
@@ -14,7 +15,7 @@ function validaSenha(senha){
     return regex.test(senha);
 
 }
-function validaEmail(email) {
+function validaEmail(email){
     var regex = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
     return regex.test(email);
 }
@@ -24,10 +25,13 @@ function hash(entrada){
     var hashHex = sjcl.codec.hex.fromBits(hash);
     return hashHex;
 }
-function login_user(login, senha){
-    var password_hashed = hash(senha);
+
+
+// Funções especificas
+function login_user(_login, _senha){
+    var password_hashed = hash(_senha);
     var data = {
-        user: login,
+        user: _login,
         pass: password_hashed
     }
     request = $.ajax({
@@ -37,17 +41,18 @@ function login_user(login, senha){
         data: data,
         async: false
     });
-    user_passUser_match = request.responseText;
 
-    if(user_passUser_match == "login_sucess"){
+    var userMatch = request.responseText;
+
+    if(userMatch == true){
+        window.location.href = '../../../form-codigo.html';
         return true;
-        window.location.href = './form-codigo.html';
     }else{
         return false;
     }
 }
 function register_user(_nome, _sobrenome, _email, _apelido, _telefone, _senha){
-    var password = hash(senha);
+    var password = hash(_senha);
     var userData = {
         nome: _nome,
         sobrenome: _sobrenome,
