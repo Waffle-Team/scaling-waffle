@@ -1,0 +1,63 @@
+@import "../master.css";
+@import "banner.css";
+@import "porque-usar.css";
+@import "features.css";
+
+img{
+    max-width: 100%;
+}
+
+
+header{
+    background-color: #0D0D2B;
+    padding: 5px;
+    height: 10vh;
+    top: 0;
+    position: relative;
+}
+header #logo{
+    height: 6vh;
+    display: table-cell;
+    vertical-align: middle;
+}
+header #nav-warp{
+    display: table;
+    height: 100%;
+    float: right;
+}
+header #nav{
+    text-align: right;
+    display: table-cell;
+    vertical-align: middle;
+}
+header #nav *{
+    text-decoration: none;
+    color: #fff;
+    display: inline-block;
+    vertical-align: middle;
+    height: 100%;
+}
+
+footer{
+    background-color: #0D0D2B;
+    color: #fff;
+    padding: 30px 0;
+}
+footer #logo{
+    margin-top: 20%;
+    height: 100%;
+}
+footer #colum-docs{
+    list-style: none;
+    padding: 0;
+}
+footer .member{
+    text-align: center;
+}
+footer .member img{
+    max-width: 100px;
+    border-radius: 2000px;
+}
+footer .member .social-icons-member img{
+    max-width: 30px;
+}

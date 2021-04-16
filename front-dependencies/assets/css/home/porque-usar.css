@@ -1,0 +1,22 @@
+#porque-usar{
+    background-color: #0D0D2B;
+    color: #fff;
+    min-height: 100vh;
+}
+#porque-usar .statistics{
+    list-style: none;
+    margin: 12% 0;
+    padding: 0;
+}
+#porque-usar .statistics li{
+    display: inline-block;
+    vertical-align: middle;
+}
+#porque-usar .statistics li.icon-warper{
+    padding: 5px;
+}
+#porque-usar .statistics li.icon-warper img{
+    background-color: rgba(255,255,255,0.1);
+    border-radius: 200px;
+    width: 88%;
+}

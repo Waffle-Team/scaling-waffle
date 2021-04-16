@@ -1,14 +1,14 @@
 @import "../master.css";
 
 
-body#form-confirmar #formulario{
+body#form-confirmado #formulario{
     margin-top: 20px;
     margin-bottom: 20px;
 }
-body#form-confirmar #formulario #titulo{
+body#form-confirmado #formulario #titulo{
     font-size: 30px;
 }
-body#form-confirmar #formulario #form-warper {
+body#form-confirmado #formulario #form-warper {
 	background-image: url('../../images/forms-login/background.png');
 	width: 420px;
 	padding: 28px;
@@ -18,18 +18,18 @@ body#form-confirmar #formulario #form-warper {
 	min-width: 420px;
     max-width: 100%;
 }
-body#form-confirmar #formulario #form-warper #mensage{
+body#form-confirmado #formulario #form-warper #mensage{
     color: #fff;
     font-size: 25px;
     display: table-cell;
     vertical-align: middle;
 }
-body#form-confirmar #formulario #form-warper .label-login{
+body#form-confirmado #formulario #form-warper .label-login{
     text-align: center;
     width: 100%;
     float: inline-start;
 }
-body#form-confirmar #formulario #form-warper #input-codigo{
+body#form-confirmado #formulario #form-warper #input-codigo{
     width: 90%;
     font-size: 30px;
     border-radius: 2000px;
@@ -39,31 +39,31 @@ body#form-confirmar #formulario #form-warper #input-codigo{
     font-weight: bold;
     border: 0;
 }
-body#form-confirmar #formulario .login-form #bt-login{
+body#form-confirmado #formulario .login-form #bt-login{
     margin: 20px;
     width: 80%;
     margin-bottom: 0;
 }
-body#form-confirmar #formulario .login-form label{
+body#form-confirmado #formulario .login-form label{
     color: #fff;
     float: left;
     margin-left: 12px;
 }
-body#form-confirmar #formulario .login-form input{
+body#form-confirmado #formulario .login-form input{
     font-size: 19px;
     border-radius: 2000px;
     width: 100%;
     padding: 7px;
     border: 0;
 }
-body#form-confirmar #formulario .login-form .input-warp{
+body#form-confirmado #formulario .login-form .input-warp{
     margin: 20px 0;
 }
-body#form-confirmar #formulario .login-form .mensage-link{
+body#form-confirmado #formulario .login-form .mensage-link{
     color:#f4f4f4;
     text-decoration: underline;
 }
-body#form-confirmar #formulario #alert-area{
+body#form-confirmado #formulario #alert-area{
     font-size: 12px;
     border-radius: 25px;
     width: 100%;
@@ -73,10 +73,10 @@ body#form-confirmar #formulario #alert-area{
     background: #fff;
     padding: 10px;
 }
-body#form-confirmar #formulario .register-form .input-warp{
+body#form-confirmado #formulario .register-form .input-warp{
     margin: 10px 0;
 }
-body#form-confirmar #formulario .register-form .submit-warp{
+body#form-confirmado #formulario .register-form .submit-warp{
     margin-top: 24%;
 }
 

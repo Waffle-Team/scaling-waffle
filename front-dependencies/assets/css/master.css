@@ -1,9 +1,10 @@
 *{
-    padding: 0;
-    margin: 0;
-    border: 0;
     font-family: "Roboto", sans-serif;
 }
+:root{
+    /* cores */
+}
+
 img{
     max-width: 100%;
 }
@@ -14,8 +15,8 @@ a{
     text-decoration: none;
 }
 .botao-secundario, .botao-primario{
-    font-size: 20px;
-    padding: 10px;
+    font-size: 18px;
+    padding: 4px 20px;
     border-radius: 20000px;
     margin: 5px;
     border: 2px;
@@ -32,29 +33,3 @@ a{
 .botao-primario{
     color: #fff;
     background-color: #3671E9;
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*  */

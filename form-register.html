@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="pt-BR" dir="ltr">
+	<head>
+		<!-- metatags -->
+		<meta charset="utf-8">
+		<title>Register</title>
+
+		<!-- libs -->
+		<script type="text/javascript" src="./front-dependencies/lib/jquery/jquery-3.6.0.min.js"></script>
+		<script type="text/javascript" src="./front-dependencies/assets/js/master.js"></script>
+		<link rel="stylesheet" href="./front-dependencies/lib/bootstrap/css/bootstrap.min.css">
+		<script type="text/javascript" src="./front-dependencies/lib/CryptoSJCl/sjcl.js"></script>
+
+		<!-- assets -->
+		<link rel="stylesheet" href="./front-dependencies/assets/css/login-forms/register.css">
+		<script type="text/javascript" src="./front-dependencies/assets/js/register.js"></script>
+
+	</head>
+	<body id="form_register">
+		<section id="formulario">
+			<div class="container">
+				<div class="row">
+					<div class="col-12 text-center">
+						<a href="./index.html"><img src="./front-dependencies/assets/images/logoteste.svg" alt=""></a>
+						<h1 id="titulo">Criar conta</h1>
+					</div>
+					<div class="col-12 text-center">
+						<div id="form-warper" class="register-form login-form">
+							<div class="row">
+								<div class="col-12 col-md-6">
+									<div class="input-warp">
+										<label for="nome">Nome</label><br>
+										<input id="nome" type="text" name="nome"><br>
+									</div>
+								</div>
+								<div class="col-12 col-md-6">
+									<div class="input-warp">
+										<label for="sobrenome">Sobrenome</label><br>
+										<input id="sobrenome" type="text" name="sobrenome"><br>
+									</div>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-12">
+									<div class="input-warp">
+										<label for="login-email">Email</label><br>
+										<input id="email" type="email" name="login-email"><br>
+									</div>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-12 col-md-6">
+									<div class="input-warp">
+										<label for="login-nickname">Apelido</label><br>
+										<input id="apelido" type="text" name="login-nickname"><br>
+									</div>
+								</div>
+								<div class="col-12 col-md-6">
+									<div class="input-warp">
+										<label for="telefone">Telefone</label><br>
+										<input id="telefone" type="tel" name="telefone"><br>
+									</div>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-12 col-md-6">
+									<div class="input-warp">
+										<label for="password">Senha</label><br>
+										<input id="senha" type="password" name="password"><br>
+									</div>
+								</div>
+								<div class="col-12 col-md-6">
+									<div class="input-warp">
+										<label for="confirm-password">Confirmar senha</label><br>
+										<input id="confirmarsenha" type="password" name="confirm-password"><br>
+									</div>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-12 col-md-6">
+									<textarea id="alert-area" name="name" rows="5" cols="30" disabled></textarea>
+								</div>
+								<div class="col-12 col-md-6">
+									<div class="submit-warp">
+										<button type="button" class="botao-primario" id="bt-registrar">Registrar</button><br>
+										<a class="mensage-link" href="./form-login.html">Já possui uma conta? Login</a>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+	</body>
+</html>
