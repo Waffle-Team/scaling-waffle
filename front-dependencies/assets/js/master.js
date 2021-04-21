@@ -51,6 +51,8 @@ function login_user(_login, _senha){
         return false;
     }
 }
+
+
 function register_user(_nome, _sobrenome, _email, _apelido, _telefone, _senha){
     var password = hash(_senha);
     var userData = {
