@@ -2,7 +2,13 @@
 $login = $_POST['user'];
 $senha = $_POST['pass'];
 
-//gerar seção
+/*
+Verificar se usuario e senha fazem o match com o banco de dados
+
+Autenticação MFA
+
+Gerar seção
+*/
 
 print(true);
 
