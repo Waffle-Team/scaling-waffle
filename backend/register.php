@@ -1,4 +1,6 @@
 <?php
+require_once './team_lib/config_db.php';
+require_once './team_lib/functions.php';
 $nome = $_POST['nome'];
 $sobrenome = $_POST['sobrenome'];
 $email = $_POST['email'];
@@ -35,10 +37,7 @@ registar usuario em uma tabela de usuarios temporarios
 
 se tudo deu boa print true se não false
 */
-
-$registrar = false // true (registrou o usuario na tabela temp) e false(não registrou o usuario)
+$registrar = false; // true (registrou o usuario na tabela temp) e false(não registrou o usuario)
 print($registrar);//funciona como nosso return só que para enviar pro front
-
-
 
 ?>
