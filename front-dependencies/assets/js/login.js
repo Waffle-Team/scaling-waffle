@@ -1,9 +1,3 @@
-function login(pass, user){
-    //Implementar
-    var session_token;
-    session_token = true;
-    return session_token;
-}
 $(document).ready(function() {
     $("#bt-login").click(function() {
         var user = $('#login').val();
@@ -16,5 +10,4 @@ $(document).ready(function() {
             // mudar para um elemento html no layout um texto vemelhão cai bem
         }
     });
-
 });
