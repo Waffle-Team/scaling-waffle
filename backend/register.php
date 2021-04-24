@@ -11,6 +11,7 @@ $senha = $_POST['senha'];
 /*
 A fazer
 
+
 *$nome & $sobrenome
     -verificar se contem somente letras A-Z
     -verificar se não temos espaços no final e começo da string
