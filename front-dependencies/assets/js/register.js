@@ -12,7 +12,7 @@ $(document).ready(function(){
 
     $("#bt-registrar").click(function(){
         $('#alert-area').html('');
-        //catando os valores dos campos e remomendo espaçõs antes e depois
+        //catando os valores dos campos e remomendo espaços antes e depois
         var nome = $('#nome').val().trim();
         var sobrenome = $('#sobrenome').val().trim();
         var email = $('#email').val().trim();
@@ -22,58 +22,57 @@ $(document).ready(function(){
         var confirmarsenha = $('#confirmarsenha').val().trim();
 
         //variavel de apoio atualizada pelos testes
-        var valid_imputs = false;
+        var valid_inputs = false;
 
-        // check campos de input se imput n passa no test deixa a borda do imput vermelha
+        // check campos de input se input n passa no test deixa a borda do input vermelha
         if(nome == ''){
             $('#alert-area').append("- O campo 'Nome' é obrigatorio\n");
             $('#nome').css('border','1px red ridge');
-            valid_imputs = false;
+            valid_inputs = false;
         }else{
             $('#nome').css('border','0');
-            valid_imputs = true;
+            valid_inputs = true;
         }
-
 
         if (sobrenome == '') {
             $('#alert-area').append("- O campo 'Sobrenome' é obrigatorio\n");
             $('#sobrenome').css('border','1px red ridge');
-            valid_imputs = false;
+            valid_inputs = false;
         }else{
             $('#sobrenome').css('border','0');
-            valid_imputs = true;
+            valid_inputs = true;
         }
 
         if(email == ''){
             $('#alert-area').append("- O campo 'Email' é obrigatorio\n");
             $('#email').css('border','1px red ridge');
-            valid_imputs = false;
+            valid_inputs = false;
         }else if(!validaEmail(email)){
             $('#alert-area').append("- Digite um email valido\n");
             $('#email').css('border','1px red ridge');
-            valid_imputs = false;
+            valid_inputs = false;
         }else{
             $('#email').css('border','0');
-            valid_imputs = true;
+            valid_inputs = true;
         }
 
         if(apelido == ''){
             $('#alert-area').append("- O campo 'Apelido' é obrigatorio\n");
             $('#apelido').css('border','1px red ridge');
-            valid_imputs = false;
+            valid_inputs = false;
         }else{
             $('#apelido').css('border','0');
-            valid_imputs = true;
+            valid_inputs = true;
         }
 
         if(telefone == ''){
             //implementar verificação de telefone mais rigida
             $('#alert-area').append("- O campo 'Telefone' é obrigatorio\n");
             $('#telefone').css('border','1px red ridge');
-            valid_imputs = false;
+            valid_inputs = false;
         }else{
             $('#telefone').css('border','0');
-            valid_imputs = true;
+            valid_inputs = true;
         }
 
         // check senha
@@ -83,15 +82,15 @@ $(document).ready(function(){
             $('#alert-area').append("**deve conter ao menos uma letra maiúscula\n");
             $('#alert-area').append("**deve conter ao menos um caractere especial\n");
             $('#alert-area').append("**tamanho minimo de 10 caracteres\n");
-            valid_imputs = false;
+            valid_inputs = false;
         }
         if (senha !== confirmarsenha) {
             $('#alert-area').append("As senhas devem ser iguais\n");
             $('#confirmarsenha').css('border','1px red ridge');
-            valid_imputs = false;
+            valid_inputs = false;
         }else{
             $('#confirmarsenha').css('border','0');
-            valid_imputs = true;
+            valid_inputs = true;
         }
 
         //chama função do master para registrar usuario, to colocando todas as funções lá
