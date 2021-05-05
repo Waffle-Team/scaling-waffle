@@ -1,15 +1,38 @@
 @import "../master.css";
 
-header{
+header .header-warp{
     background-color: #2B076E;
-    padding: 5px;
+    padding: 5px 20px;
+    padding-top: 10px;
 }
 header #logo-header{
     height: 30px;
 }
-header .header-warp{
-    margin: 0 2%;
+header #user-atributes-warper {
+    position: relative;
+    width: 100%;
 }
+header #user_img{
+    max-height: 40px;
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    border-radius: 50%;
+}
+header #user_img:hover{
+    cursor: pointer;
+}
+header .user-menu{
+    width: 200px;
+    padding: 5px;
+    background: #d1d1d1;
+    position: absolute;
+    z-index: 9999;
+    right: 0;
+}
+
+
 #user-atibutes{
     text-align: left;
 }
