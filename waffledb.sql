@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 05-Maio-2021 às 00:12
+-- Tempo de geração: 05-Maio-2021 às 21:37
 -- Versão do servidor: 10.4.17-MariaDB
 -- versão do PHP: 8.0.2
 
@@ -90,14 +90,14 @@ CREATE TABLE `time_has_user` (
 --
 
 CREATE TABLE `user` (
-  `nome` int(11) NOT NULL,
-  `sobrenome` varchar(45) NOT NULL,
-  `email` varchar(45) NOT NULL,
-  `apelido` varchar(45) NOT NULL,
-  `telefone` varchar(45) NOT NULL,
-  `senha` varchar(45) NOT NULL,
-  `tempo` varchar(45) NOT NULL,
-  `confirmado` varchar(45) NOT NULL
+  `nome` varchar(50) NOT NULL,
+  `sobrenome` varchar(50) NOT NULL,
+  `email` varchar(60) NOT NULL,
+  `apelido` varchar(10) NOT NULL,
+  `telefone` varchar(20) NOT NULL,
+  `senha` char(64) NOT NULL,
+  `tempo` time NOT NULL,
+  `confirmado` tinyint(4) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
