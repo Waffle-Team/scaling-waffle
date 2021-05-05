@@ -1,12 +1,17 @@
 <?php
 require_once './team_lib/config_db.php';
 require_once './team_lib/functions.php';
-$nome = $_POST['nome'];
-$sobrenome = $_POST['sobrenome'];
-$email = $_POST['email'];
-$apelido = $_POST['apelido'];
+require_once './validador.php';
+
+$nome = validar_texto($_POST['nome']);
+$sobrenome = validar_texto($_POST['sobrenome']);
+$email = validar_email($_POST['email']);
+$apelido = validar_texto($_POST['apelido']);
 $telefone = $_POST['telefone'];
 $senha = $_POST['senha'];
+
+
+
 
 /*
 A fazer
