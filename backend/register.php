@@ -3,35 +3,28 @@ require_once './team_lib/config_db.php';
 require_once './team_lib/functions.php';
 require_once './validador.php';
 
+$valido = true;
+
 $nome = validar_texto($_POST['nome']);
 $sobrenome = validar_texto($_POST['sobrenome']);
 $email = validar_email($_POST['email']);
 $apelido = validar_texto($_POST['apelido']);
-$telefone = $_POST['telefone'];
+$telefone = validar_telefone($_POST['telefone']);
 $senha = $_POST['senha'];
 
+//se qualquer valor estiver vazio, ele nao passou na validacao
+if (empty($nome) || empty($sobrenome) || empty($email) || empty($apelido) || empty($telefone) || empty($senha)){
+    $valido = false;
+}
 
+if (!filter_var($email, FILTER_VALIDATE_EMAIL)){
+    $valido = false;
+}
 
+preg_replace('/[+|\-|.]/g', '', $telefone);
 
 /*
 A fazer
-
-
-*$nome & $sobrenome
-    -verificar se contem somente letras A-Z
-    -verificar se não temos espaços no final e começo da string
-    -verificar se contem somente letras A-Z
-
-*$email
-    -verificar se é um email valido
-    -verificar se não há espaçõs antes e depois da string
-
-*$apelido
-    -Verificar se apelido Tem somente letras, numeros e '_ , .'
-
-*$telefone
-    -verificar se telefone contem é um numero valido
-    -tranformar em uma string com somente numeros
 
 *$senha
     -Se o recebido é um valor de sha256

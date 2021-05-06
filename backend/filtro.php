@@ -19,3 +19,12 @@ function validar_email($email){
     }
     return '';
 }
+
+function validar_telefone($telefone){
+    if(!empty($telefone)){
+        $cortado = trim($telefone);
+        $limpo = filter_var($cortado, FILTER_SANITIZE_NUMBER_INT);
+        return $limpo;
+    }
+    return '';
+}
