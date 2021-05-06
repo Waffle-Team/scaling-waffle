@@ -28,3 +28,4 @@ function validar_telefone($telefone){
     }
     return '';
 }
+?>
