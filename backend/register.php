@@ -1,5 +1,4 @@
 <?php
-require_once './team_lib/config_db.php';
 require_once './team_lib/functions.php';
 require_once './filtro.php';
 
@@ -31,6 +30,3 @@ function hashsenha($nome, $sobrenome, $email, $telefone, $senha){
     $hashtemperado = implode('', array($numerosini, $tamanho1, $senha, $numerosfim, $tamanho2));
     return hash("sha256", $hashtemperado);
 }
-
-$registrar = false; // true (registrou o usuario na tabela temp) e false(não registrou o usuario)
-print($registrar); //funciona como nosso return só que para enviar pro front
