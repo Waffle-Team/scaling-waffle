@@ -7,21 +7,15 @@ define('USUARIO', 'root');
 define('SENHA', '');
 define('DB', 'waffle');
 
-$conexao = mysqli_connect(HOST, USUARIO, SENHA, DB) or die ('Não foi possível conectar');
-echo "pica";
-/*define('HOST','localhost');//Porta conectada
-define('USUARIO','root');//Usuario do Bando de Dados
-define('SENHA','');//Senha VER COMO FAZER COM ESTEGANOGRAFIA
-define('DB', 'waffle');//Nome do Banco de Dados
-$conexao = mysqli_connect(HOST,USUARIO,SENHA,DB);*/
 
-/*if(!$conexao){
-   echo "errno: " . mysqli_connect_errno() . PHP_EOL;
-   echo "error: " . mysqli_connect_error() . PHP_EOL;
+echo "pica\n";
+
+function conecta_db(){
+   return $con = new mysqli(HOST, USUARIO, SENHA, DB, 3306);
+   // Check connection
+   if ($con->connect_error) {
+      die("ERROO DE CONEÇÃO:" . $con->connect_error);
+  }
+  echo "CONECTADO AO DB\n";
 }
-echo "Sucesso: Sucesso ao conectar-se com a base de dados MySQL." . PHP_EOL;
- 
-function falar(){
-   echo"aaaaaa";
-   return;
-}*/
+

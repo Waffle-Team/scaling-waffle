@@ -11,9 +11,21 @@ require_once 'config_db.php';
 
 function insereUsuario($nome, $sobrenome, $email, $apelido, $telefone, $senha){ //Cadastra usuario
     $query = "SELECT COUNT(*) AS total FROM user WHERE apelido = '$apelido' OR  email = '$email'";
-    //$result = mysqli_query($conexao,$query);
-    echo $query;exit;
+    $con = conecta_db();
+    
+    
+   
+    
+    
+    // $sql = " INSERT INTO 'waffle'.'user' ('nome', 'sobrenome', 'email', 'apelido', 'telefone', 'senha', 'tempo', 'confirmado') VALUES 
+    // ('$nome', '$sobrenome', '$email', '$apelido', '$telefone', '$senha', convert(now(),time), '0')"; 
+   
+    // if($conexao->query($sql) === TRUE){
+    //     $_SESSION['status_cadastro'] = true;
+    // }
 }   
+insereUsuario('gusa','schmidt','gustavooliveira02011@gmail.com','gusta','498494','sendasdasha');
+
     /*
     $result = mysqli_query($conexao,$query);
     $row = mysqli_fetch_assoc($result);
@@ -28,8 +40,8 @@ function insereUsuario($nome, $sobrenome, $email, $apelido, $telefone, $senha){ 
     }
     $conexao->close();
 
-$retorna = inserirUsuario('nome','sobrenome','email','apelido','telefone','senha');
-echo $retorna;
+
+
 */
 /*
 login($email,$apelido,$senha){
@@ -48,13 +60,7 @@ login($email,$apelido,$senha){
         exit();
     }
 }
-deslogar(){
-    session_destroy();
-    header("Location: index.html");
-    exit();
-}
 
-*/
 //O APELIDO DEVE SER PASSADO DE FORMA AUTOMATICA DAQUI EM DIANTE 
 inserePasta($apelido,$nomePasta,){//Cadastra um Pasta. Campos $pertenceATime e $time_nome existe mas sao not null
     $sql = "INSERT INTO `waffle`.`pasta` (`nomePasta`, `user_apelido`) VALUES ('$nomePasta', '$apelido')";
@@ -71,3 +77,4 @@ insereTarefa($nomeTarefa,$idLista){//Cadasta uma tarefa. IdListadeve ser obtido 
 insereTime($nome,$apelido){//Cadastra um time. Nome se refere ao nome do time
     $sql = "INSERT INTO `waffle`.`time` (`nome`, `criador`) VALUES ('$nome', '$apelido');"
 }
+*/
