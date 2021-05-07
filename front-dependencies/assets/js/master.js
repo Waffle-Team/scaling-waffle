@@ -20,7 +20,6 @@ function validaEmail(email){
     return regex.test(email);
 }
 function hash(entrada){
-    //implementar salt
     var hash = sjcl.hash.sha256.hash(entrada);
     var hashHex = sjcl.codec.hex.fromBits(hash);
     return hashHex;
