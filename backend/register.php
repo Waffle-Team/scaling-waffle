@@ -9,7 +9,7 @@ $nome = validar_texto($_POST['nome']);
 $sobrenome = validar_texto($_POST['sobrenome']);
 $email = validar_email($_POST['email']);
 $apelido = validar_texto($_POST['apelido']);
-$telefone = preg_replace('/[+|\-|.| ]/', '', validar_telefone($_POST['telefone']));
+$telefone = preg_replace('/[+|\-|.| ]/', '', validar_telefone($_POST['telefone'])); //ao validar e limpar o telefone, podem sobrar alguns caracteres e espacos, o preg_replace serve para removelos e deixar apenas o numero
 $senha = $_POST['senha'];
 
 //se qualquer valor estiver vazio, ele nao passou no filtro.php
