@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 05-Maio-2021 às 21:37
+-- Tempo de geração: 06-Maio-2021 às 01:51
 -- Versão do servidor: 10.4.17-MariaDB
 -- versão do PHP: 8.0.2
 
@@ -33,6 +33,13 @@ CREATE TABLE `lista` (
   `idPasta` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Extraindo dados da tabela `lista`
+--
+
+INSERT INTO `lista` (`idLista`, `nomeLista`, `idPasta`) VALUES
+(1, 'ListaTarefas', 4);
+
 -- --------------------------------------------------------
 
 --
@@ -46,6 +53,13 @@ CREATE TABLE `pasta` (
   `time_nome` varchar(25) DEFAULT NULL,
   `user_apelido` varchar(10) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Extraindo dados da tabela `pasta`
+--
+
+INSERT INTO `pasta` (`idPasta`, `nomePasta`, `pertenceATime`, `time_nome`, `user_apelido`) VALUES
+(4, 'pasta1', NULL, NULL, 'gusta');
 
 -- --------------------------------------------------------
 
@@ -61,6 +75,13 @@ CREATE TABLE `tarefa` (
   `lista_idLista` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Extraindo dados da tabela `tarefa`
+--
+
+INSERT INTO `tarefa` (`idTarefa`, `nomeTarefa`, `descricao`, `prazo`, `lista_idLista`) VALUES
+(0, 'Codar', 'fazer trabalho exp criativa', '0000-00-00 00:00:00', 1);
+
 -- --------------------------------------------------------
 
 --
@@ -71,6 +92,13 @@ CREATE TABLE `time` (
   `nome` varchar(25) NOT NULL,
   `criador` varchar(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Extraindo dados da tabela `time`
+--
+
+INSERT INTO `time` (`nome`, `criador`) VALUES
+('ScalingWaffle', 'gusta');
 
 -- --------------------------------------------------------
 
@@ -99,6 +127,16 @@ CREATE TABLE `user` (
   `tempo` time NOT NULL,
   `confirmado` tinyint(4) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Extraindo dados da tabela `user`
+--
+
+INSERT INTO `user` (`nome`, `sobrenome`, `email`, `apelido`, `telefone`, `senha`, `tempo`, `confirmado`) VALUES
+('gustavo', 'schmidt', 'gustavooliveira092011@gmail.com', 'gusta', '47995652326', '251efc2d8aa4f7efab6ddba0d3197c966e848201298d73b56f32973bb923969e', '18:42:08', 0),
+('gabriel', 'wasley', ' gawamos@gmail.com', 'hipocrita', '47991418888', '073d8b22e163d60116b04491ecc2b7d405185ae4908e39d699d146414d55a3d3', '18:47:39', 0),
+('aleister', 'edward', 'aleisterlima@yahoo.com.br', 'shrimp', '47991840098', 'ee8649e13726e535aeba4ca78ff50e6df278d21cedcc8619c43b0fddf89469da', '18:17:56', 0),
+('felipe', 'neto', 'felipe.a.d.noleto@gmail.com', 'splef', '47999954005', '17513c7722ecc129447bc2d38fc544ff030bd3c4908d3b8fc67a2ba4331c07af', '18:25:07', 0);
 
 --
 -- Índices para tabelas despejadas
@@ -156,13 +194,13 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT de tabela `lista`
 --
 ALTER TABLE `lista`
-  MODIFY `idLista` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `idLista` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT de tabela `pasta`
 --
 ALTER TABLE `pasta`
-  MODIFY `idPasta` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `idPasta` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- Restrições para despejos de tabelas
