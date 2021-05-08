@@ -10,71 +10,74 @@ require_once 'config_db.php';
 }*/
 
 function insereUsuario($nome, $sobrenome, $email, $apelido, $telefone, $senha){ //Cadastra usuario
-    $query = "SELECT COUNT(*) AS total FROM user WHERE apelido = '$apelido' OR  email = '$email'";
+    $query = "SELECT COUNT(*) AS total FROM user WHERE apelido = '$apelido' OR email = '$email'";// Comando mysql pra ver as parada no banco
+    $con = conecta_db();//Chama a funcao q faz a conexao
+    $result = $con->query($query);//Executa a query
+    $rows = $result->fetch_assoc();//Retorna as linha que foram encontradas
+
+    if($rows['total'] != 0){//Caso encontrar algum apelido/email ja cadastrado
+        $con->close();//Fecha a conexao
+        return FALSE;
+    }
+    $sql = "INSERT INTO user (nome, sobrenome, email, apelido, telefone, senha, tempo, confirmado) VALUES ('$nome', '$sobrenome', '$email', '$apelido', '$telefone', '$senha', convert(now(),time), '0')";
+    $result = $con->query($sql);
+    $con->close();
+    return TRUE;
+} 
+
+function pesquisaUsuario($email_apelido){//recebe apelido ou email e retorna (nome, sobrenome, email, telefone)
+    $query = "SELECT * FROM user WHERE apelido = '$email_apelido' OR email = '$email_apelido'";
     $con = conecta_db();
+    $result = $con->query($query);
+    $row = $result->fetch_assoc();
     
-    
-   
-    
-    
-    // $sql = " INSERT INTO 'waffle'.'user' ('nome', 'sobrenome', 'email', 'apelido', 'telefone', 'senha', 'tempo', 'confirmado') VALUES 
-    // ('$nome', '$sobrenome', '$email', '$apelido', '$telefone', '$senha', convert(now(),time), '0')"; 
-   
-    // if($conexao->query($sql) === TRUE){
-    //     $_SESSION['status_cadastro'] = true;
-    // }
-}   
-insereUsuario('gusa','schmidt','gustavooliveira02011@gmail.com','gusta','498494','sendasdasha');
-
-    /*
-    $result = mysqli_query($conexao,$query);
-    $row = mysqli_fetch_assoc($result);
-    if($row['total'] == 1){
-        header('Location:../../form-register.hmtl');//volta pra pagina do cadastro
-        return("Usuario ja existe");// Fala q o usuario existe
-    }
-    $sql = " INSERT INTO 'waffle'.'user' ('nome', 'sobrenome', 'email', 'apelido', 'telefone', 'senha', 'tempo', 'confirmado') VALUES 
-    ('$nome', '$sobrenome', '$email', '$apelido', '$telefone', '$senha', convert(now(),time), '0')"; 
-    if($conexao->query($sql) === TRUE){
-        $_SESSION['status_cadastro'] = true;
-    }
-    $conexao->close();
-
-
-
-*/
-/*
-login($email,$apelido,$senha){
-    // select * from user where apelido = 'shrimp' and senha = '123';
-    //select * from user where email = 'aleisterlima@yahoo.com.br' and senha = '123';
-    //select * from user where apelido = 'shrimp' or  email = 'aleisterlima@yahoo.com.br'and senha = '123'; esse é o mais certo mais n ta verificando o email
-    $query = "SELECT * FROM user WHERE apelido = '$apelido' and senha = '$senha'";
-    $result = mysqli_query($conexao,$query);
-    $row = mysqli_num_rows($result);
-    if($row == 1){// aqui é o que ele faz se ele loga
-        $_SESSION['usuario'] = $usuario;//Pega o nome do usuario pra sessao, talvez a gente use isso
-        //header('Location: logado.html'); pagina pois login
-        exit();
-    }else{//Aqui ele n loga
-        header('Location: form-register.html');
-        exit();
-    }
+    if($row != NULL){
+        $user_data = [
+            'nome' => $row['nome'],
+            'sobrenome' => $row['sobrenome'],
+            'apelido' => $row['apelido'],
+            'email' => $row['email'],
+            'telefone' => $row['telefone'],
+            'senha' => $row['senha'],
+            'tempo' => $row['tempo'],
+            'comfirmado' => $row['confirmado'],
+        ];
+        return $user_data;
+    }else{
+        return false;
+    }  
 }
 
-//O APELIDO DEVE SER PASSADO DE FORMA AUTOMATICA DAQUI EM DIANTE 
-inserePasta($apelido,$nomePasta,){//Cadastra um Pasta. Campos $pertenceATime e $time_nome existe mas sao not null
-    $sql = "INSERT INTO `waffle`.`pasta` (`nomePasta`, `user_apelido`) VALUES ('$nomePasta', '$apelido')";
+function inserePasta($apelido,$nomePasta,){//Cadastra um Pasta. Campos $pertenceATime e $time_nome existe mas sao not null
+    $query = "INSERT INTO pasta (nomePasta, user_apelido) VALUES ('$nomePasta', '$apelido')";
+    $con = conecta_db();
+    $result = $con->query($query);
+
+}
+function modificaPasta(){
+
 }
 
-insereLista($nomeLista,$idPasta){//Cadastra uma Lista. O idPasta deve ser passado automaticamente
-    $sql = "INSERT INTO `waffle`.`lista` (`nomeLista`, `idPasta`) VALUES ('$nomeLista', '$idPasta');";
-}
-insereTarefa($nomeTarefa,$idLista){//Cadasta uma tarefa. IdListadeve ser obtido automaticamente, campos not null prazo
+function insereTarefa($nomeTarefa,$idLista){//Cadasta uma tarefa. IdListadeve ser obtido automaticamente, campos not null prazo
     // e descricao 
-    $sql = "INSERT INTO `waffle`.`tarefa` (`nomeTarefa`, `descricao`, `prazo`, `lista_idLista`) VALUES
+    $sql = "INSERT INTO tarefa (nomeTarefa, descricao, prazo, lista_idLista) VALUES
      ('$nomeTarefa', 'fazer trabalho exp criativa', '', '$idLista')";
 }
+function modificaTarefa(){
+
+}
+/*
+//O APELIDO DEVE SER PASSADO DE FORMA AUTOMATICA DAQUI EM DIANTE 
+//O APELIDO DEVE SER PASSADO DE FORMA AUTOMATICA DAQUI EM DIANTE 
+insereLista($nomeLista,$idPasta){//Cadastra uma Lista. O idPasta deve ser passado automaticamente
+    $sql = "INSERT INTO lista (nomeLista, idPasta) VALUES ('$nomeLista', '$idPasta');";
+}
 insereTime($nome,$apelido){//Cadastra um time. Nome se refere ao nome do time
-    $sql = "INSERT INTO `waffle`.`time` (`nome`, `criador`) VALUES ('$nome', '$apelido');"
+    $sql = "INSERT INTO time (nome, criador) VALUES ('$nome', '$apelido');"
+}
+
+
+
+function alteraUsuario(){//recebe apelido e altera(nome, sobrenome, email, telefone, senha) retorna boolean    
 }
 */
