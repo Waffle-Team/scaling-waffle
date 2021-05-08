@@ -4,9 +4,9 @@
  //gawamos@gmail.com
 
 // Definir o uso dos arquivos do PHPMailer
-require 'lib/PHPMailer/PHPMailer.php';
-require 'lib/PHPMailer/SMTP.php';
-require 'lib/PHPMailer/Exception.php';
+require './lib/PHPMailer.php';
+require './lib/SMTP.php';
+require './lib/Exception.php';
 
 // Usar dos arquivos do PHPMailer
 use PHPMailer\PHPMailer\PHPMailer;
