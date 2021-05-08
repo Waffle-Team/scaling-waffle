@@ -28,12 +28,12 @@ $mail->SMTPSecure = 'tls';
 // Usuário da conta que for enviar o e-mail
 $mail->Username   = 'scalingwaffle@gmail.com';
 // Senha da conta que for enviar o e-mail
-$mail->Password   = AAAAAAAAAAAA;// NÃO DEIXAR A CONTA SALVA NO CÓDIGO - CRIPTOGRAFAR POSTERIORMENTE
-$mail->Subject = "E-mail de teste";// 'E-mail de teste';
+$mail->Password   = SUSSUSSUS;// NÃO DEIXAR A CONTA SALVA NO CÓDIGO - CRIPTOGRAFAR POSTERIORMENTE
+$mail->Subject = "Assunto do e-mail";// 'E-mail de teste';
 // Define o remetente
 $mail->setFrom("scalingwaffle@gmail.com");// ('scalingwaffle@gmail.com', 'Scaling Waffle');
 // Conteúdo da mensagem
-$mail->Body = "Sera que vai chegar agora?";// 'Chegou em <b>negrito</b>';
+$mail->Body = "Mensagem do texto";// 'Chegou em <b>negrito</b>';
 // Define o destinatário
 $mail->addAddress("gawamos@gmail.com");////// Mudar para o e-mail que for inserido no input //////
 // Porta do Google
