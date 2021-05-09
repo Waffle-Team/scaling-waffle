@@ -21,7 +21,7 @@ function emaildeverificacao($mensagem, $email){
     $mail->SMTPAuth = "true";
     $mail->SMTPSecure = 'tls';
     $mail->Username   = 'scalingwaffle@gmail.com';
-    $mail->Password   = "";
+    $mail->Password   = "Gamb26feit.";
     $mail->Subject = "Verificação da conta Waffle";
     $mail->setFrom("scalingwaffle@gmail.com");
     $mail->isHTML(true);
