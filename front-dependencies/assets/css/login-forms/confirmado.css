@@ -24,6 +24,9 @@ body#form-confirmado #formulario #form-warper #mensage{
     display: table-cell;
     vertical-align: middle;
 }
+body#form-confirmado #formulario #form-warper #bt_login{
+    display: none;
+}
 body#form-confirmado #formulario #form-warper .label-login{
     text-align: center;
     width: 100%;

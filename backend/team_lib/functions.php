@@ -29,7 +29,7 @@ function pesquisaUsuario($email_apelido){//recebe apelido ou email e retorna (no
     $con = conecta_db();
     $result = $con->query($query);
     $row = $result->fetch_assoc();
-    
+
     if($row != NULL){
         $user_data = [
             'nome' => $row['nome'],
@@ -39,12 +39,12 @@ function pesquisaUsuario($email_apelido){//recebe apelido ou email e retorna (no
             'telefone' => $row['telefone'],
             'senha' => $row['senha'],
             'tempo' => $row['tempo'],
-            'comfirmado' => $row['confirmado'],
+            'confirmado' => $row['confirmado'],
         ];
         return $user_data;
     }else{
         return false;
-    }  
+    }
 }
 
 function validaConta($email_apelido){ //muda confirmado para 1
@@ -65,7 +65,7 @@ function validaConta($email_apelido){ //muda confirmado para 1
 // }
 
 // function insereTarefa($nomeTarefa,$idLista){//Cadasta uma tarefa. IdListadeve ser obtido automaticamente, campos not null prazo
-//     // e descricao 
+//     // e descricao
 //     $sql = "INSERT INTO tarefa (nomeTarefa, descricao, prazo, lista_idLista) VALUES
 //      ('$nomeTarefa', 'fazer trabalho exp criativa', '', '$idLista')";
 // }
@@ -73,7 +73,7 @@ function validaConta($email_apelido){ //muda confirmado para 1
 
 // }
 /*
-//O APELIDO DEVE SER PASSADO DE FORMA AUTOMATICA DAQUI EM DIANTE 
+//O APELIDO DEVE SER PASSADO DE FORMA AUTOMATICA DAQUI EM DIANTE
 insereLista($nomeLista,$idPasta){//Cadastra uma Lista. O idPasta deve ser passado automaticamente
     $sql = "INSERT INTO lista (nomeLista, idPasta) VALUES ('$nomeLista', '$idPasta');";
 }
@@ -83,7 +83,7 @@ insereTime($nome,$apelido){//Cadastra um time. Nome se refere ao nome do time
 
 
 
-function alteraUsuario(){//recebe apelido e altera(nome, sobrenome, email, telefone, senha) retorna boolean    
+function alteraUsuario(){//recebe apelido e altera(nome, sobrenome, email, telefone, senha) retorna boolean
 }
 */
 

@@ -10,16 +10,9 @@ $JsonReturn = new stdClass();
 
 
 $dados = pesquisaUsuario($apelido); //pega as informacoes na DB pelo functions.php a partir do apelido
-
-if(!$dados){
-    $JsonReturn->sucess = FALSE;
-    $JsonReturn->msg = 'Não foi possivel verificar conta';
-    print(json_encode($JsonReturn));//retorno
-    exit();
-}
-
 $chavedaconta = codigoverificacao($dados['nome'], $dados['sobrenome'], $dados['email'], $dados['telefone']); //recria o codigo a partir das informacoes
-if ($chavedaconta = $codigo) {
+
+if ($chavedaconta == $codigo) {
     validaConta($apelido); //se os codigo da url bate com o codigo feito com os dados da DB, altera na DB confirmado para 1
     $JsonReturn->sucess = TRUE;
     $JsonReturn->msg = 'Email confimado com sucesso, agora é só começar a usar';

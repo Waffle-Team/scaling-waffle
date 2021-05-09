@@ -16,9 +16,10 @@ $(document).ready(function() {
     $res_back = JSON.parse(request.responseText);
     $confirmado = $res_back.sucess;
     $msg = $res_back.msg;
-    
+
     if($confirmado){
         $('#mensage').html($msg);
+        $('#bt_login').css('display','block');
     }else{
         $('#mensage').html($msg);
     }
