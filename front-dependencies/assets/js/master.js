@@ -1,13 +1,13 @@
 // funções de uso geral
 function validaSenha(senha){
-    
+
     var teste = true;
 
     if (/(?=.*[a-z])/.test(senha) == false){ // deve conter ao menos uma letra minúscula
         $('#alert-area').append("- A senha deve conter ao menos uma letra minúscula\n");
         teste = false;
     }
-    
+
     if (/(?=.*[A-Z])/.test(senha) == false) { // deve conter ao menos uma letra maiúscula
         $('#alert-area').append("- A senha deve conter ao menos uma letra maiúscula\n");
         teste = false;
@@ -90,15 +90,16 @@ function register_user(_nome, _sobrenome, _email, _apelido, _telefone, _senha){
         url: "./backend/register.php",
         type: "post",
         dataType: 'json',
-        data: userData, 
+        data: userData,
         async: false
     });
 
-    if(request.responseText == "true"){
-        return true;
-    }else if (request.responseText == false) {
-        //retornar erros futuramente para conseguir informar ao user o que rolou
-        return false;
-    }
+    // if(request.responseText == "true"){
+    //     return true;
+    // }else if (request.responseText == false) {
+    //     //retornar erros futuramente para conseguir informar ao user o que rolou
+    //     return false;
+    // }
+    console.log(JSON.parse(request.responseText));
 
 }

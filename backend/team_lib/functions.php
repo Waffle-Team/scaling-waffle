@@ -1,5 +1,6 @@
-<!-- arquivo de funções de uso geral durante o programa -->
 <?php
+// <!-- arquivo de funções de uso geral durante o programa -->
+
 
 
 require_once 'config_db.php';
@@ -55,24 +56,24 @@ function validaConta($email_apelido){ //muda confirmado para 1
     $con->close();
 }
 
-function inserePasta($apelido,$nomePasta,){//Cadastra um Pasta. Campos $pertenceATime e $time_nome existe mas sao not null
-    $query = "INSERT INTO pasta (nomePasta, user_apelido) VALUES ('$nomePasta', '$apelido')";
-    $con = conecta_db();
-    $result = $con->query($query);
+// function inserePasta($apelido,$nomePasta,){//Cadastra um Pasta. Campos $pertenceATime e $time_nome existe mas sao not null
+//     $query = "INSERT INTO pasta (nomePasta, user_apelido) VALUES ('$nomePasta', '$apelido')";
+//     $con = conecta_db();
+//     $result = $con->query($query);
 
-}
-function modificaPasta(){
+// }
+// function modificaPasta(){
 
-}
+// }
 
-function insereTarefa($nomeTarefa,$idLista){//Cadasta uma tarefa. IdListadeve ser obtido automaticamente, campos not null prazo
-    // e descricao 
-    $sql = "INSERT INTO tarefa (nomeTarefa, descricao, prazo, lista_idLista) VALUES
-     ('$nomeTarefa', 'fazer trabalho exp criativa', '', '$idLista')";
-}
-function modificaTarefa(){
+// function insereTarefa($nomeTarefa,$idLista){//Cadasta uma tarefa. IdListadeve ser obtido automaticamente, campos not null prazo
+//     // e descricao 
+//     $sql = "INSERT INTO tarefa (nomeTarefa, descricao, prazo, lista_idLista) VALUES
+//      ('$nomeTarefa', 'fazer trabalho exp criativa', '', '$idLista')";
+// }
+// function modificaTarefa(){
 
-}
+// }
 /*
 //O APELIDO DEVE SER PASSADO DE FORMA AUTOMATICA DAQUI EM DIANTE 
 insereLista($nomeLista,$idPasta){//Cadastra uma Lista. O idPasta deve ser passado automaticamente

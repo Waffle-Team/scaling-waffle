@@ -1,6 +1,6 @@
-<!--usar para configurações do banco de dados -->
-<!-- utilizar esteganografia -->
 <?php
+// <!--usar para configurações do banco de dados -->
+// <!-- utilizar esteganografia -->
 
 define('HOST', '127.0.0.1');//IP do maquina
 define('USUARIO', 'root');//Nome usuario
