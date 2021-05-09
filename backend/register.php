@@ -18,10 +18,8 @@ function codigoverificacao($nome, $sobrenome, $email, $telefone) { //cria um has
     return md5($codigo);
 }
 
-
-
-
 $valido = TRUE;
+
 
 $post_nome = $_POST['nome'];
 $post_sobrenome = $_POST['sobrenome'];
@@ -29,6 +27,8 @@ $post_email = $_POST['email'];
 $post_apelido = $_POST['apelido'];
 $post_telefone = $_POST['telefone'];
 $post_senha = $_POST['senha'];
+
+
 
 $JsonReturn = new stdClass();
 // $nome = validar_texto("Felipe"/*$_POST['nome']*/);
@@ -70,8 +70,9 @@ if ($valido == TRUE) {
     $hashsenha = hashsenha($nome, $sobrenome, $email, $telefone, $senha);
     if (insereUsuario($nome, $sobrenome, $email, $apelido, $telefone, $hashsenha) == TRUE){
         $codigo = codigoverificacao($nome, $sobrenome, $email, $telefone); //codigo da verificacao
-        $mensagem = '<a href=http://localhost/backend/verificar.php?codigo='.$codigo.'&apelido='.$apelido.'>Verificar conta</a>'; // mensagem que sera mandada para verificacao
-        emaildeverificacao($email, $mensagem); // manda o email para verificar a conta
+        $mensagem = '<a href=http://localhost/form-confirmado.html?codigo='.$codigo.'&apelido='.$apelido.'>Verificar conta</a>';// mensagem que sera mandada para verificacao
+        
+        emaildeverificacao($mensagem, $email); // manda o email para verificar a conta
 
         $JsonReturn->sucess = TRUE;
         $JsonReturn->erro_msg = '';

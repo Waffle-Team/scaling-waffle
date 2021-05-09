@@ -2,21 +2,18 @@
 function validaSenha(senha){
 
     var teste = true;
-    $regex_minuscula = /(?=.*[a-z])/; // deve conter ao menos uma letra minúscula
-    $regex_maiuscula = /(?=.*[A-Z])/; // deve conter ao menos uma letra maiúscula
-    $regex_esp = /(?=.*[$*&@#])/; // deve conter ao menos um caractere especial
 
-    if ($regex_maiuscula.test(senha)){ 
+    if (/(?=.*[a-z])/.test(senha) == false){ // deve conter ao menos uma letra minúscula
         $('#alert-area').append("- A senha deve conter ao menos uma letra minúscula\n");
         teste = false;
     }
 
-    if ($regex_maiuscula.test(senha)) { 
+    if (/(?=.*[A-Z])/.test(senha) == false) { // deve conter ao menos uma letra maiúscula
         $('#alert-area').append("- A senha deve conter ao menos uma letra maiúscula\n");
         teste = false;
     }
 
-    if ($regex_esp.test(senha)) { 
+    if (/(?=.*[$*&@#])/.test(senha) == false) { // deve conter ao menos um caractere especial
         $('#alert-area').append("- A senha deve conter ao menos um caractere especial\n");
         teste = false;
     }
@@ -100,13 +97,13 @@ function register_user(_nome, _sobrenome, _email, _apelido, _telefone, _senha){
     $res_back = JSON.parse(request.responseText);
 
     if($res_back.sucess){
-        window.location('./form-confirmado');
+        window.location = './form-confirmado';
         return true;
     }else{
         alert($res_back.erro_msg);
         return false;
     }
-    
-    
+
+
 
 }
