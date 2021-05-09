@@ -2,18 +2,21 @@
 function validaSenha(senha){
 
     var teste = true;
+    $regex_minuscula = /(?=.*[a-z])/; // deve conter ao menos uma letra minúscula
+    $regex_maiuscula = /(?=.*[A-Z])/; // deve conter ao menos uma letra maiúscula
+    $regex_esp = /(?=.*[$*&@#])/; // deve conter ao menos um caractere especial
 
-    if (/(?=.*[a-z])/.test(senha) == false){ // deve conter ao menos uma letra minúscula
+    if ($regex_maiuscula.test(senha)){ 
         $('#alert-area').append("- A senha deve conter ao menos uma letra minúscula\n");
         teste = false;
     }
 
-    if (/(?=.*[A-Z])/.test(senha) == false) { // deve conter ao menos uma letra maiúscula
+    if ($regex_maiuscula.test(senha)) { 
         $('#alert-area').append("- A senha deve conter ao menos uma letra maiúscula\n");
         teste = false;
     }
 
-    if (/(?=.*[$*&@#])/.test(senha) == false) { // deve conter ao menos um caractere especial
+    if ($regex_esp.test(senha)) { 
         $('#alert-area').append("- A senha deve conter ao menos um caractere especial\n");
         teste = false;
     }
@@ -33,7 +36,7 @@ function validaEmail(email){
 
 function validaTelefone(telefone){
     var regex = /[\d|+|\-|.| ]{11,20}/g;
-    if (regex.test(telefone) == true && telefone.length <= 20){
+    if (regex.test(telefone) && telefone.length <= 20){
         return true;
     }
     else{
@@ -63,6 +66,7 @@ function login_user(_login, _senha){
         async: false
     });
 
+    //trabalhar com json
     var userMatch = request.responseText;
 
     if(userMatch == true){
@@ -93,13 +97,16 @@ function register_user(_nome, _sobrenome, _email, _apelido, _telefone, _senha){
         data: userData,
         async: false
     });
+    $res_back = JSON.parse(request.responseText);
 
-    // if(request.responseText == "true"){
-    //     return true;
-    // }else if (request.responseText == false) {
-    //     //retornar erros futuramente para conseguir informar ao user o que rolou
-    //     return false;
-    // }
-    console.log(JSON.parse(request.responseText));
+    if($res_back.sucess){
+        window.location('./form-confirmado');
+        return true;
+    }else{
+        alert($res_back.erro_msg);
+        return false;
+    }
+    
+    
 
 }
