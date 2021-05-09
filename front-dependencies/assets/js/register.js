@@ -105,8 +105,8 @@ $(document).ready(function(){
             valid_inputs = false;
         }
 
-        //chama função do master para registrar usuario, to colocando todas as funções lá
-        if (valid_inputs) {
+        //chama função do master para registrar usuario, se todos inputs forem validos
+        if (valid_inputs){
             var return_registro = register_user(nome, sobrenome, email, apelido, telefone, senha);
         }
 
@@ -119,4 +119,6 @@ $(document).ready(function(){
             console.log("Os inputs do usuario não são validos");
         }
     });
+
+    
 });
