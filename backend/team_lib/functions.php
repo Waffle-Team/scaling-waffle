@@ -13,7 +13,7 @@ function insereUsuario($nome, $sobrenome, $email, $apelido, $telefone, $senha){ 
     $query = "SELECT COUNT(*) AS total FROM user WHERE apelido = '$apelido' OR email = '$email'";// Comando mysql pra ver as parada no banco
     $con = conecta_db();//Chama a funcao q faz a conexao
     $result = $con->query($query);//Executa a query
-    $rows = $result->fetch_assoc();//Retorna as linha que foram encontradas
+    $rows = $result->fetch_assoc();//Retorna as linhas que foram encontradas
 
     if($rows['total'] != 0){//Caso encontrar algum apelido/email ja cadastrado
         $con->close();//Fecha a conexao
@@ -23,7 +23,7 @@ function insereUsuario($nome, $sobrenome, $email, $apelido, $telefone, $senha){ 
     $result = $con->query($sql);
     $con->close();
     return TRUE;
-} 
+}
 
 function pesquisaUsuario($email_apelido){//recebe apelido ou email e retorna (nome, sobrenome, email, telefone)
     $query = "SELECT * FROM user WHERE apelido = '$email_apelido' OR email = '$email_apelido'";
@@ -48,6 +48,13 @@ function pesquisaUsuario($email_apelido){//recebe apelido ou email e retorna (no
     }  
 }
 
+function validaConta($email_apelido){ //muda confirmado para 1
+    $query = "UPDATE user SET confirmado = 1 WHERE apelido = '$email_apelido' OR email = '$email_apelido'";
+    $con = conecta_db();
+    $con->query($query);
+    $con->close();
+}
+
 function inserePasta($apelido,$nomePasta,){//Cadastra um Pasta. Campos $pertenceATime e $time_nome existe mas sao not null
     $query = "INSERT INTO pasta (nomePasta, user_apelido) VALUES ('$nomePasta', '$apelido')";
     $con = conecta_db();
@@ -67,7 +74,6 @@ function modificaTarefa(){
 
 }
 /*
-//O APELIDO DEVE SER PASSADO DE FORMA AUTOMATICA DAQUI EM DIANTE 
 //O APELIDO DEVE SER PASSADO DE FORMA AUTOMATICA DAQUI EM DIANTE 
 insereLista($nomeLista,$idPasta){//Cadastra uma Lista. O idPasta deve ser passado automaticamente
     $sql = "INSERT INTO lista (nomeLista, idPasta) VALUES ('$nomeLista', '$idPasta');";

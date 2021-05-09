@@ -12,7 +12,7 @@ $(document).ready(function(){
 
     $("#bt-registrar").click(function(){
         $('#alert-area').html('');
-        //catando os valores dos campos e remomendo espaços antes e depois
+        //catando os valores dos campos e removendo espaços antes e depois
         var nome = $('#nome').val().trim();
         var sobrenome = $('#sobrenome').val().trim();
         var email = $('#email').val().trim();
@@ -22,7 +22,7 @@ $(document).ready(function(){
         var confirmarsenha = $('#confirmarsenha').val().trim();
 
         //variavel de apoio atualizada pelos testes
-        var valid_inputs = false;
+        var valid_inputs = true;
 
         // check campos de input se input n passa no test deixa a borda do input vermelha
         if(nome == ''){
@@ -31,16 +31,14 @@ $(document).ready(function(){
             valid_inputs = false;
         }else{
             $('#nome').css('border','0');
-            valid_inputs = true;
         }
-
+        
         if (sobrenome == '') {
             $('#alert-area').append("- O campo 'Sobrenome' é obrigatorio\n");
             $('#sobrenome').css('border','1px red ridge');
             valid_inputs = false;
-        }else{
+        }else {
             $('#sobrenome').css('border','0');
-            valid_inputs = true;
         }
 
         if(email == ''){
@@ -53,7 +51,6 @@ $(document).ready(function(){
             valid_inputs = false;
         }else{
             $('#email').css('border','0');
-            valid_inputs = true;
         }
 
         if(apelido == ''){
@@ -62,50 +59,55 @@ $(document).ready(function(){
             valid_inputs = false;
         }else{
             $('#apelido').css('border','0');
-            valid_inputs = true;
         }
 
         if(telefone == ''){
-            //implementar verificação de telefone mais rigida
             $('#alert-area').append("- O campo 'Telefone' é obrigatorio\n");
+            $('#telefone').css('border','1px red ridge');
+            valid_inputs = false;
+        }else if (!validaTelefone(telefone)){
+            $('#alert-area').append("- Digite um telefone valido (com DDD)\n");
             $('#telefone').css('border','1px red ridge');
             valid_inputs = false;
         }else{
             $('#telefone').css('border','0');
-            valid_inputs = true;
         }
 
-        // check senha
-        if(!validaSenha(senha)){
-            $('#alert-area').append("- Senha fraca:\n");
-            $('#alert-area').append("**deve conter ao menos uma letra minúscula\n");
-            $('#alert-area').append("**deve conter ao menos uma letra maiúscula\n");
-            $('#alert-area').append("**deve conter ao menos um caractere especial\n");
-            $('#alert-area').append("**tamanho minimo de 10 caracteres\n");
+        if(senha == ''){
+            $('#alert-area').append("- O campo 'Senha' é obrigatorio\n");
+            $('#senha').css('border','1px red ridge');
             valid_inputs = false;
+        }else{
+            $('#senha').css('border','0');
         }
-        if (senha !== confirmarsenha) {
-            $('#alert-area').append("As senhas devem ser iguais\n");
+
+        if(confirmarsenha == ''){
+            $('#alert-area').append("- O campo 'Confirmar senha' é obrigatorio\n");
+            $('#confirmarsenha').css('border','1px red ridge');
+            valid_inputs = false;
+        }else if (senha !== confirmarsenha) {
+            $('#alert-area').append("- As senhas devem ser iguais\n");
             $('#confirmarsenha').css('border','1px red ridge');
             valid_inputs = false;
         }else{
             $('#confirmarsenha').css('border','0');
-            valid_inputs = true;
+        }
+
+        // check senha
+        if(!validaSenha(senha)){
+            valid_inputs = false;
         }
 
         //chama função do master para registrar usuario, to colocando todas as funções lá
         var return_registro = register_user(nome, sobrenome, email, apelido, telefone, senha);
-
-        if(return_registro){
+    
+        if(return_registro == true){
             console.log('Usuario registrado temporariamente');
-            window.location.href = './form-confirmar.html';
+            window.location.href = '/form-confirmar.html';
+            echo (return_registro);
 
-        }else{
+        }else if (return_registro == false) {
             console.log("Os inputs do usuario não são validos");
         }
-
-
-
     });
-
 });
