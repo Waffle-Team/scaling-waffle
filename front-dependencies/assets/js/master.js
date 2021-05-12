@@ -50,6 +50,7 @@ function hash(entrada){
 
 // Funções especificas
 function login_user(_login, _senha){
+    var userMatch;
     var password_hashed = hash(_senha);
     var data = {
         user: _login,
@@ -64,13 +65,9 @@ function login_user(_login, _senha){
     });
 
     //trabalhar com json
-    var userMatch = JSON.parse(request.responseText);
+    userMatch = JSON.parse(request.responseText);
 
-    if(userMatch.sucess){
-        window.location.href = '../../../form-codigo.html';
-    }else{
-        return userMatch;
-    }
+    return userMatch;
 }
 
 

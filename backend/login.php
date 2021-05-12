@@ -34,9 +34,9 @@ if ($user_db != false) {
         email_2fa($mail_msg, $user_db['email']);
 
         //setar codigo aleatorio gerado e gravar no banco de dados
-        // FIXME: inserir md5
-        //$mail2f = hash('md5', $randstring.date('d'));
-        set_2fa($randstring, $login);
+
+        $mail2f = hash('md5', $randstring);
+        set_2fa($mail2f, $login);
 
         $JsonReturn->sucess = TRUE;
         $JsonReturn->msg = '';

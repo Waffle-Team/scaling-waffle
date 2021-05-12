@@ -13,9 +13,8 @@ if ($_SESSION['senha'] == FALSE){
 
 $codigo = $_POST['codigo'];
 $codigo_db = get_2fa($_SESSION['user_name']);
-$_SESSION['codigo'] = $codigo;
-// FIXME: inserir md5
-//$codigo = hash('md5', $codigo.date('d'));
+
+$codigo = hash('md5', $codigo);
 
 
 
