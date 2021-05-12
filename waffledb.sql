@@ -125,7 +125,8 @@ CREATE TABLE `user` (
   `telefone` varchar(20) NOT NULL,
   `senha` char(64) NOT NULL,
   `tempo` time NOT NULL,
-  `confirmado` tinyint(4) NOT NULL
+  `confirmado` tinyint(4) NOT NULL,
+  `mail2FA` char(32) NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --

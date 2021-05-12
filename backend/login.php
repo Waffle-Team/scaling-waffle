@@ -1,31 +1,39 @@
 <?php
-
-require_once 'register.php';
+require_once 'team_lib/functions.php';
 
 $login = $_POST['user'];
 $senha = $_POST['pass'];
 
-$informacoes = pesquisaUsuario($login);
+$user_db = pesquisaUsuario($login);
 
-if ($informacoes != false) {
-    $senhacomsalt = hashsenha($informacoes['nome'], $informacoes['sobrenome'], $informacoes['email'], $informacoes['telefone'], $senha);
-    if ($senhacomsalt == $informacoes['senha']) {
+//Objeto para retorno do json
+//Objeto->chave = valor;
+$JsonReturn = new stdClass();
+$JsonReturn->sucess = FALSE;
+$JsonReturn->msg = '';
+
+
+if ($user_db != false) {
+    $senha_salt = hashsenha($user_db['nome'], $user_db['sobrenome'], $user_db['email'], $user_db['telefone'], $senha);
+    if ($senha_salt == $user_db['senha']) {
         //as senhas batem o usuario esta autenticado
+        session_start();
+        $_SESSION['login'] = TRUE;
+        $_SESSION['senha'] = TRUE;
+        $_SESSION['2FA'] = FALSE;
+        //gerar codido 6 digitos aleatorio
+
+        $JsonReturn->sucess = TRUE;
+        $JsonReturn->msg = '';
     }
-    else {
+    else{
         //senha incorreta
+        $JsonReturn->sucess = FALSE;
+        $JsonReturn->msg = 'Usuario ou senha incorretos';
     }
 }
 else{
-    //nao encontrou
+    $JsonReturn->sucess = FALSE;
+    $JsonReturn->msg = 'Usuario não existe';
 }
-
-
-
-/*
-Autenticação MFA
-
-Gerar sessão
-*/
-
-print(true);
+print(json_encode($JsonReturn));

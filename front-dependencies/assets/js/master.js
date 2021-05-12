@@ -64,13 +64,12 @@ function login_user(_login, _senha){
     });
 
     //trabalhar com json
-    var userMatch = request.responseText;
+    var userMatch = JSON.parse(request.responseText);
 
-    if(userMatch == true){
+    if(userMatch.sucess){
         window.location.href = '../../../form-codigo.html';
-        return true;
     }else{
-        return false;
+        return userMatch;
     }
 }
 

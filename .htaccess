@@ -9,3 +9,12 @@ ErrorDocument 500 /http_errors/500.html
 ErrorDocument 502 /http_errors/502.html
 ErrorDocument 503 /http_errors/503.html
 ErrorDocument 504 /http_errors/504.html
+
+#removendo extenção dos arquivos .php e .html#
+RewriteEngine on
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}\.php -f
+RewriteRule ^(.*)$ $1.php
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}\.html -f
+RewriteRule ^(.*)$ $1.html

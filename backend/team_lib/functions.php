@@ -1,12 +1,9 @@
 <?php
-// <!-- arquivo de funções de uso geral durante o programa -->
+//arquivo de funções de uso geral durante o programa
 
 require_once 'config_db.php';
-//Verifica se esta acessando por outra maneira
-/*if(empty($_POST['nome']) || empty($_POST['password'])){
-    header('Location:../../form-login.html');// Pagina q retorna
-    exit();
-}*/
+
+//Funções para uso do banco de dados
 
 function insereUsuario($nome, $sobrenome, $email, $apelido, $telefone, $senha){ //Cadastra usuario
     $query = "SELECT COUNT(*) AS total FROM user WHERE apelido = '$apelido' OR email = '$email'";// Comando mysql pra ver as parada no banco
@@ -89,7 +86,7 @@ function alteraUsuario(){//recebe apelido e altera(nome, sobrenome, email, telef
 
 
 
-
+// Funções gerais
 
 //faz o hash e o salt da senha, que ja passou por um hash
 function hashsenha($nome, $sobrenome, $email, $telefone, $senha){
