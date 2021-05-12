@@ -55,7 +55,7 @@ function login_user(_login, _senha){
         user: _login,
         pass: password_hashed
     }
-    request = $.ajax({
+    var request = $.ajax({
         url: "./backend/login.php",
         type: "post",
         dataType: 'json',
@@ -86,16 +86,16 @@ function register_user(_nome, _sobrenome, _email, _apelido, _telefone, _senha){
     }
 
 
-    request = $.ajax({
+    var request = $.ajax({
         url: "./backend/register.php",
         type: "post",
         dataType: 'json',
         data: userData,
         async: false
     });
-    $res_back = JSON.parse(request.responseText);
+    var res_back = JSON.parse(request.responseText);
 
-    if($res_back.sucess){
+    if(res_back.sucess){
         window.location = './form-confirmado';
         return true;
     }else{

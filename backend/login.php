@@ -4,9 +4,9 @@ require_once 'team_lib/mail.php';
 
 $login = $_POST['user'];
 $senha = $_POST['pass'];
-
 $user_db = pesquisaUsuario($login);
 
+//verificar se usuario foi confirmado
 //Objeto para retorno do json
 //Objeto->chave = valor;
 $JsonReturn = new stdClass();
@@ -19,7 +19,7 @@ if ($user_db != false) {
     if ($senha_salt == $user_db['senha']) {
         //as senhas batem o usuario esta autenticado
         session_start();
-        $_SESSION['login'] = TRUE;
+        $_SESSION['user_name'] = $user_db['apelido'];
         $_SESSION['senha'] = TRUE;
         $_SESSION['2FA'] = FALSE;
 

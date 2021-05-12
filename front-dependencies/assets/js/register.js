@@ -113,11 +113,10 @@ $(document).ready(function(){
         if(return_registro){
             console.log('Usuario registrado temporariamente');
             window.location = '/form-confirmar.html';
-            echo (return_registro);
 
         }else if (return_registro == false) {
             console.log("Os inputs do usuario não são validos");
         }
     });
-    
+
 });

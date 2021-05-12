@@ -1,12 +1,17 @@
 <!DOCTYPE html>
 <html lang="pt-BR" dir="ltr">
 	<head>
+		<!-- metatags -->
 		<meta charset="utf-8">
-		<title></title>
+		<title>MFA</title>
+
+		<!-- libs -->
 		<script type="text/javascript" src="./front-dependencies/lib/jquery/jquery-3.6.0.min.js"></script>
-		<script type="text/javascript" src="./front-dependencies/assets/js/master.js"></script>
-		<script type="text/javascript" src="./front-dependencies/assets/js/MFA.js"></script>
 		<link rel="stylesheet" href="./front-dependencies/lib/bootstrap/css/bootstrap.min.css">
+		<script type="text/javascript" src="./front-dependencies/assets/js/master.js"></script>
+
+		<!-- assets -->
+		<script type="text/javascript" src="./front-dependencies/assets/js/MFA.js"></script>
 		<link rel="stylesheet" href="./front-dependencies/assets/css/login-forms/codigoMFA.css">
 	</head>
 	<body id="form-MFA">
@@ -21,7 +26,7 @@
 						<div id="form-warper">
 							<p class="label-login" id="mensage">Digite o codigo de 6 digidos</p>
 							<input id="input-codigo" class="login__input" type="text" placeholder="XXX - XXX" maxlength="6"/><br>
-							<button class="botao-primario">Logar</button>
+							<button id="bt_logar" class="botao-primario">Logar</button>
 						</div>
 					</div>
 				</div>
