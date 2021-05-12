@@ -1,5 +1,6 @@
 <?php
 require_once 'team_lib/functions.php';
+require_once 'team_lib/mail.php';
 
 $login = $_POST['user'];
 $senha = $_POST['pass'];
@@ -21,7 +22,20 @@ if ($user_db != false) {
         $_SESSION['login'] = TRUE;
         $_SESSION['senha'] = TRUE;
         $_SESSION['2FA'] = FALSE;
-        //gerar codido 6 digitos aleatorio
+
+        //gerar codido 6 digitos aleatorio e enviar no email
+        $key_space = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+
+        for ($i = 0; $i < 6; $i++) {
+            $randstring[$i] = $key_space[rand(0, strlen($key_space))];
+        }
+        $randstring = implode("",$randstring);
+        $mail_msg = 'Seu codigo de comfirmação é: '.$randstring;;
+        email_2fa($mail_msg, $user_db['email']);
+
+        //setar codigo aleatorio gerado e gravar no banco de dados
+        $mail2f = hash('md5', $randstring.date('d'));
+        set_2fa($mail2f, $login);
 
         $JsonReturn->sucess = TRUE;
         $JsonReturn->msg = '';

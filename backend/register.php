@@ -1,7 +1,8 @@
 <?php
 require_once 'team_lib/functions.php';
-require_once 'filtro.php';
-require_once 'mail.php';
+require_once 'team_lib/mail.php';
+require_once 'team_lib/filtro.php';
+
 
 
 
@@ -58,7 +59,7 @@ if ($valido == TRUE) {
     if (insereUsuario($nome, $sobrenome, $email, $apelido, $telefone, $hashsenha) == TRUE){
         $codigo = codigoverificacao($nome, $sobrenome, $email, $telefone); //codigo da verificacao
         $mensagem = '<a href=http://localhost/form-confirmado.html?codigo='.$codigo.'&apelido='.$apelido.'>Verificar conta</a>';// mensagem que sera mandada para verificacao
-        
+
         emaildeverificacao($mensagem, $email); // manda o email para verificar a conta
 
         $JsonReturn->sucess = TRUE;

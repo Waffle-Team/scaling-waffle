@@ -4,7 +4,6 @@
 require_once 'config_db.php';
 
 //Funções para uso do banco de dados
-
 function insereUsuario($nome, $sobrenome, $email, $apelido, $telefone, $senha){ //Cadastra usuario
     $query = "SELECT COUNT(*) AS total FROM user WHERE apelido = '$apelido' OR email = '$email'";// Comando mysql pra ver as parada no banco
     $con = conecta_db();//Chama a funcao q faz a conexao
@@ -43,14 +42,29 @@ function pesquisaUsuario($email_apelido){//recebe apelido ou email e retorna (no
         return false;
     }
 }
-
+function alteraUsuario(){
+    //recebe apelido e altera(nome, sobrenome, email, telefone, senha) retorna boolean
+}
 function validaConta($email_apelido){ //muda confirmado para 1
     $query = "UPDATE user SET confirmado = 1 WHERE apelido = '$email_apelido' OR email = '$email_apelido'";
     $con = conecta_db();
     $con->query($query);
     $con->close();
 }
-
+function set_2fa($md5, $email_apelido){
+    $query = "UPDATE user SET mail2FA = '$md5' WHERE apelido = '$email_apelido' OR email = '$email_apelido'";
+    $con = conecta_db();
+    $con->query($query);
+    $con->close();
+}
+function get_2fa($email_apelido){
+    $query = "SELECT mail2FA FROM user WHERE apelido = '$email_apelido' OR email = '$email_apelido'";
+    $con = conecta_db();
+    $result = $con->query($query);
+    $row = $result->fetch_assoc();
+    $con->close();
+    return $row['mail2FA'];
+}
 // function inserePasta($apelido,$nomePasta,){//Cadastra um Pasta. Campos $pertenceATime e $time_nome existe mas sao not null
 //     $query = "INSERT INTO pasta (nomePasta, user_apelido) VALUES ('$nomePasta', '$apelido')";
 //     $con = conecta_db();
@@ -78,10 +92,6 @@ insereTime($nome,$apelido){//Cadastra um time. Nome se refere ao nome do time
     $sql = "INSERT INTO time (nome, criador) VALUES ('$nome', '$apelido');"
 }
 
-
-
-function alteraUsuario(){//recebe apelido e altera(nome, sobrenome, email, telefone, senha) retorna boolean
-}
 */
 
 
