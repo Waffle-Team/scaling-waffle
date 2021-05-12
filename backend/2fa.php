@@ -2,23 +2,27 @@
 require_once 'team_lib/functions.php';
 
 session_start();
+$JsonReturn = new stdClass();
+
 if ($_SESSION['senha'] == FALSE){
+    $JsonReturn->sucess = FALSE;
+    $JsonReturn->msg = 'A senha do usuario ainda não foi verificada';
+    print(json_encode($JsonReturn));
     exit();
 }
 
 $codigo = $_POST['codigo'];
 $codigo_db = get_2fa($_SESSION['user_name']);
+$_SESSION['codigo'] = $codigo;
+// FIXME: inserir md5
+//$codigo = hash('md5', $codigo.date('d'));
 
-$codigo = hash('md5', $codigo.date('d'));
 
-$JsonReturn = new stdClass();
-$JsonReturn->sucess = FALSE;
-$JsonReturn->msg = '';
 
 if ($codigo == $codigo_db){
     $_SESSION['2FA'] = TRUE;
-    $JsonReturn->sucess = FALSE;
-    $JsonReturn->msg = '';
+    $JsonReturn->sucess = TRUE;
+    $JsonReturn->msg = 'Codigo deu match';
 }else{
     set_2fa('',$_SESSION['user_name']);
     $_SESSION['user_name'] = '';

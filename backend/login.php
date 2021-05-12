@@ -30,12 +30,13 @@ if ($user_db != false) {
             $randstring[$i] = $key_space[rand(0, strlen($key_space))];
         }
         $randstring = implode("",$randstring);
-        $mail_msg = 'Seu codigo de comfirmação é: '.$randstring;;
+        $mail_msg = 'Seu codigo de comfirmação é: ['.$randstring.']';
         email_2fa($mail_msg, $user_db['email']);
 
         //setar codigo aleatorio gerado e gravar no banco de dados
-        $mail2f = hash('md5', $randstring.date('d'));
-        set_2fa($mail2f, $login);
+        // FIXME: inserir md5
+        //$mail2f = hash('md5', $randstring.date('d'));
+        set_2fa($randstring, $login);
 
         $JsonReturn->sucess = TRUE;
         $JsonReturn->msg = '';

@@ -7,7 +7,7 @@ $(document).ready(function() {
         apelido: apelido
     }
     request = $.ajax({
-        url: "./backend/verificar.php",
+        url: "./backend/verificar_email.php",
         type: "post",
         dataType: 'json',
         data: mailData,
