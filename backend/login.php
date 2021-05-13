@@ -52,3 +52,5 @@ else{
     $JsonReturn->msg = 'Usuario não existe';
 }
 print(json_encode($JsonReturn));
+?>
+

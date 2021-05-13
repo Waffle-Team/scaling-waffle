@@ -117,3 +117,7 @@ function getUrlParameter(sParam) {
         }
     }
 }
+
+
+
+//Reset de seção com ajax

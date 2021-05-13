@@ -63,6 +63,10 @@ body#form-login #formulario .login-form .mensage-link{
     color:#f4f4f4;
     text-decoration: underline;
 }
+body#form-login #formulario .login-form .mensage-link#esqueci{
+    color:#ff3030;
+    text-decoration: none;
+}
 body#form-login #formulario #alert-area{
     font-size: 12px;
     border-radius: 25px;

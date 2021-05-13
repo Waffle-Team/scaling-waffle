@@ -1,7 +1,7 @@
 <?php
-session_start();
-session_unset();
-session_destroy();
+session_start();//Inicia area de codigo de seção
+session_unset();//deleta variaveis da sessão
+session_destroy();//Destroi a seção
 
 
 

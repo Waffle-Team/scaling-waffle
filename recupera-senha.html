@@ -3,7 +3,7 @@
 	<head>
 		<!-- meta tags -->
 		<meta charset="utf-8">
-		<title>Login</title>
+		<title>Recuperação de senha</title>
 
 		<!-- libs -->
 		<script type="text/javascript" src="./front-dependencies/lib/jquery/jquery-3.6.0.min.js"></script>
@@ -12,7 +12,7 @@
 		<script type="text/javascript" src="./front-dependencies/assets/js/master.js"></script>
 
 		<!-- assets -->
-		<script type="text/javascript" src="./front-dependencies/assets/js/login.js"></script>
+		<script type="text/javascript" src="./front-dependencies/assets/js/rec-senha.js"></script>
 		<link rel="stylesheet" href="./front-dependencies/assets/css/login-forms/login.css">
 	</head>
 	<body id="form-login">
@@ -21,7 +21,7 @@
 				<div class="row">
 					<div class="col-12 text-center">
 						<a href="./"><img src="./front-dependencies/assets/images/logoteste.svg" alt=""></a>
-						<h1 id="titulo">Login na aplicação</h1>
+						<h1 id="titulo">Recuperação de senha</h1>
 						<span id="alert_msg"></span>
 					</div>
 					<div class="col-12 text-center">
@@ -30,13 +30,8 @@
 								<label for="login">Nome de usuario ou Email</label><br>
 								<input type="text" name="login" id="login"><br>
 							</div>
-							<div class="input-warp">
-								<label for="password">Senha</label><br>
-								<input type="password" name="password" id="senha"><br>
-							</div>
-							<button type="button" class="botao-primario" id="bt-login">Login</button><br>
-							<a class="mensage-link" href="./form-register">Ainda não possui uma conta? Crie agora</a></br>
-							<a class="mensage-link" id="esqueci" href="./recupera-senha">esqueci minha senha</a>	
+							<button type="button" class="botao-primario" id="bt-rec">Recuperar senha</button><br>
+							<a class="mensage-link" href="./form-login">lembrou a senha? Login</a>
 						</div>
 					</div>
 				</div>

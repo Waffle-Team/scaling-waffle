@@ -42,7 +42,7 @@ function pesquisaUsuario($email_apelido){//recebe apelido ou email e retorna (no
         return false;
     }
 }
-function alteraUsuario(){
+function alteraUsuario($apelido,){
     //recebe apelido e altera(nome, sobrenome, email, telefone, senha) retorna boolean
 }
 function validaConta($email_apelido){ //muda confirmado para 1

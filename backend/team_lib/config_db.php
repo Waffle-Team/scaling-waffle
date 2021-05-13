@@ -1,10 +1,14 @@
 <?php
 // <!--usar para configurações do banco de dados -->
 // <!-- utilizar esteganografia -->
+//pega arquivo
+//pega oq tem no arquivo
+//joga pra varivavel
+
 
 define('HOST', '127.0.0.1');//IP do maquina
 define('USUARIO', 'root');//Nome usuario
-define('SENHA', '');//Senha 
+define('SENHA', '');//Senha
 define('DB', 'waffle');//Nome do banco
 
 function conecta_db(){
@@ -16,4 +20,3 @@ function conecta_db(){
 //   echo "CONECTADO AO DB\n";
   return $con;
 }
-
