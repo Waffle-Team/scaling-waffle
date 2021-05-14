@@ -36,3 +36,5 @@
 ## Integrantes
 
 @all-contributors bot
+
+<td align="center"><a href="https://github.com/Maideh"><img style="border-radius: 50%;" src="https://avatars.githubusercontent.com/u/51738019?v=4" width="100px;" alt=""/><br /><sub><b>Gabriel Ramos/b></sub></a><br /><a href="https://github.com/Maideh" title="Rocketseat">🚀</a></td>
