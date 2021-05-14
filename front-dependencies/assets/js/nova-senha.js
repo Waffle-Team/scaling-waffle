@@ -13,12 +13,12 @@ $(document).ready(function() {
         }else{
             token_get = getUrlParameter('token');
             user_get = getUrlParameter('user');
-
+            senha = hash(senha);
             var back_response;
             var data = {
                 senha: senha,
                 token: token_get,
-                user: user_get 
+                user: user_get
             }
             var request = $.ajax({
                 url: "./backend/nova_senha.php",
