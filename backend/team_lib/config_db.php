@@ -1,10 +1,10 @@
 <?php
-include('../lib/esteganografia/decrypt.php');
+// include('../lib/esteganografia/decrypt.php');
 
 
 define('HOST', '127.0.0.1');//IP do maquina
 define('USUARIO', 'waffle');//Nome usuario
-define('SENHA', decript_estegano('../lib/esteganografia/result633.png'));//Senha
+define('SENHA', '@123Abobrinha');//Senha
 define('DB', 'waffle');//Nome do banco
 
 function conecta_db(){

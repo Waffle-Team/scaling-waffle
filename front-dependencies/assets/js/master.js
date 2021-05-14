@@ -65,6 +65,7 @@ function login_user(_login, _senha){
     });
 
     //trabalhar com json
+    console.log(request.responseText);
     userMatch = JSON.parse(request.responseText);
     console.log(userMatch);
     return userMatch;
