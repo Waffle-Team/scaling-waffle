@@ -35,13 +35,13 @@
 
 ## Integrantes
 
-<table>
+<table allign="center">
 <tr>
-<td align="center"><a href="https://github.com/Maideh"><img style="border-radius: 50%;" src="https://avatars.githubusercontent.com/u/51738019?v=4" width="100px;" alt=""/><br /><sub><b>Gabriel Ramos/b></sub></a><br /><a href="https://github.com/Maideh" title="Rocketseat">🚀</a></td>
-<td align="center"><a href="https://github.com/Maideh"><img style="border-radius: 50%;" src="https://avatars.githubusercontent.com/u/51738019?v=4" width="100px;" alt=""/><br /><sub><b>Gabriel Ramos/b></sub></a><br /><a href="https://github.com/Maideh" title="Rocketseat">🚀</a></td>
+<td align="center"><a href="https://github.com/GustaSchmidt"><img style="border-radius: 50%;" src="https://avatars.githubusercontent.com/u/53221408?v=4" width="100px;" alt=""/><br /><sub><b>Gustavo Schmidt/b></sub></a><br /><a href="https://github.com/GustaSchmidt" title="Rocketseat">🚀</a></td>
+<td align="center"><a href="https://github.com/CriminalShrimp"><img style="border-radius: 50%;" src="https://avatars.githubusercontent.com/u/72232789?v=4" width="100px;" alt=""/><br /><sub><b>Aleister Edward/b></sub></a><br /><a href="https://github.com/CriminalShrimp" title="Rocketseat">🚀</a></td>
 <tr>
 <tr>
-<td align="center"><a href="https://github.com/Maideh"><img style="border-radius: 50%;" src="https://avatars.githubusercontent.com/u/51738019?v=4" width="100px;" alt=""/><br /><sub><b>Gabriel Ramos/b></sub></a><br /><a href="https://github.com/Maideh" title="Rocketseat">🚀</a></td>
+<td align="center"><a href="https://github.com/Spl3F"><img style="border-radius: 50%;" src="https://avatars.githubusercontent.com/u/66442461?v=4" width="100px;" alt=""/><br /><sub><b>Felipe Noleto/b></sub></a><br /><a href="https://github.com/Spl3F" title="Rocketseat">🚀</a></td>
 <td align="center"><a href="https://github.com/Maideh"><img style="border-radius: 50%;" src="https://avatars.githubusercontent.com/u/51738019?v=4" width="100px;" alt=""/><br /><sub><b>Gabriel Ramos/b></sub></a><br /><a href="https://github.com/Maideh" title="Rocketseat">🚀</a></td>
 <tr>
 </table>
