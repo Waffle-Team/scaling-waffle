@@ -1,3 +1,4 @@
+### Pré-requisitos
 
 # Arquivos para checar
 
@@ -27,3 +28,11 @@
 - [ ] RF13 - esteganografia para esconder chave privada
 - [ ] RF14 - vetores de inicialização
 - [ ] RF15 - geradores de pseudo aleatoriedade
+
+### 🛠 Tecnologias
+
+- [PHPMailer](https://github.com/PHPMailer/PHPMailer)
+
+## Integrantes
+
+@all-contributors bot
