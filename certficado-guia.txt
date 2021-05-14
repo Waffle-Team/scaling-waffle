@@ -1,0 +1,79 @@
+C:\Windows\System32\drivers\etc\hosts
+
+linha 22
+
+127.0.0.1 waffle
+
+---------------------------------------
+
+\xampp\apache\conf\extra\httpd-vhosts.conf
+
+linha 27-50
+
+##<VirtualHost *:80>
+    ##ServerAdmin webmaster@dummy-host.example.com
+    ##DocumentRoot "A:/local-do-github/nome-do-site"
+    ##ServerName dummy-host.example.com
+    ##ServerAlias www.dummy-host.example.com
+    ##ErrorLog "logs/dummy-host.example.com-error.log"
+    ##CustomLog "logs/dummy-host.example.com-access.log" common
+    <Directory A:/local-do-github/nome-do-site>
+        Order Allow,deny
+        Allow from all
+    </Directory>
+##</VirtualHost>
+
+##<VirtualHost *:80>
+    ##ServerAdmin webmaster@dummy-host2.example.com
+    ##DocumentRoot "A:/local-do-github/nome-do-site"
+    ##ServerName dummy-host2.example.com
+    ##ErrorLog "logs/dummy-host2.example.com-error.log"
+    ##CustomLog "logs/dummy-host2.example.com-access.log" common
+    <Directory A:/local-do-github/nome-do-site>
+        Order Allow,deny
+        Allow from all
+    </Directory>
+##</VirtualHost>
+
+---------------------------------------
+
+\xampp\apache\conf\extra\httpd-xampp.conf
+
+linha 111-134
+
+<VirtualHost *:80>
+    DocumentRoot "A:/local-do-github/nome-do-site"
+    ServerName waffle
+    ServerAlias *.waffle
+    <Directory "A:/local-do-github/nome-do-site">
+        Options All
+        AllowOverride All
+        Require all granted
+    </Directory>
+</VirtualHost>
+
+<VirtualHost *:443>
+    DocumentRoot "A:/local-do-github/nome-do-site"
+    ServerName waffle
+    ServerAlias *.waffle
+    SSLEngine on
+    SSLCertificateFile "crt/waffle/server.crt"
+    SSLCertificateKeyFile "crt/waffle/server.key"
+    <Directory "A:/local-do-github/nome-do-site">
+        Options All
+        AllowOverride All
+        Require all granted
+    </Directory>
+</VirtualHost>
+
+---------------------------------------
+
+\xampp\apache\crt\cert.conf
+
+linha 25
+
+commonName_default          = waffle
+
+linha 51
+
+DNS.1       = waffle
