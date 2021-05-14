@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-BR" dir="ltr">
+	<head>
+		<!-- meta tags -->
+		<meta charset="utf-8">
+		<title>Recuperação de senha</title>
+
+		<!-- libs -->
+		<script type="text/javascript" src="./front-dependencies/lib/jquery/jquery-3.6.0.min.js"></script>
+		<link rel="stylesheet" href="./front-dependencies/lib/bootstrap/css/bootstrap.min.css">
+		<script type="text/javascript" src="./front-dependencies/lib/CryptoSJCl/sjcl.js"></script>
+		<script type="text/javascript" src="./front-dependencies/assets/js/master.js"></script>
+
+		<!-- assets -->
+		<script type="text/javascript" src="./front-dependencies/assets/js/nova-senha.js"></script>
+		<link rel="stylesheet" href="./front-dependencies/assets/css/login-forms/login.css">
+	</head>
+	<body id="form-login">
+		<section id="formulario">
+			<div class="container">
+				<div class="row">
+					<div class="col-12 text-center">
+						<a href="./"><img src="./front-dependencies/assets/images/logoteste.svg" alt=""></a>
+						<h1 id="titulo">Recuperação de senha</h1>
+						<span id="alert_msg"></span>
+					</div>
+					<div class="col-12 text-center">
+						<div id="form-warper" class="login-form">
+							<div class="input-warp">
+								<label for="pass">Nova senha</label><br>
+								<input type="password" name="pass" id="senha"><br>
+                                <label for="pass-confirm">Repetir senha</label><br>
+								<input type="password" name="pass-confirm" id="senha-confirm"><br>
+							</div>
+							<button type="button" class="botao-primario" id="bt-rec">Recuperar senha</button><br>
+							<a class="mensage-link" href=""></a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+	</body>
+</html>

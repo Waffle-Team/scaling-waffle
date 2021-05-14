@@ -19,12 +19,6 @@ $post_senha = $_POST['senha'];
 
 
 $JsonReturn = new stdClass();
-// $nome = validar_texto("Felipe"/*$_POST['nome']*/);
-// $sobrenome = validar_texto("noleto"/*$_POST['sobrenome']*/);
-// $email = validar_email("felipe.a.d.noleto@gmail.com"/*$_POST['email']*/);
-// $apelido = validar_texto("splef"/*$_POST['apelido']*/);
-// $telefone = preg_replace('/[+|\-|.| ]/', '', validar_telefone("041984004755"/*$_POST['telefone']*/)); //ao validar e limpar o telefone, podem sobrar alguns caracteres e espacos, o preg_replace serve para removelos e deixar apenas o numero
-// $senha = "cykablyat"/*$_POST['senha']*/;
 
 $nome = validar_texto($post_nome);
 $sobrenome = validar_texto($post_sobrenome);
@@ -72,7 +66,7 @@ if ($valido == TRUE) {
     }
 }
 else{
-    $JsonReturn->sucess = 'FALSE';
+    $JsonReturn->sucess = FALSE;
     $JsonReturn->erro_msg = 'erro desconhecido';
     print(json_encode($JsonReturn)); // caso nao seja possivel adicionar no banco de dados, ou alguma etava de verificacao falhe, retorna como false
 }

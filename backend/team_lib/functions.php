@@ -2,6 +2,7 @@
 //arquivo de funções de uso geral durante o programa
 
 require_once 'config_db.php';
+require_once 'filtro.php';
 
 //Funções para uso do banco de dados
 function insereUsuario($nome, $sobrenome, $email, $apelido, $telefone, $senha){ //Cadastra usuario
@@ -37,13 +38,31 @@ function pesquisaUsuario($email_apelido){//recebe apelido ou email e retorna (no
             'tempo' => $row['tempo'],
             'confirmado' => $row['confirmado'],
         ];
+        $con->close();
         return $user_data;
     }else{
+        $con->close();
         return false;
     }
 }
-function alteraUsuario($apelido,){
+function alteraUsuario($apelido){
     //recebe apelido e altera(nome, sobrenome, email, telefone, senha) retorna boolean
+}
+function alteraSenha($apelidoEmail, $novasenha){
+    $con = conecta_db();
+    $dados = pesquisaUsuario($apelidoEmail);
+    $senha = $novasenha;
+    if (empty($senha)){ //senha nao passou verificação  
+        $con->close();
+        return FALSE;
+    }
+    else{ //senha passou verificação
+        $hashsenha = hashsenha($dados['nome'], $dados['sobrenome'], $dados['email'], $dados['telefone'], $senha);
+        $inserir = "UPDATE user SET senha = '$hashsenha' WHERE apelido = '$apelidoEmail' OR email = '$apelidoEmail'";
+        $con->query($inserir);
+        $con->close();
+        return TRUE;
+    }
 }
 function validaConta($email_apelido){ //muda confirmado para 1
     $query = "UPDATE user SET confirmado = 1 WHERE apelido = '$email_apelido' OR email = '$email_apelido'";
