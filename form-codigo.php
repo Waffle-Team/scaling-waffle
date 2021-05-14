@@ -1,3 +1,19 @@
+<?php
+session_start();
+
+if (!$_SESSION){
+    header('location:./form-login');
+    exit();
+
+}elseif(!$_SESSION['senha']){
+    $_SESSION['user_name'] = NULL;
+    $_SESSION['senha'] = NULL;
+    $_SESSION['2FA'] = NULL;
+    header('location:../form-login');
+    exit();
+}
+
+?>
 <!DOCTYPE html>
 <html lang="pt-BR" dir="ltr">
 	<head>

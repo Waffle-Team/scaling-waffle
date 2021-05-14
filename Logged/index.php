@@ -1,3 +1,8 @@
+<?php
+
+require_once 'session_logged.php';
+
+?>
 <!DOCTYPE html>
 <html lang="pt-BR" dir="ltr">
     <head>
@@ -75,7 +80,6 @@
                                         <h1>Dev</h1>
                                     </div>
                                 </div>
-
                             </div>
                         </div>
                     </div>
