@@ -3,7 +3,7 @@ include('functions.php');
 
 
 //Edit below variables
-$msg = 'patodaora'; //To encrypt
+$msg = "define('SENHA', '');"; //To encrypt
 $src = 'pato.jpg'; //Start image
 
 $msg .='|'; //EOF sign, decided to use the pipe symbol to show our decrypter the end of the message
