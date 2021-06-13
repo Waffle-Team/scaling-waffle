@@ -10,9 +10,22 @@
         <link rel="stylesheet" href="../front-dependencies/lib/bootstrap/css/bootstrap.min.css">
         <script type="text/javascript" src="../front-dependencies/assets/js/master.js"></script>
         <link rel="stylesheet" href="../front-dependencies/assets/css/logged/master.css">
+        <script type="text/javascript" src="../front-dependencies/assets/js/logged/master.js"></script>
+
 
         <!-- assets -->
-        <script type="text/javascript" src="../front-dependencies/assets/js/logged/home.js"></script>
+        <?php
+            try{
+                if(isset($assets)){
+                    $assets->doJs();
+                    $assets->doCss();
+                }else{
+                    echo "pagina não tem assests propios";
+                }
+            }catch(Exception $e) {
+                echo ($e->getMessage());
+            }
+        ?>
 
     </head>
     <body>

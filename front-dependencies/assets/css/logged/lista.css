@@ -1,0 +1,68 @@
+body{
+    overflow-y: hidden;
+    overflow-x: scroll;
+}
+header {
+	position: fixed;
+	z-index: 9999999;
+	width: 100%;
+    top: 0;
+}
+#lista-app-area {
+	position: relative;
+	display: flex;
+	width: max-content;
+    margin-top: 70px;
+}
+#lista-app-area .lista{
+	width: 272px;
+	margin: 0 4px;
+    padding: 0;
+	min-height: 83vh;
+	background: red;
+	box-sizing: border-box;
+	display: inline-block;
+	white-space: nowrap;
+	border-radius: 13px;
+    list-style: none;
+}
+#lista-app-area .lista .titulo-lista{
+	text-align: center;
+	font-size: 20px;
+	padding: 5px 0;
+	margin: 10px 0 0 0;
+	background: green;
+}
+#lista-app-area .lista .buttons-end-lista{
+    width: 100%;
+    text-align: center;
+}
+#lista-app-area .lista .buttons-end-lista .nova-tarefa{
+    margin: 0 10px;
+    text-transform: uppercase;
+}
+#lista-app-area .lista .card-tarefa{
+	max-width: 100%;
+	background: blue;
+	margin: 9px;
+}
+#lista-app-area .lista .card-tarefa h2.titulo{
+	font-size: 1.2em;
+	text-align: center;
+}
+#lista-app-area .lista .card-tarefa .descricao{
+    white-space: normal;
+}
+#lista-app-area .lista .card-tarefa button{
+	color: #fff;
+	background: none;
+	border: none;
+	font-weight: bolder;
+	font-size: 28px;
+}
+#lista-app-area .lista .card-tarefa button.left{
+    float: left;
+}
+#lista-app-area .lista .card-tarefa button.right{
+    float: right;
+}

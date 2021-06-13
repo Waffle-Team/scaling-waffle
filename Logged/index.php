@@ -1,7 +1,14 @@
 <?php
-require_once 'session_logged.php';
-require_once './common_parts/header.php';
+require_once (dirname(__FILE__).'\team_lib\functions_logged.php');
+
+//headers include pege
+$assets = new pageAssets();
+$assets->addJs('../front-dependencies/assets/js/logged/home.js');
+$assets->addCss('../front-dependencies/assets/css/logged/home.css');
+
+require_once (dirname(__FILE__).'\common_parts\header.php');
 ?>
+
 
 
 <body>
@@ -21,12 +28,13 @@ require_once './common_parts/header.php';
                     <div class="row">
                         <!-- isso é um card de lista -->
                         <div class="col-3 card-lista-warper">
-                            <div class="card-lista">
+                            <div class="card-lista" id="0sdfg987">
                                 <img src="http://s2.glbimg.com/rs1SOYyirS4k0BaulzCOYSgsQ50=/695x0/s.glbimg.com/po/tt2/f/original/2014/04/11/bliss.jpg">
                                 <h1>Pasta pessoal</h1>
                             </div>
                         </div>
                         <!-- fim card de lista -->
+
 
                     </div>
                 </div>
