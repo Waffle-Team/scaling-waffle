@@ -38,13 +38,24 @@ $RETURN = '{
 }';
 print($RETURN);
 
-class tarefa{
+class Tarefa{
     private $titulo;
     private $descri;
+    private $data_entrega;
+    private $data_create;
+
+
 
 }
-class lista{
+class Lista{
     private $tarefas = [];
+
+    public function addTarefa(Tarefa $tarefa){
+
+    }
+    public function removeTarefa(Tarefa $tarefa){
+
+    }
 
 
 }
