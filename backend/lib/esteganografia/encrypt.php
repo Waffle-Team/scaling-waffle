@@ -1,5 +1,5 @@
 <?php
-include('functions.php');
+include('../lib/esteganografia/decrypt_dbpass.php');
 
 
 //Edit below variables
