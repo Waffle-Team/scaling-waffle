@@ -11,6 +11,8 @@ session_start();
 //     $_SESSION['2FA'] = NULL;
 //     header('location:../form-login');
 //     exit();
+// }else{
+// //Resetar seção
 // }
 
 ?>
