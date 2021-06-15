@@ -14,7 +14,6 @@ function conecta_db(){
       die("ERRO DE CONECÇÃO:" . $con->connect_error);
       return FALSE;
   }
-//   echo "CONECTADO AO DB\n";
+echo "CONECTADO AO DB\n";
   return $con;
 }
-
