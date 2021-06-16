@@ -26,7 +26,7 @@
                         <div id="nav-warp">
                             <div id="nav">
                                 <a href="./form-login">Login</a>
-                                <a href="./form-register">Register</a>
+                                <a class="botao-primario" href="./form-register">Register</a>
                             </div>
                         </div>
                     </div>
