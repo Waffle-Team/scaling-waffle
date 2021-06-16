@@ -25,3 +25,6 @@ RewriteRule ^(.*)$ $1.html
 SetHandler application/x-httpd-php
 Header set Content-type "text/css"
 </FilesMatch>
+
+
+Options All -Indexes
