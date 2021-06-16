@@ -27,4 +27,4 @@ Header set Content-type "text/css"
 </FilesMatch>
 
 
-Options All -Indexes
+#Options All -Indexes

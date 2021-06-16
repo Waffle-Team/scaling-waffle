@@ -91,6 +91,7 @@ function register_user(_nome, _sobrenome, _email, _apelido, _telefone, _senha){
         data: userData,
         async: false
     });
+    console.log(request.responseText);
     var res_back = JSON.parse(request.responseText);
 
     if(res_back.sucess){

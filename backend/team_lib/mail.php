@@ -2,9 +2,9 @@
 
 
 // Definir o uso dos arquivos do PHPMailer
-require './lib/PHPMailer.php';
-require './lib/SMTP.php';
-require './lib/Exception.php';
+require (dirname(__FILE__).'\..\lib\PHPMailer.php');
+require (dirname(__FILE__).'\..\lib\SMTP.php');
+require (dirname(__FILE__).'\..\lib\Exception.php');
 
 // Usar dos arquivos do PHPMailer
 

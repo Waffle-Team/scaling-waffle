@@ -1,8 +1,8 @@
 <?php
 //arquivo de funções de uso geral durante o programa
 
-require_once 'config_db.php';
-require_once 'filtro.php';
+require_once (dirname(__FILE__).'\config_db.php');
+require_once (dirname(__FILE__).'\filtro.php');
 
 //Funções para uso do banco de dados
 function insereUsuario($nome, $sobrenome, $email, $apelido, $telefone, $senha){ //Cadastra usuario

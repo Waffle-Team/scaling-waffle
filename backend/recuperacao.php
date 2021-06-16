@@ -1,7 +1,14 @@
 <?php
-require_once 'team_lib/functions.php';
-require_once 'team_lib/filtro.php';
-require_once 'team_lib/mail.php';
+require_once (dirname(__FILE__).'\team_lib\functions.php');
+require_once (dirname(__FILE__).'\team_lib\filtro.php');
+require_once (dirname(__FILE__).'\team_lib\mail.php');
+
+if(!isset($_POST['login'])){
+    echo "post_login_invalido";
+    exit();
+}
+
+
 $JsonReturn = new stdClass();
 
 

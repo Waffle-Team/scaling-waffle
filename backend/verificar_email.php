@@ -1,7 +1,11 @@
 <?php
+require_once (dirname(__FILE__).'\team_lib\functions.php');
 
-require_once 'team_lib/functions.php';
 
+if (!isset($_POST['codigo']) or isset($_POST['apelido'])) {
+    echo "post ou codigo não enviado";
+    exit();
+}
 
 // pega as duas variaveis da url
 $codigo = $_POST['codigo'];

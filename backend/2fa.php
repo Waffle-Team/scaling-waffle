@@ -1,12 +1,17 @@
 <?php
-require_once 'team_lib/functions.php';
+require_once(dirname(__FILE__).'\team_lib\functions.php');
 
 session_start();
 $JsonReturn = new stdClass();
 
+if(!isset($_SESSION['senha'])){
+    $_SESSION['senha'] = FALSE;
+}
+
+
 if ($_SESSION['senha'] == FALSE){
     $JsonReturn->sucess = FALSE;
-    $JsonReturn->msg = 'A senha do usuario ainda não foi verificada';
+    $JsonReturn->msg = 'A senha do usuario ainda nao foi verificada';
     print(json_encode($JsonReturn));
     exit();
 }

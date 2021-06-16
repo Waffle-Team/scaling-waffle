@@ -1,5 +1,5 @@
 <?php
-include('../lib/esteganografia/decrypt_dbpass.php');
+include(dirname(__FILE__).'\decrypt_dbpass.php');
 
 function enig($msg, $src){
     $msg .='|'; //EOF sign, decided to use the pipe symbol to show our decrypter the end of the message

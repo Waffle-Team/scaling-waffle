@@ -1,8 +1,16 @@
 <?php
-require_once 'team_lib/functions.php';
-require_once 'team_lib/mail.php';
-require_once 'team_lib/filtro.php';
+require_once (dirname(__FILE__).'\team_lib\functions.php');
+require_once (dirname(__FILE__).'\team_lib\mail.php');
+require_once (dirname(__FILE__).'\team_lib\filtro.php');
 
+if( !isset($_POST['nome']) or 
+    !isset($_POST['sobrenome']) or 
+    !isset($_POST['email']) or 
+    !isset($_POST['apelido']) or 
+    !isset($_POST['telefone']) or 
+    !isset($_POST['senha'])){
+        exit();
+}
 
 
 

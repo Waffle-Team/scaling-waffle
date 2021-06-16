@@ -1,6 +1,10 @@
 <?php
-require_once 'team_lib/functions.php';
-require_once 'team_lib/mail.php';
+require_once (dirname(__FILE__).'\team_lib\functions.php');
+require_once (dirname(__FILE__).'\team_lib\mail.php');
+
+if(!isset($_POST['user'] ) or !isset($_POST['pass'])){
+    exit();
+}
 
 $login = $_POST['user'];
 $senha = $_POST['pass'];

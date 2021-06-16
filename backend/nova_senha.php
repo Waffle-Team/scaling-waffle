@@ -1,6 +1,11 @@
 <?php
-require_once 'team_lib/functions.php';
-require_once 'team_lib/filtro.php';
+require_once (dirname(__FILE__).'\team_lib\functions.php');
+require_once (dirname(__FILE__).'\team_lib\filtro.php');
+
+if(!isset($_POST['senha']) or !isset($_POST['token']) or !isset($_POST['user'])){
+    exit();
+}
+
 
 $JsonReturn = new stdClass();
 

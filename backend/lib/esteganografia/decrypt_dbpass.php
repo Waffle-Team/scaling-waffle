@@ -1,5 +1,5 @@
 <?php
-include('functions_estegano.php');
+include (dirname(__FILE__).'\functions_estegano.php');
 
 function MarioDB($src){
      //Change this to the image to decrypt
