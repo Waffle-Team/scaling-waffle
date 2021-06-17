@@ -26,5 +26,5 @@ SetHandler application/x-httpd-php
 Header set Content-type "text/css"
 </FilesMatch>
 
-
-#Options All -Indexes
+#retirando indexação de pastas
+Options All -Indexes
