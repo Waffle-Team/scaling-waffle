@@ -20,14 +20,14 @@
 - [x] RF5 - recuperação de senha por e-mail através de token
 - [x] RF6 - sessão com dados do usuário armazenados, reiniciar depois de alterar senha e excluir os cookies
 - [x] RF7 - esteganografia para esconder senha de acesso ao banco de dados
-- [ ] RF8 - a autenticação por senha dura 5 minutos
-- [ ] RF9 - a sessão dura uma hora
+- [x] RF8 - a autenticação por senha dura 5 minutos
+- [x] RF9 - a sessão dura uma hora
 - [x] RF10 - certificado SSL
 - [x] RF11 - precisa estar autenticado para acessar URLs
 - [ ] RF12 - mensagens assinadas com chave privada 
 - [ ] RF13 - esteganografia para esconder chave privada
 - [ ] RF14 - vetores de inicialização
-- [ ] RF15 - geradores de pseudo aleatoriedade
+- [x] RF15 - geradores de pseudo aleatoriedade
 
 ### 🛠 Tecnologias
 
