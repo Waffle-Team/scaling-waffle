@@ -32,6 +32,9 @@
 ### 🛠 Tecnologias
 
 - [PHPMailer](https://github.com/PHPMailer/PHPMailer)
+- [CryptoJS](https://cryptojs.gitbook.io/docs/)
+- [Bootstrap](https://github.com/twbs/bootstrap)
+- [Jquery](https://github.com/jquery/jquery)
 
 ## Integrantes
 
