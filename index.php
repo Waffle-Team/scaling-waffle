@@ -166,35 +166,35 @@
                         <h2>Equipe</h2>
                         <div class="row">
                             <div class="member col-12 col-md-3">
-                                <img src="./front-dependencies/assets/images/user-generic.png" alt="">
+                                <img src="https://avatars.githubusercontent.com/u/53221408?v=4" alt="">
                                 <p>Gustavo Schmidt</p>
                                 <div class="social-icons-member">
-                                    <img src="./front-dependencies/assets/images/github-brands.svg" alt="">
-                                    <img src="./front-dependencies/assets/images//linkedin-in-brands.svg" alt="">
+                                    <a target="_blank" href="https://github.com/GustaSchmidt"><img src="./front-dependencies/assets/images/github-brands.svg" alt=""></a>
+                                    <a target="_blank" href="https://www.linkedin.com/in/gusta-schmidt/"><img src="./front-dependencies/assets/images//linkedin-in-brands.svg" alt=""></a>
                                 </div>
                             </div>
                             <div class="member col-12 col-md-3">
-                                <img src="./front-dependencies/assets/images/user-generic.png" alt="">
+                                <img src="https://avatars.githubusercontent.com/u/51738019?v=4" alt="">
                                 <p>Gabriel Wesley</p>
                                 <div class="social-icons-member">
-                                    <img src="./front-dependencies/assets/images/github-brands.svg" alt="">
-                                    <img src="./front-dependencies/assets/images//linkedin-in-brands.svg" alt="">
+                                    <a target="_blank" href="https://github.com/Maideh"><img src="./front-dependencies/assets/images/github-brands.svg" alt=""></a>
+                                    <a target="_blank" href="https://www.linkedin.com/in/wesleyr/"><img src="./front-dependencies/assets/images//linkedin-in-brands.svg" alt=""></a>
                                 </div>
                             </div>
                             <div class="member col-12 col-md-3">
-                                <img src="./front-dependencies/assets/images/user-generic.png" alt="">
+                                <img src="https://avatars.githubusercontent.com/u/72232789?v=4" alt="">
                                 <p>Aleister Edward</p>
                                 <div class="social-icons-member">
-                                    <img src="./front-dependencies/assets/images/github-brands.svg" alt="">
-                                    <img src="./front-dependencies/assets/images//linkedin-in-brands.svg" alt="">
+                                    <a target="_blank" href="https://github.com/CriminalShrimp"><img src="./front-dependencies/assets/images/github-brands.svg" alt=""></a>
+                                    <a target="_blank" href="https://www.linkedin.com/in/aleister-lima-688197213/"><img src="./front-dependencies/assets/images//linkedin-in-brands.svg" alt=""></a>
                                 </div>
                             </div>
                             <div class="member col-12 col-md-3">
-                                <img src="./front-dependencies/assets/images/user-generic.png" alt="">
+                                <img src="https://avatars.githubusercontent.com/u/66442461?v=4" alt="">
                                 <p>Felipe Noleto</p>
                                 <div class="social-icons-member">
-                                    <img src="./front-dependencies/assets/images/github-brands.svg" alt="">
-                                    <img src="./front-dependencies/assets/images//linkedin-in-brands.svg" alt="">
+                                    <a target="_blank" href="https://github.com/Spl3F"><img src="./front-dependencies/assets/images/github-brands.svg" alt=""></a>
+                                    <a target="_blank" href="https://www.linkedin.com/in/felipe-noleto-461157215/"><img src="./front-dependencies/assets/images//linkedin-in-brands.svg" alt=""></a>
                                 </div>
                             </div>
                         </div>
