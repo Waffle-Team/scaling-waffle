@@ -16,5 +16,15 @@ $(document).ready(function() {
             open_menu = false;
         }
     });
+    $('#logout').click(function(){
+        var request = $.ajax({
+            url: "../backend/logout.php",
+            type: "post",
+            dataType: 'json',
+            data: '',
+            async: false
+        });
+        window.location = './';
+    });
 
 });
