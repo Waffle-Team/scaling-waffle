@@ -48,7 +48,7 @@
             </div>
         </section>
 
-        <section id="porque-usar">
+        <!-- <section id="porque-usar">
             <div class="container">
                 <div class="row">
                     <div class="col-4">
@@ -144,7 +144,7 @@
                     </div>
                 </div>
             </div>
-        </section>
+        </section> -->
 
         <footer>
             <div class="container">
