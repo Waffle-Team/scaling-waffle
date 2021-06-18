@@ -1,34 +1,112 @@
-### Pré-requisitos
-
-# Arquivos para checar
-
-##
-<h2 align="center">certificado-guia.txt</h2>
-> São os passos que seguimos para instalar o certificado
-> O certificado foi instalado no computador dos integrantes, e não está no reposítório, para setup seguir o passo a passo encontrado no guia.
 
 ##
 <h2 align="center">🚧 \backend\lib\esteganografia 🚧</h2>
-> Pasta da biblioteca de esteganografia que usamos para utilizar dessa técnica
-> Codigo foi alterado, para que fosse possivel utilizalo como uma função
-> Problemas encontrados no mesmo foi que, só é feito a alteração no byte refente a cor azul, impossibilitando a esteganografia de mensagens extensas
+Pasta da biblioteca de esteganografia que usamos para utilizar dessa técnica, codigo foi alterado, para que fosse possivel utilizalo como uma função, problemas encontrados no mesmo foi que, só é feito a alteração no byte refente a cor azul, impossibilitando a esteganografia de mensagens extensas
 
 ### Checklist
-- [x] RF1 - cadastro e senha forte
-- [x] RF2 - login e confirmação de cadastro
-- [x] RF3 - 2FA (sistema e e-mail)
-- [x] RF4 - hash para senha de usuário e token para autenticação por e-mail
-- [x] RF5 - recuperação de senha por e-mail através de token
-- [x] RF6 - sessão com dados do usuário armazenados, reiniciar depois de alterar senha e excluir os cookies
-- [x] RF7 - esteganografia para esconder senha de acesso ao banco de dados
-- [x] RF8 - a autenticação por senha dura 5 minutos
-- [x] RF9 - a sessão dura uma hora
-- [x] RF10 - certificado SSL
-- [x] RF11 - precisa estar autenticado para acessar URLs
-- [ ] RF12 - mensagens assinadas com chave publica 
-- [ ] RF13 - esteganografia para esconder chave privada
-- [ ] RF14 - vetores de inicialização pseudoaleatorios
-- [x] RF15 - geradores de pseudo aleatoriedade
+<details>
+<summary>:white_check_mark: RF1 - Cadastro e senha forte</summary>
+  <ul>
+     <li>Utilizamos um espaço de chave de 362.033.331.456.891.249 combinações</li>
+     <li>Para a verificação da senha foi utilizado expressões regulares</li>
+  </ul>
+</details>
+
+<details>
+<summary>:white_check_mark: RF2 - Login e confirmação de cadastro</summary>
+  <ul>
+     <li>Login-front utiliza hash-sha256, para proteger o transporte</li>
+     <li>Login-backend utiliza hash-sha256 como redundancia e salt, para fortalecer a senha do usuario</li>
+  </ul>
+</details>
+
+<details>
+<summary>:white_check_mark: RF3 - 2FA (sistema e e-mail)</summary>
+  <ul>
+    <li>O sistema reseta o token de o token inserido for o incorreto, e pede novamente a senha</li>
+  </ul>
+</details>
+
+<details>
+<summary>:white_check_mark: RF4 - Hash para senha de usuário e token para autenticação por e-mail</summary>
+  <ul>
+     <li>Sistema - autenticação por senha</li>
+     <li>E-mail - segundo fator usando um token aleatorio de espaço de chave 34.296.447.249</li>
+  </ul>
+</details>
+
+<details>
+<summary>:white_check_mark: RF5 - Recuperação de senha por e-mail através de token</summary>
+  <ul>
+    <li>Token gerado apartir de substrings dos dados do usuario na tabela do user</li>
+  </ul>
+</details>
+
+<details>
+<summary>:white_check_mark: RF6 - Sessão com dados do usuário armazenados, reiniciar depois de alterar senha e excluir os cookies</summary>
+  <ul>
+      <li>É feita a cada requisição no backend</li>
+      <li>Sessão é zerada após uma hora independende da atividade do usuario</li>
+  </ul>
+</details>
+
+<details>
+<summary>:white_check_mark: RF7 - Esteganografia para esconder senha de acesso ao banco de dados</summary>
+  <ul>
+     <li>Feita em imagem utilizando o phpGD, alterando o bit menos significativo relativo ao RGB (trabalhamos só com o blue)</li>
+  </ul>
+</details>
+
+<details>
+<summary>:white_check_mark: RF8 - A autenticação por senha dura 5 minutos</summary>
+  <ul>
+    <li>Feita somente com requisições ao end-poin /Logged/*</li>
+  </ul>
+</details>
+
+<details>
+<summary>:white_check_mark: RF9 - A sessão dura uma hora</summary>
+  <ul>
+    <li>Independente da atividade do usuario ele precisa de reautenticação apos uma hora de uso do sistema</li>
+  </ul>
+</details>
+
+<details>
+<summary>:white_check_mark: RF10 - Certificado SSL</summary>
+  <ul>
+     <li>São os passos que seguimos para instalar o certificado</li>
+     <li>O certificado foi instalado no computador dos integrantes, e não está no reposítório, para setup seguir o passo a passo encontrado no guia.</li>
+  </ul>
+</details>
+
+<details>
+<summary>:white_check_mark: RF11 - Precisa estar autenticado para acessar URLs</summary>
+    <ul>
+        <li>todas urls do end-point /Logged</li>
+    </ul>
+</details>
+
+<details>
+<summary>:white_check_mark: RF11 - Precisa estar autenticado para acessar URLs</summary>
+    <ul>
+        <li>todas urls do end-point /Logged</li>
+    </ul>
+</details>
+
+
+<p>:black_square_button: RF12 - mensagens assinadas com chave publica </p>
+
+<p>:black_square_button: RF13 - esteganografia para esconder chave privada </p>
+
+<p>:black_square_button: RF14 - vetores de inicialização pseudoaleatorios </p>
+
+
+<details>
+<summary>:white_check_mark: RF15 - Geradores de pseudo aleatoriedade</summary>
+  <ul>
+     <li>Utilizados na autenticação 2FA para gerar o token enviado ao e-mail</li>
+  </ul>
+</details>
 
 ### 🛠 Bibliotecas/Dependencias
 
