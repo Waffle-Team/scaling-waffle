@@ -87,13 +87,21 @@ Pasta da biblioteca de esteganografia que usamos para utilizar dessa técnica, c
 </details>
 
 <details>
-<summary>:white_check_mark: RF12 - mensagens assinadas com chave publica</summary>
+<summary>:black_square_button: RF12 - mensagens assinadas com chave publica</summary>
     <ul>
-        <li>todas urls do end-point /Logged</li>
+        <li>...</li>
     </ul>
 </details>
-<p>:black_square_button: RF13 - esteganografia para esconder chave privada </p>
-<p>:black_square_button: RF14 - vetores de inicialização pseudoaleatorios </p>
+<summary>:white_check_mark: RF13 - esteganografia para esconder chave privada</summary>
+    <ul>
+        <li>...</li>
+    </ul>
+</details>
+<summary>:black_square_button: RF14 - vetores de inicialização pseudoaleatoriosa</summary>
+    <ul>
+        <li>...</li>
+    </ul>
+</details>
 <details>
 <summary>:white_check_mark: RF15 - Geradores de pseudo aleatoriedade</summary>
   <ul>
