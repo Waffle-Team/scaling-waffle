@@ -1,7 +1,7 @@
 <?php
-    $resultado = fopen("resultado.txt", "w");
-    $script = fopen("script.txt", "r");
-    $codigo = fopen("saida.txt", "r");
+    $resultado = fopen("resultado.txt", "w"); //script com o codigo
+    $script = fopen("script.txt", "r"); //o script base
+    $codigo = fopen("saida.txt", "r"); //codigo decifrado
 
     
     $linhascodigo= count(file("saida.txt"));
