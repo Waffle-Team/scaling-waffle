@@ -108,8 +108,43 @@ Pasta da biblioteca de esteganografia que usamos para utilizar dessa técnica, c
   </ul>
 </details>
 
-### 🛠 Bibliotecas/Dependencias
+## Configurações apache (.htaccess)
+:new: Configurações apache para não listar diretorios
+```
+RewriteEngine on
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}\.php -f
+RewriteRule ^(.*)$ $1.php
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}\.html -f
+RewriteRule ^(.*)$ $1.html
+```
+:new: retirando indexação de pastas
+```
+Options All -Indexes
+```
+:new:Redirecionar em caso de erros 
+```
+ErrorDocument 400 /http_errors/400.html
+ErrorDocument 403 /http_errors/403.html
+ErrorDocument 404 /http_errors/404.html
+ErrorDocument 405 /http_errors/405.html
+ErrorDocument 408 /http_errors/408.html
+ErrorDocument 410 /http_errors/410.html
+ErrorDocument 500 /http_errors/500.html
+ErrorDocument 502 /http_errors/502.html
+ErrorDocument 503 /http_errors/503.html
+ErrorDocument 504 /http_errors/504.html
+```
+:new: Fazer o php interpretar arquivos .css (serve para futuramente gerar classes e id's aleatoriamente)
+```
+<FilesMatch "\.css$">
+SetHandler application/x-httpd-php
+Header set Content-type "text/css"
+</FilesMatch>
+```
 
+### 🛠 Bibliotecas/Dependencias
 - [PHPMailer](https://github.com/PHPMailer/PHPMailer)
 - [CryptoJS](https://cryptojs.gitbook.io/docs/)
 - [Bootstrap](https://github.com/twbs/bootstrap)
