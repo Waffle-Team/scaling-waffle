@@ -50,27 +50,17 @@ function hash(entrada){
 
 // Funções especificas
 function login_user(_login, _senha){
-    var userMatch;
     var password_hashed = hash(_senha);
     var data = {
         user: _login,
         pass: password_hashed
     }
-    var request = $.ajax({
-        url: "./backend/login.php",
-        type: "post",
-        dataType: 'json',
-        data: data,
-        async: false
-    });
 
-    //trabalhar com json
-    console.log(request.responseText);
-    userMatch = JSON.parse(request.responseText);
-    console.log(userMatch);
-    return userMatch;
+    var request = criptografiassimetrica(2, data);
+
+    return request;
+
 }
-
 
 function register_user(_nome, _sobrenome, _email, _apelido, _telefone, _senha){
     var password = hash(_senha);
@@ -83,25 +73,9 @@ function register_user(_nome, _sobrenome, _email, _apelido, _telefone, _senha){
         senha: password
     }
 
+    var request = criptografiassimetrica(1, userData);
 
-    var request = $.ajax({
-        url: "./backend/register.php",
-        type: "post",
-        dataType: 'json',
-        data: userData,
-        async: false
-    });
-    console.log(request.responseText);
-    var res_back = JSON.parse(request.responseText);
-
-    if(res_back.sucess){
-        window.location = './form-confirmado';
-        return true;
-    }else{
-        alert($res_back.erro_msg);
-        return false;
-    }
-
+    return request;
 
 }
 
@@ -119,7 +93,3 @@ function getUrlParameter(sParam) {
         }
     }
 }
-
-
-
-//Reset de seção com ajax

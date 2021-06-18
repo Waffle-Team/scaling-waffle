@@ -2,7 +2,7 @@
 require_once (dirname(__FILE__).'\team_lib\functions.php');
 
 
-if (!isset($_POST['codigo']) or isset($_POST['apelido'])) {
+if (!isset($_POST['codigo']) or !isset($_POST['apelido'])) {
     echo "post ou codigo não enviado";
     exit();
 }
@@ -11,7 +11,6 @@ if (!isset($_POST['codigo']) or isset($_POST['apelido'])) {
 $codigo = $_POST['codigo'];
 $apelido = $_POST['apelido'];
 $JsonReturn = new stdClass();
-
 
 $dados = pesquisaUsuario($apelido); //pega as informacoes na DB pelo functions.php a partir do apelido
 $chavedaconta = codigoverificacao($dados['nome'], $dados['sobrenome'], $dados['email'], $dados['telefone']); //recria o codigo a partir das informacoes
