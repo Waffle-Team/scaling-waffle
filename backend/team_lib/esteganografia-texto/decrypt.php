@@ -1,10 +1,10 @@
 <?php
-    $resultado = fopen("resultado.txt", "w"); //script com o codigo
+    $resultado = fopen("resultado.txt", "w"); //codigo decifrado
     $script = fopen("script.txt", "r"); //o script base
-    $codigo = fopen("saida.txt", "r"); //codigo decifrado
+    $codigo = fopen("saida.txt", "r"); //script com o codigo
 
     
-    $linhascodigo= count(file("saida.txt"));
+    $linhascodigo = count(file("saida.txt"));
 
     for ($i = 0; $i < $linhascodigo; $i++) {
         fwrite($resultado, substr(fgets($codigo), 0, 1));
