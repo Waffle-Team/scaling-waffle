@@ -2,28 +2,31 @@
 require_once (dirname(__FILE__).'\team_lib\functions.php');
 require_once (dirname(__FILE__).'\team_lib\mail.php');
 require_once (dirname(__FILE__).'\team_lib\filtro.php');
+require_once (dirname(__FILE__).'\team_lib\criptografia\descriptografar-assimetrica.php');
 
-if( !isset($_POST['nome']) or 
-    !isset($_POST['sobrenome']) or 
-    !isset($_POST['email']) or 
-    !isset($_POST['apelido']) or 
-    !isset($_POST['telefone']) or 
-    !isset($_POST['senha'])){
+$dadoscriptografados = $_POST["dados"];
+$chave = file_get_contents('team_lib/esteganografia-texto/resultado.txt');
+$dados = json_decode(descriptografar($dadoscriptografados, $chave));
+
+if( !isset($dados->nome) or 
+    !isset($dados->sobrenome) or 
+    !isset($dados->email) or 
+    !isset($dados->apelido) or 
+    !isset($dados->telefone) or 
+    !isset($dados->senha)){
         exit();
 }
-
 
 
 $valido = TRUE;
 
 
-$post_nome = $_POST['nome'];
-$post_sobrenome = $_POST['sobrenome'];
-$post_email = $_POST['email'];
-$post_apelido = $_POST['apelido'];
-$post_telefone = $_POST['telefone'];
-$post_senha = $_POST['senha'];
-
+$post_nome = $dados->nome;
+$post_sobrenome = $dados->sobrenome;
+$post_email = $dados->email;
+$post_apelido = $dados->apelido;
+$post_telefone = $dados->telefone;
+$post_senha = $dados->senha;
 
 
 $JsonReturn = new stdClass();

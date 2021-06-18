@@ -3,7 +3,6 @@
     $script = fopen("script.txt", "r"); //o script base
     $codigo = fopen("saida.txt", "r"); //script com o codigo
 
-    
     $linhascodigo = count(file("saida.txt"));
 
     for ($i = 0; $i < $linhascodigo; $i++) {
