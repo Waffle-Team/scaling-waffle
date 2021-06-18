@@ -3,10 +3,10 @@ require_once (dirname(__FILE__).'\team_lib\functions.php');
 require_once (dirname(__FILE__).'\team_lib\filtro.php');
 require_once (dirname(__FILE__).'\team_lib\mail.php');
 require_once (dirname(__FILE__).'\team_lib\criptografia\descriptografar-assimetrica.php');
+require_once (dirname(__FILE__).'\team_lib\esteganografia-texto\decrypt.php');
 
 $dadoscriptografados = $_POST["dados"];
-$chave = file_get_contents('team_lib/esteganografia-texto/resultado.txt');
-$dados = json_decode(descriptografar($dadoscriptografados, $chave));
+$chave = decifrar(fopen("team_lib/esteganografia-texto/saida.txt", "r"), fopen("team_lib/esteganografia-texto/resultado.txt", "w"), fopen("team_lib/esteganografia-texto/script.txt", "r"));$dados = json_decode(descriptografar($dadoscriptografados, $chave));
 
 
 

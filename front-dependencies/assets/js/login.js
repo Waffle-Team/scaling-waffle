@@ -3,14 +3,14 @@ $(document).ready(function() {
         var login_result;
         var user = $('#login').val();
         var pass = $('#senha').val();
-        // login_result = login_user(user, pass);
-        // //se deu boa
+        login_result = login_user(user, pass);
+        //se deu boa
 
-        // login_result = JSON.parse(login_result);
+        login_result = JSON.parse(login_result);
 
-        // console.log(login_result);
+        console.log(login_result);
 
-        // if(login_result.sucess){
+        if(login_result.sucess){
 
             // var senha = hash(pass);
             // var data = {
@@ -18,15 +18,15 @@ $(document).ready(function() {
             //     passe: senha
             // }
 
-            $informacoes = criptografarChaveSimetrica(user);
+            // $informacoes = criptografarChaveSimetrica(user);
 
-            var request = $.ajax({
-                url: "/backend/team_lib/criptografia/descriptografar-simetrica.php",
-                type: 'post',
-                data: {dados: $informacoes},
-                dataType: "json",
-                async: false
-            });
+            // var request = $.ajax({
+            //     url: "/backend/team_lib/criptografia/descriptografar-simetrica.php",
+            //     type: 'post',
+            //     data: {dados: $informacoes},
+            //     dataType: "json",
+            //     async: false
+            // });
 
             // console.log('responsetext : ' + request.responseText);
 
@@ -38,7 +38,6 @@ $(document).ready(function() {
             // else{
             //     //problemas
             // }
-
             //gerar chave secreta no criptografar-simetrica COM VETOR DE INICIALIZACAO e salve em um arquivo
             //mandar a chave secreta criptografada para descriptografar-simetrica
             //dentro do simetrica ele chama o outro
@@ -46,13 +45,9 @@ $(document).ready(function() {
             //return sucesso
             // ai sim ---> window.location = '/form-codigo';
 
-
-
-
-            // window.location = '/form-codigo';
-            // mudar para um elemento html no layout um texto vemelhão cai bem
-        // }else{
-        //     alert(login_result.msg);
-        // }
+            window.location = '/form-codigo';
+        }else{
+            alert(login_result.msg);
+        }
     });
 });
