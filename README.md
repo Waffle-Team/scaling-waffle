@@ -92,11 +92,13 @@ Pasta da biblioteca de esteganografia que usamos para utilizar dessa técnica, c
         <li>...</li>
     </ul>
 </details>
+<details>
 <summary>:white_check_mark: RF13 - esteganografia para esconder chave privada</summary>
     <ul>
         <li>...</li>
     </ul>
 </details>
+<details>
 <summary>:black_square_button: RF14 - vetores de inicialização pseudoaleatoriosa</summary>
     <ul>
         <li>...</li>
