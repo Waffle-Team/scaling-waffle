@@ -133,13 +133,26 @@ function handshake_status(){
     return request.responseText;
 }
 function negociate_handshake(){
-    var chave_secreta = sjcl.codec.hex.fromBits( sjcl.hash.sha256.hash( Math.random() * (2000 - 100) + 100));
+    var chave_secreta = sjcl.codec.hex.fromBits(sjcl.hash.sha256.hash( Math.random() * (2000 - 100) + 100));
 
-    console.log("chave_no_frot: "+chave_secreta);
+    console.log("chave_no_front: "+chave_secreta);
+
+    var pubkey_request = $.ajax({
+        url: "./backend/team_lib/_getPubKey.php",
+        async: false
+    });
+    var pubkey = pubkey_request.responseText;
+
+    console.log("pubkey resposta do servidor: \n"+pubkey);
+    var crip_simetrico = new JSEncrypt();
+    crip_simetrico.setKey(pubkey);
+
+    var chave_secreta_criptografada = crip_simetrico.encrypt(chave_secreta);
+    console.log("chave secreceta criptografada na publica front: \n"+chave_secreta_criptografada);
 
     var handshakeCall = {
         call: 'negociate',
-        key: chave_secreta
+        key: chave_secreta_criptografada
     }
     var request = $.ajax({
         url: "./backend/team_lib/_handshake.php",
@@ -148,11 +161,18 @@ function negociate_handshake(){
         data: handshakeCall,
         async: false
     });
-    console.log(request.responseText);
+    /*
+
+    TEMP
+
+    */
+    var chave_back = request.responseText;
+    console.log("Chave secreceta respondida do back: \n"+chave_back);
+
 }
 function handshake(){//handshake control
     var status = handshake_status();
-    console.log(status);
+    console.log("handshake status: \n"+status);
     status = JSON.parse(status);
     if(!status.status){
         negociate_handshake();

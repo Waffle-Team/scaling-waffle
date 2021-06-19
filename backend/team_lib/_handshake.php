@@ -8,7 +8,7 @@ class RSA_CRIPT{
 
     function __construct(){
         $this->privkey = fread(fopen('privateKey.pem', "r"),filesize("privateKey.pem"));
-        $this->pubkey =fread(fopen('publicKey.pem', "r"),filesize("publicKey.pem"));
+        $this->pubkey = fread(fopen('publicKey.pem', "r"),filesize("publicKey.pem"));
     }
 
 
@@ -46,18 +46,26 @@ class RSA_CRIPT{
 
 function handshake(){//handshake controler
     $JsonReturn = new stdClass();
-    $crip_assimetrico = new RSA_CRIPT();
+
+    /*
+    temp start
+    */
     $_SESSION['handshake'] = FALSE;//chumbo
+    /*
+    temp end
+    */
     $_SESSION['handshake_time'] = time();
     $call = $_POST['call'];//sanitizar o post call
-
     switch ($call) {
         case 'status':
             $JsonReturn->status = $_SESSION['handshake'];
             break;
         case 'negociate':
             $secret_key = $_POST['key'];//sanitizar
-            $_SESSION['AES_key'] = $secret_key;
+            $_SESSION['AES_key'] = $secret_key;//poderia ser guardado no banco de dados, mas devido ao dinamismo me recuso
+            $cripher_RSA = new RSA_CRIPT();
+            $secret_key = $cripher_RSA->decrypt($secret_key);
+
             $JsonReturn->chave_no_back = $secret_key;
             break;
         default:
@@ -72,10 +80,8 @@ _DISABLED = 0
 _NONE = 1
 _ACTIVE = 2
 */
-$crip_assimetrico = new RSA_CRIPT();
 $JsonReturn = new stdClass();
 $status = session_status();
-
 if($status == 0){//Servidor apache mal configurado
     $JsonReturn->sucess = FALSE;
     $JsonReturn->msg = "As funções de seção estão desativadas no servidor";
