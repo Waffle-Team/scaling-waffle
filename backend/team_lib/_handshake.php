@@ -92,6 +92,7 @@ _DISABLED = 0
 _NONE = 1
 _ACTIVE = 2
 */
+
 $JsonReturn = new stdClass();
 $status = session_status();
 if($status == 0){//Servidor apache mal configurado
@@ -99,9 +100,11 @@ if($status == 0){//Servidor apache mal configurado
     $JsonReturn->msg = "As funções de seção estão desativadas no servidor";
 }elseif ($status == 1){//Sessão não foi inicializada no arquivo, iniciar seção e inicirar handshake
     session_start();
+    $_SESSION['handshake'] = false;
     handshake();
 }else{//Sesão ativa e pronta para iniciar o processo de negociação de chave
     handshake();
+
 
 }
 

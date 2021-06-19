@@ -162,9 +162,13 @@ function negociate_handshake(){
         async: false
     });
 
-    var chave_back = request.responseText;
-    console.log("negocite resposta: \n"+chave_back);
 
+    //salvar chave nos cookies
+    var chave_back = JSON.parse(request.responseText);
+    if(chave_back.sucess){
+        sessionStorage.setItem('handshake_key', chave_secreta);
+        console.log("chave aceita: " + sessionStorage.getItem('handshake_key'));
+    }
 }
 function handshake(){//handshake control
     var status = handshake_status();
