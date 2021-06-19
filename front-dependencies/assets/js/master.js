@@ -135,7 +135,7 @@ function handshake_status(){
 function negociate_handshake(){
     var chave_secreta = sjcl.codec.hex.fromBits(sjcl.hash.sha256.hash( Math.random() * (2000 - 100) + 100));
 
-    console.log("chave_no_front: "+chave_secreta);
+    console.log("chave_no_front: \n"+chave_secreta);
 
     var pubkey_request = $.ajax({
         url: "./backend/team_lib/_getPubKey.php",
@@ -161,13 +161,9 @@ function negociate_handshake(){
         data: handshakeCall,
         async: false
     });
-    /*
 
-    TEMP
-
-    */
     var chave_back = request.responseText;
-    console.log("Chave secreceta respondida do back: \n"+chave_back);
+    console.log("negocite resposta: \n"+chave_back);
 
 }
 function handshake(){//handshake control

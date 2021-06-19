@@ -47,29 +47,41 @@ class RSA_CRIPT{
 function handshake(){//handshake controler
     $JsonReturn = new stdClass();
 
-    /*
-    temp start
-    */
-    $_SESSION['handshake'] = FALSE;//chumbo
-    /*
-    temp end
-    */
-    $_SESSION['handshake_time'] = time();
+
     $call = $_POST['call'];//sanitizar o post call
     switch ($call) {
         case 'status':
             $JsonReturn->status = $_SESSION['handshake'];
+            /*
+            temp start
+            */
+            $JsonReturn->key = $_SESSION['AES_key'];
+            /*
+            temp end
+            */
+            if($_SESSION['handshake_time'] >= time() + 3600){//pede a troca de chave a cada 1hr de uso da chave simetrica
+                $_SESSION['handshake'] = FALSE;
+            }
+            $JsonReturn->sucess = TRUE;
+            $JsonReturn->msg = "";
             break;
         case 'negociate':
-            $secret_key = $_POST['key'];//sanitizar
-            $_SESSION['AES_key'] = $secret_key;//poderia ser guardado no banco de dados, mas devido ao dinamismo me recuso
-            $cripher_RSA = new RSA_CRIPT();
+            $_SESSION['handshake_time'] = time();//seta momento de negociação de uma chave
+            $secret_key = $_POST['key'];// IDEA: sanitizar post
+
+            $_SESSION['AES_key'] = $secret_key;//seta chave na seção do usuario
+
+            $cripher_RSA = new RSA_CRIPT();//decripta chave simetrica que o usuario deseja usar para comunicação
             $secret_key = $cripher_RSA->decrypt($secret_key);
 
-            $JsonReturn->chave_no_back = $secret_key;
+            $_SESSION['handshake'] = TRUE;//seta flag de handshake
+
+            $JsonReturn->sucess = TRUE;
+            $JsonReturn->msg = "";
             break;
         default:
-            echo "call status invalida";
+            $JsonReturn->sucess = FALSE;
+            $JsonReturn->msg = "call status invalida";
             break;
     }
     print(json_encode($JsonReturn));
@@ -90,6 +102,7 @@ if($status == 0){//Servidor apache mal configurado
     handshake();
 }else{//Sesão ativa e pronta para iniciar o processo de negociação de chave
     handshake();
+
 }
 
 
