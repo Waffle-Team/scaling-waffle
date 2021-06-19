@@ -18,7 +18,7 @@ function emaildeverificacao($mensagem, $email){
     $mail->SMTPAuth = "true";
     $mail->SMTPSecure = 'tls';
     $mail->Username   = 'scalingwaffle@gmail.com';
-    $mail->Password   = MarioDB(dirname(__FILE__).'\esteganografia\cremosinho.png');
+    $mail->Password   = MarioDB(dirname(__FILE__).'\..\lib\esteganografia\cremosinho.png');
     $mail->Subject = "Verificação da conta Waffle";
     $mail->setFrom("scalingwaffle@gmail.com");
     $mail->isHTML(true);
@@ -45,7 +45,7 @@ function email_2fa($mensagem, $email){
     $mail->SMTPAuth = "true";
     $mail->SMTPSecure = 'tls';
     $mail->Username   = 'scalingwaffle@gmail.com';
-    $mail->Password   = MarioDB(dirname(__FILE__).'\esteganografia\cremosinho.png');
+    $mail->Password   = MarioDB(dirname(__FILE__).'\..\lib\esteganografia\cremosinho.png');
     $mail->Subject = "Codigo de Verificação waffle";
     $mail->setFrom("scalingwaffle@gmail.com");
     $mail->isHTML(true);
@@ -72,7 +72,7 @@ function email_rec($mensagem, $email){
     $mail->SMTPAuth = "true";
     $mail->SMTPSecure = 'tls';
     $mail->Username   = 'scalingwaffle@gmail.com';
-    $mail->Password   = MarioDB(dirname(__FILE__).'\esteganografia\cremosinho.png');
+    $mail->Password   = MarioDB(dirname(__FILE__).'\..\lib\esteganografia\cremosinho.png');
     $mail->Subject = "Recuperação de senha";
     $mail->setFrom("scalingwaffle@gmail.com");
     $mail->isHTML(true);

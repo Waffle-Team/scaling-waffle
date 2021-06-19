@@ -105,23 +105,17 @@ $(document).ready(function(){
             valid_inputs = false;
         }
 
-        var return_registro;
-
         //chama função do master para registrar usuario, se todos inputs forem validos
         if (valid_inputs){
-            return_registro = register_user(nome, sobrenome, email, apelido, telefone, senha);
+            var return_registro = register_user(nome, sobrenome, email, apelido, telefone, senha);
         }
 
-        return_registro = JSON.parse(return_registro);
-
-        console.log(return_registro);
-
-        if(return_registro.sucess){
+        if(return_registro){
             console.log('Usuario registrado temporariamente');
             window.location = '/form-confirmar.html';
 
-        }else{
-            alert(return_registro.erro_msg);
+        }else if (return_registro == false) {
+            console.log("Os inputs do usuario não são validos");
         }
     });
 

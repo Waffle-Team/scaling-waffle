@@ -2,15 +2,8 @@
 require_once (dirname(__FILE__).'\team_lib\functions.php');
 require_once (dirname(__FILE__).'\team_lib\filtro.php');
 require_once (dirname(__FILE__).'\team_lib\mail.php');
-require_once (dirname(__FILE__).'\team_lib\criptografia\descriptografar-assimetrica.php');
-require_once (dirname(__FILE__).'\team_lib\esteganografia-texto\decrypt.php');
 
-$dadoscriptografados = $_POST["dados"];
-$chave = decifrar(fopen("team_lib/esteganografia-texto/saida.txt", "r"), fopen("team_lib/esteganografia-texto/resultado.txt", "w"), fopen("team_lib/esteganografia-texto/script.txt", "r"));$dados = json_decode(descriptografar($dadoscriptografados, $chave));
-
-
-
-if(!isset($dados->login)){
+if(!isset($_POST['login'])){
     echo "post_login_invalido";
     exit();
 }
@@ -19,7 +12,7 @@ if(!isset($dados->login)){
 $JsonReturn = new stdClass();
 
 
-$mail_apelido = validar_texto($dados->login);
+$mail_apelido = validar_texto($_POST['login']);
 $user_data = pesquisaUsuario($mail_apelido);
 
 //gerer token
