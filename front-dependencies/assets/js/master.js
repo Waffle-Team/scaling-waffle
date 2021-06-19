@@ -40,7 +40,6 @@ function validaTelefone(telefone){
         return false;
     }
 }
-
 function hash(entrada){
     var hash = sjcl.hash.sha256.hash(entrada);
     var hashHex = sjcl.codec.hex.fromBits(hash);
@@ -120,6 +119,45 @@ function getUrlParameter(sParam) {
     }
 }
 
+function handshake_status(){
+    var handshakeCall = {
+        call: 'status'
+    }
+    var request = $.ajax({
+        url: "./backend/team_lib/_handshake.php",
+        type: "post",
+        dataType: 'json',
+        data: handshakeCall,
+        async: false
+    });
+    return request.responseText;
+}
+function negociate_handshake(){
+    var chave_secreta = sjcl.codec.hex.fromBits( sjcl.hash.sha256.hash( Math.random() * (2000 - 100) + 100));
 
+    console.log("chave_no_frot: "+chave_secreta);
 
+    var handshakeCall = {
+        call: 'negociate',
+        key: chave_secreta
+    }
+    var request = $.ajax({
+        url: "./backend/team_lib/_handshake.php",
+        type: "post",
+        dataType: 'json',
+        data: handshakeCall,
+        async: false
+    });
+    console.log(request.responseText);
+}
+function handshake(){//handshake control
+    var status = handshake_status();
+    console.log(status);
+    status = JSON.parse(status);
+    if(!status.status){
+        negociate_handshake();
+    }
+
+}
+handshake();
 //Reset de seção com ajax

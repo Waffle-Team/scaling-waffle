@@ -1,16 +1,19 @@
 <?php
 require_once (dirname(__FILE__).'\team_lib\functions.php');
 
+$JsonReturn = new stdClass();
 
-if (!isset($_POST['codigo']) or isset($_POST['apelido'])) {
-    echo "post ou codigo não enviado";
+if (!isset($_POST['codigo']) or !isset($_POST['apelido'])) {
+    $JsonReturn->sucess = FALSE;
+    $JsonReturn->msg = 'Link de verificação invalido';
+    print(json_encode($JsonReturn));//retorno
     exit();
 }
 
 // pega as duas variaveis da url
 $codigo = $_POST['codigo'];
 $apelido = $_POST['apelido'];
-$JsonReturn = new stdClass();
+
 
 
 $dados = pesquisaUsuario($apelido); //pega as informacoes na DB pelo functions.php a partir do apelido
@@ -24,7 +27,7 @@ if ($chavedaconta == $codigo) {
     exit();
 }else{
     $JsonReturn->sucess = FALSE;
-    $JsonReturn->msg = 'Não foi possivel verificar conta';
+    $JsonReturn->msg = 'Codigo de verificação invalido';
     print(json_encode($JsonReturn));//retorno
     exit();
 }
