@@ -7,6 +7,7 @@ class RSA_CRIPT{
     private $privkey;
 
     function __construct(){
+        //implementar gerenciamento de segredos
         $this->privkey = fread(fopen('privateKey.pem', "r"),filesize("privateKey.pem"));
         $this->pubkey = fread(fopen('publicKey.pem', "r"),filesize("publicKey.pem"));
     }
@@ -100,16 +101,9 @@ if($status == 0){//Servidor apache mal configurado
     $JsonReturn->msg = "As funções de seção estão desativadas no servidor";
 }elseif ($status == 1){//Sessão não foi inicializada no arquivo, iniciar seção e inicirar handshake
     session_start();
-    $_SESSION['handshake'] = false;
     handshake();
 }else{//Sesão ativa e pronta para iniciar o processo de negociação de chave
     handshake();
-
-
 }
-
-
-
-
 
 ?>

@@ -1,3 +1,27 @@
+//cookies function
+function setCookie(cname, cvalue, exdays) {
+    var d = new Date();
+    d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+    var expires = "expires="+d.toUTCString();
+    document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+}
+
+function getCookie(cname) {
+    var name = cname + "=";
+    var ca = document.cookie.split(';');
+    for(var i = 0; i < ca.length; i++){
+        var c = ca[i];
+        while (c.charAt(0) == ' '){
+            c = c.substring(1);
+        }if (c.indexOf(name) == 0){
+            return c.substring(name.length, c.length);
+        }
+    }
+    return "";
+}
+
+
+
 // funções de uso geral
 function validaSenha(senha){
 
@@ -166,8 +190,14 @@ function negociate_handshake(){
     //salvar chave nos cookies
     var chave_back = JSON.parse(request.responseText);
     if(chave_back.sucess){
-        sessionStorage.setItem('handshake_key', chave_secreta);
-        console.log("chave aceita: " + sessionStorage.getItem('handshake_key'));
+        setCookie('handshake_key', chave_secreta);
+        /*
+        temp start
+        */
+        console.log("chave aceita: " + getCookie('handshake_key'));
+        /*
+        temp end
+        */
     }
 }
 function handshake(){//handshake control
@@ -180,4 +210,11 @@ function handshake(){//handshake control
 
 }
 handshake();
+/*
+temp start
+*/
+console.log("chave aceita: " + getCookie('handshake_key'));
+/*
+temp end
+*/
 //Reset de seção com ajax
