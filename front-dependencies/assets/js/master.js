@@ -148,7 +148,7 @@ function handshake_status(){
         call: 'status'
     }
     var request = $.ajax({
-        url: "./backend/team_lib/_handshake.php",
+        url: "http://"+location.hostname+"/backend/team_lib/_handshake.php",
         type: "post",
         dataType: 'json',
         data: handshakeCall,
@@ -162,7 +162,7 @@ function negociate_handshake(){
     console.log("chave_no_front: \n"+chave_secreta);
 
     var pubkey_request = $.ajax({
-        url: "./backend/team_lib/_getPubKey.php",
+        url: "http://"+location.hostname+"/backend/team_lib/_getPubKey.php",
         async: false
     });
     var pubkey = pubkey_request.responseText;
@@ -179,7 +179,7 @@ function negociate_handshake(){
         key: chave_secreta_criptografada
     }
     var request = $.ajax({
-        url: "./backend/team_lib/_handshake.php",
+        url: "http://"+location.hostname+"/backend/team_lib/_handshake.php",
         type: "post",
         dataType: 'json',
         data: handshakeCall,
@@ -198,6 +198,9 @@ function negociate_handshake(){
         /*
         temp end
         */
+    }else{
+        console.log("chave recusada");
+        alert("A chave AES foi recusada pelo servidor");
     }
 }
 function handshake(){//handshake control
@@ -210,11 +213,5 @@ function handshake(){//handshake control
 
 }
 handshake();
-/*
-temp start
-*/
-console.log("chave aceita: " + getCookie('handshake_key'));
-/*
-temp end
-*/
+
 //Reset de seção com ajax

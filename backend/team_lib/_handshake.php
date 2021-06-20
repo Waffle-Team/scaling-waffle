@@ -1,7 +1,16 @@
 <?php
-require_once (dirname(__FILE__).'\functions.php');
 
+class AES_CRIPT{
+    private $secret_key;
 
+    public function encrypt(){
+
+    }
+    public function decrypt(){
+
+    }
+
+}
 class RSA_CRIPT{
     private $pubkey;
     private $privkey;
@@ -11,7 +20,6 @@ class RSA_CRIPT{
         $this->privkey = fread(fopen('privateKey.pem', "r"),filesize("privateKey.pem"));
         $this->pubkey = fread(fopen('publicKey.pem', "r"),filesize("publicKey.pem"));
     }
-
 
     public function getPubKey(){
         return $this->pubkey;
@@ -101,8 +109,26 @@ if($status == 0){//Servidor apache mal configurado
     $JsonReturn->msg = "As funções de seção estão desativadas no servidor";
 }elseif ($status == 1){//Sessão não foi inicializada no arquivo, iniciar seção e inicirar handshake
     session_start();
+    if(!isset($_SESSION['handshake'])){
+        $_SESSION['handshake'] = FALSE;
+    }
+    if(!isset($_SESSION['AES_key'])){
+        $_SESSION['AES_key'] = FALSE;
+    }
+    if(!isset($_SESSION['handshake_time'])){
+        $_SESSION['AES_key'] = FALSE;
+    }
     handshake();
 }else{//Sesão ativa e pronta para iniciar o processo de negociação de chave
+    if(!isset($_SESSION['handshake'])){
+        $_SESSION['handshake'] = FALSE;
+    }
+    if(!isset($_SESSION['AES_key'])){
+        $_SESSION['AES_key'] = FALSE;
+    }
+    if(!isset($_SESSION['handshake_time'])){
+        $_SESSION['AES_key'] = FALSE;
+    }
     handshake();
 }
 
