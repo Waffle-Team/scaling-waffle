@@ -116,7 +116,7 @@ if($status == 0){//Servidor apache mal configurado
         $_SESSION['AES_key'] = FALSE;
     }
     if(!isset($_SESSION['handshake_time'])){
-        $_SESSION['AES_key'] = FALSE;
+        $_SESSION['handshake_time'] = FALSE;
     }
     handshake();
 }else{//Sesão ativa e pronta para iniciar o processo de negociação de chave
@@ -127,7 +127,7 @@ if($status == 0){//Servidor apache mal configurado
         $_SESSION['AES_key'] = FALSE;
     }
     if(!isset($_SESSION['handshake_time'])){
-        $_SESSION['AES_key'] = FALSE;
+        $_SESSION['handshake_time'] = FALSE;
     }
     handshake();
 }
