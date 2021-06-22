@@ -27,4 +27,4 @@ Header set Content-type "text/css"
 </FilesMatch>
 
 #retirando indexação de pastas
-Options All -Indexes
+#Options All -Indexes

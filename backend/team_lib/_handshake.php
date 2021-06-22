@@ -1,13 +1,28 @@
 <?php
-
+// DEBUG: dev here
 class AES_CRIPT{
     private $secret_key;
+    private $iv;
 
-    public function encrypt(){
-
+    function __construct(){
+        if(!isset($_SESSION['AES_key'])){
+            throw new Exception('$_SESSION["AES_key"] não existe');
+        }
+        if(!isset($_SESSION['AES_iv'])){
+            throw new Exception('$_SESSION["AES_iv"] não existe');
+        }
+        $this->secret_key = $_SESSION['AES_key'];
+        $this->secret_key = $_SESSION['AES_iv'];
     }
-    public function decrypt(){
 
+    public function encrypt($value){
+        $encrypted_data = openssl_encrypt($value, 'aes-256-cbc', $this->secret_key, OPENSSL_RAW_DATA, $this->iv);
+        return base64_encode($encrypted_data);
+    }
+    public function decrypt($value){
+        $value = base64_decode($value);
+        $data = openssl_decrypt($value, 'aes-256-cbc', $this->secret_key, OPENSSL_RAW_DATA, $this->iv);
+        return $data;
     }
 
 }
@@ -64,7 +79,7 @@ function handshake(){//handshake controler
             /*
             temp start
             */
-            $JsonReturn->key = $_SESSION['AES_key'];
+                            //$JsonReturn->key = $_SESSION['AES_key'];
             /*
             temp end
             */
@@ -76,13 +91,16 @@ function handshake(){//handshake controler
             break;
         case 'negociate':
             $_SESSION['handshake_time'] = time();//seta momento de negociação de uma chave
-            $secret_key = $_POST['key'];// IDEA: sanitizar post
+            // IDEA: sanitizar posts
+            $secret_key = $_POST['key'];
+            $iv = $_POST['iv'];
 
-            $_SESSION['AES_key'] = $secret_key;//seta chave na seção do usuario
 
             $cripher_RSA = new RSA_CRIPT();//decripta chave simetrica que o usuario deseja usar para comunicação
             $secret_key = $cripher_RSA->decrypt($secret_key);
 
+            $_SESSION['AES_key'] = $secret_key;//seta chave na seção do usuario
+            $_SESSION['AES_iv'] = $iv;
             $_SESSION['handshake'] = TRUE;//seta flag de handshake
 
             $JsonReturn->sucess = TRUE;
@@ -96,11 +114,13 @@ function handshake(){//handshake controler
     print(json_encode($JsonReturn));
 }
 /*
-//session_status retornos possiveis
-_DISABLED = 0
-_NONE = 1
-_ACTIVE = 2
+    #session_status retornos possiveis#
+    _DISABLED = 0
+    _NONE = 1
+    _ACTIVE = 2
 */
+
+$_SESSION['handshake'] = FALSE;
 
 $JsonReturn = new stdClass();
 $status = session_status();

@@ -157,10 +157,21 @@ function handshake_status(){
     return request.responseText;
 }
 function negociate_handshake(){
-    var chave_secreta = sjcl.codec.hex.fromBits(sjcl.hash.sha256.hash( Math.random() * (2000 - 100) + 100));
+    //gerando chave AES e vetor de inicialização
+    var chave_secreta = sjcl.codec.hex.fromBits(sjcl.hash.sha256.hash(Math.random() * (2000 - 100) + 100));
+    var iv = sjcl.codec.hex.fromBits(sjcl.hash.sha256.hash(Math.random() * (200 - 10) + 10));
 
-    console.log("chave_no_front: \n"+chave_secreta);
+    //substrings para deixar chaver de tamnho compativel com AES-256
+    chave_secreta = chave_secreta.substring(0, 22);
+    iv = iv.substring(0, 22);
+    chave_secreta = CryptoJS.enc.Base64.parse(chave_secreta);
+    iv = CryptoJS.enc.Base64.parse(iv);
 
+
+    console.log("chave_tentativa: \n" + chave_secreta);
+    console.log("iv_tentativa: \n" + iv);
+
+    //request da chave publica
     var pubkey_request = $.ajax({
         url: "http://"+location.hostname+"/backend/team_lib/_getPubKey.php",
         async: false
@@ -168,15 +179,18 @@ function negociate_handshake(){
     var pubkey = pubkey_request.responseText;
 
     console.log("pubkey resposta do servidor: \n"+pubkey);
-    var crip_simetrico = new JSEncrypt();
-    crip_simetrico.setKey(pubkey);
+    var crip_asimetrico = new JSEncrypt();
+    crip_asimetrico.setKey(pubkey);
 
-    var chave_secreta_criptografada = crip_simetrico.encrypt(chave_secreta);
+    var iv_criptografado = crip_asimetrico.encrypt(chave_secreta);
+    var chave_secreta_criptografada = crip_asimetrico.encrypt(chave_secreta);
     console.log("chave secreceta criptografada na publica front: \n"+chave_secreta_criptografada);
+    console.log("iv criptografada na publica front: \n"+chave_secreta_criptografada);
 
     var handshakeCall = {
         call: 'negociate',
-        key: chave_secreta_criptografada
+        key: chave_secreta_criptografada,
+        iv: iv_criptografado
     }
     var request = $.ajax({
         url: "http://"+location.hostname+"/backend/team_lib/_handshake.php",
@@ -191,10 +205,13 @@ function negociate_handshake(){
     var chave_back = JSON.parse(request.responseText);
     if(chave_back.sucess){
         setCookie('handshake_key', chave_secreta);
+        setCookie('handshake_iv', chave_secreta);
         /*
         temp start
         */
         console.log("chave aceita: " + getCookie('handshake_key'));
+        console.log("iv aceito: " + getCookie('handshake_iv'));
+
         /*
         temp end
         */
@@ -205,13 +222,27 @@ function negociate_handshake(){
 }
 function handshake(){//handshake control
     var status = handshake_status();
-    console.log("handshake status: \n"+status);
+    console.table("handshake status: \n"+status);
     status = JSON.parse(status);
     if(!status.status){
         negociate_handshake();
     }
 
 }
-handshake();
+$(document).ready(function(){
+    handshake();
+});
 
-//Reset de seção com ajax
+//classes
+class AesCript{
+    constructor(){
+        this.key = getCookie('handshake_key');
+        this.iv = getCookie('handshake_iv');
+    }
+    encrypt(mensage){
+        return CryptoJS.AES.encrypt(mensage, this.key, { iv: this.iv });
+    }
+    decrypt(mensage){
+        return CryptoJS.AES.decrypt(cipherData, key, { iv: iv });
+    }
+}

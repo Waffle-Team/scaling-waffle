@@ -22,8 +22,11 @@ if (!$_SESSION){
 		<title>MFA</title>
 
 		<!-- libs -->
-		<script type="text/javascript" src="./front-dependencies/lib/jquery/jquery-3.6.0.min.js"></script>
+        <script type="text/javascript" src="./front-dependencies/lib/jquery/jquery-3.6.0.min.js"></script>
 		<link rel="stylesheet" href="./front-dependencies/lib/bootstrap/css/bootstrap.min.css">
+		<script type="text/javascript" src="./front-dependencies/lib/CryptoSJCl/sjcl.js"></script>
+		<script type="text/javascript" src="./front-dependencies/lib/CryptoJS/crypto-js.min.js"></script>
+		<script type="text/javascript" src="./front-dependencies/lib/JSencrypt/jsencrypt.min.js"></script>
 		<script type="text/javascript" src="./front-dependencies/assets/js/master.js"></script>
 
 		<!-- assets -->
