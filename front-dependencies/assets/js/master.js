@@ -162,10 +162,8 @@ function negociate_handshake(){
     var iv = sjcl.codec.hex.fromBits(sjcl.hash.sha256.hash(Math.random() * (200 - 10) + 10));
 
     //substrings para deixar chaver de tamnho compativel com AES-256
-    chave_secreta = chave_secreta.substring(0, 22);
-    iv = iv.substring(0, 22);
-    chave_secreta = CryptoJS.enc.Base64.parse(chave_secreta);
-    iv = CryptoJS.enc.Base64.parse(iv);
+    chave_secreta = chave_secreta.substring(0, 64);
+    iv = iv.substring(0, 32);
 
 
     console.log("chave_tentativa: \n" + chave_secreta);
@@ -184,8 +182,8 @@ function negociate_handshake(){
 
     var iv_criptografado = crip_asimetrico.encrypt(chave_secreta);
     var chave_secreta_criptografada = crip_asimetrico.encrypt(chave_secreta);
-    console.log("chave secreceta criptografada na publica front: \n"+chave_secreta_criptografada);
-    console.log("iv criptografada na publica front: \n"+chave_secreta_criptografada);
+    console.log("chave secreceta criptografada na publica front: \n"+ chave_secreta_criptografada);
+    console.log("iv criptografada na publica front: \n"+ iv_criptografado);
 
     var handshakeCall = {
         call: 'negociate',
@@ -205,7 +203,7 @@ function negociate_handshake(){
     var chave_back = JSON.parse(request.responseText);
     if(chave_back.sucess){
         setCookie('handshake_key', chave_secreta);
-        setCookie('handshake_iv', chave_secreta);
+        setCookie('handshake_iv', iv);
         /*
         temp start
         */
@@ -229,9 +227,7 @@ function handshake(){//handshake control
     }
 
 }
-$(document).ready(function(){
-    handshake();
-});
+
 
 //classes
 class AesCript{
@@ -240,9 +236,23 @@ class AesCript{
         this.iv = getCookie('handshake_iv');
     }
     encrypt(mensage){
-        return CryptoJS.AES.encrypt(mensage, this.key, { iv: this.iv });
+        return CryptoJS.AES.encrypt(mensage, this.key,{
+            iv: this.iv,
+            padding: CryptoJS.pad.Pkcs7,
+            mode: CryptoJS.mode.CBC
+
+        }).toString();
     }
     decrypt(mensage){
-        return CryptoJS.AES.decrypt(cipherData, key, { iv: iv });
+        return CryptoJS.AES.decrypt(mensage, this.key,{
+            iv: this.iv,
+            padding: CryptoJS.pad.Pkcs7,
+            mode: CryptoJS.mode.CBC
+
+        }).toString(CryptoJS.enc.Utf8);
     }
 }
+$(document).ready(function(){
+    handshake();
+    
+});
