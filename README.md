@@ -87,7 +87,7 @@ Pasta da biblioteca de esteganografia que usamos para utilizar dessa técnica, c
 </details>
 
 <details>
-<summary>:black_square_button: RF12 - mensagens assinadas com chave publica</summary>
+<summary>:white_check_mark: RF12 - mensagens assinadas com chave publica</summary>
     <ul>
         <li>...</li>
     </ul>
@@ -99,7 +99,7 @@ Pasta da biblioteca de esteganografia que usamos para utilizar dessa técnica, c
     </ul>
 </details>
 <details>
-<summary>:black_square_button: RF14 - vetores de inicialização pseudoaleatoriosa</summary>
+<summary>:white_check_mark: RF14 - vetores de inicialização pseudoaleatoriosa</summary>
     <ul>
         <li>...</li>
     </ul>
