@@ -48,8 +48,8 @@ function handshake(){//handshake controler
 */
 
 //temp start
-    //session_start();
-    //session_destroy();
+    // session_start();
+    // session_destroy();
 //temp end
 
 $JsonReturn = new stdClass();

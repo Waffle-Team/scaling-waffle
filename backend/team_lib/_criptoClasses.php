@@ -12,13 +12,10 @@ class AES_CRIPT{
     }
 
     public function encrypt($value){
-        $encrypted_data = openssl_encrypt($value, 'aes-256-cbc', $_SESSION['AES_key'], OPENSSL_RAW_DATA, $_SESSION['AES_iv']);
-        return base64_encode($encrypted_data);
+        return openssl_encrypt($value, "aes-256-cbc", $_SESSION['AES_key'], 0, $_SESSION['AES_iv']);
     }
     public function decrypt($value){
-        $value = base64_decode($value);
-        $data = openssl_decrypt($value, 'aes-256-cbc', $_SESSION['AES_key'], OPENSSL_RAW_DATA, $_SESSION['AES_iv']);
-        return $data;
+        return openssl_decrypt($value, "aes-256-cbc", $_SESSION['AES_key'], 0, $_SESSION['AES_iv']);
     }
 
 }

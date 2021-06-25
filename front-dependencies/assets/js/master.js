@@ -159,11 +159,11 @@ function handshake_status(){
 function negociate_handshake(){
     //gerando chave AES e vetor de inicialização
     var chave_secreta = sjcl.codec.hex.fromBits(sjcl.hash.sha256.hash(Math.random() * (2000 - 100) + 100));
-    var iv = sjcl.codec.hex.fromBits(sjcl.hash.sha256.hash(Math.random() * (200 - 10) + 10));
+    var iv = sjcl.codec.hex.fromBits(sjcl.hash.sha256.hash(Math.random() * (2000 - 100) + 100));
 
     //substrings para deixar chaver de tamnho compativel com AES-256
-    chave_secreta = chave_secreta.substring(0, 64);
-    iv = iv.substring(0, 32);
+    chave_secreta = chave_secreta.substring(0, 32);
+    iv = iv.substring(0, 16);
 
 
     console.log("chave_tentativa: \n" + chave_secreta);
@@ -241,7 +241,7 @@ class AesCript{
     encrypt(mensage){
         return CryptoJS.AES.encrypt(mensage, this.key,{
             iv: this.iv,
-            padding: CryptoJS.pad.Pkcs7,
+            padding: CryptoJS.pad.NoPadding,
             mode: CryptoJS.mode.CBC
 
         }).toString();
@@ -249,25 +249,25 @@ class AesCript{
     decrypt(mensage){
         return CryptoJS.AES.decrypt(mensage, this.key,{
             iv: this.iv,
-            padding: CryptoJS.pad.Pkcs7,
-            mode: CryptoJS.mode.CBC
+            mode: CryptoJS.mode.CBC,
+            padding: CryptoJS.pad.NoPadding
 
         }).toString(CryptoJS.enc.Utf8);
     }
 }
 $(document).ready(function(){
     handshake();
+    console.log("chave: "+getCookie('handshake_key'));
+    console.log("iv: "+getCookie('handshake_iv'));
+    //iv: db11ef716478972d
+    //key: 2f1b593b807bd12a8a152b4c1e47b7f7
 
-    //teste
-    console.log("chave_front: "+getCookie('handshake_key'));
-    console.log("iv_front: "+getCookie('handshake_iv'));
-    var mensage = {    }
-    var request = $.ajax({
-        url: "http://"+location.hostname+"/backend/teste.php",
-        type: "post",
-        dataType: 'json',
-        data: mensage,
-        async: false
-    });
+    var text = "Ola mundo";
+    var key = CryptoJS.enc.Utf8.parse('2f1b593b807bd12a8a152b4c1e47b7f7');
+    var iv = CryptoJS.enc.Utf8.parse('db11ef716478972d');
+    var encrypted = CryptoJS.AES.encrypt(text, key, {iv: iv});
+    console.log(encrypted.toString());
+
+
 
 });
