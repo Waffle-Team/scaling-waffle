@@ -1,14 +1,23 @@
 <?php
 require_once (dirname(__FILE__).'\team_lib\functions.php');
 require_once (dirname(__FILE__).'\team_lib\mail.php');
+require_once (dirname(__FILE__).'\team_lib\_criptoClasses.php');
 
 if(!isset($_POST['user'] ) or !isset($_POST['pass'])){
     exit();
 }
-
+session_start();
 $login = $_POST['user'];
 $senha = $_POST['pass'];
+$sac = new AES_CRIPT();
+$login = $sac->decrypt($login);
+$senha = $sac->decrypt($senha);
+
+
 $user_db = pesquisaUsuario($login);
+
+
+
 
 //verificar se usuario foi confirmado
 //Objeto para retorno do json
@@ -22,7 +31,6 @@ if ($user_db != false) {
     $senha_salt = hashsenha($user_db['nome'], $user_db['sobrenome'], $user_db['email'], $user_db['telefone'], $senha);
     if ($senha_salt == $user_db['senha']) {
         //as senhas batem o usuario esta autenticado
-        session_start();
         $_SESSION['user_name'] = $user_db['apelido'];
         $_SESSION['senha'] = TRUE;
         $_SESSION['2FA'] = FALSE;

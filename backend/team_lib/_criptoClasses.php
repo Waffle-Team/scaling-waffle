@@ -1,5 +1,5 @@
 <?php
-include (dirname(__FILE__).'\..\lib\esteganografia\decrypt_dbpass.php');
+require_once (dirname(__FILE__).'\..\lib\esteganografia\decrypt_dbpass.php');
 
 class AES_CRIPT_Internal{
 

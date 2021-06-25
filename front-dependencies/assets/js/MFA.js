@@ -1,7 +1,6 @@
 $(document).ready(function() {
     $('#bt_logar').click(function(event){
         var codigo =  $('#input-codigo').val();
-
         var data = {
             codigo: codigo,
         }

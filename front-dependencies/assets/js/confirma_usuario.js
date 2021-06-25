@@ -2,6 +2,11 @@ $(document).ready(function() {
     var codigo = getUrlParameter('codigo');
     var apelido = getUrlParameter('apelido');
 
+    var c12 = new AesCript();
+    codigo = c12.encrypt(codigo);
+    apelido = c12.encrypt(apelido);
+
+
     var mailData = {
         codigo: codigo,
         apelido: apelido

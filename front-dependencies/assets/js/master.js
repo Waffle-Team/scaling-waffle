@@ -75,9 +75,12 @@ function hash(entrada){
 function login_user(_login, _senha){
     var userMatch;
     var password_hashed = hash(_senha);
+    var lc = new AesCript();
+
+
     var data = {
-        user: _login,
-        pass: password_hashed
+        user: lc.encrypt(_login),
+        pass: lc.encrypt(password_hashed)
     }
     var request = $.ajax({
         url: "./backend/login.php",
@@ -97,13 +100,15 @@ function login_user(_login, _senha){
 
 function register_user(_nome, _sobrenome, _email, _apelido, _telefone, _senha){
     var password = hash(_senha);
+    var rc = new AesCript();
+
     var userData = {
-        nome: _nome,
-        sobrenome: _sobrenome,
-        email: _email,
-        apelido: _apelido,
-        telefone: _telefone,
-        senha: password
+        nome: rc.encrypt(_nome),
+        sobrenome: rc.encrypt(_sobrenome),
+        email: rc.encrypt(_email),
+        apelido: rc.encrypt(_apelido),
+        telefone: rc.encrypt(_telefone),
+        senha: rc.encrypt(password)
     }
 
 
@@ -142,6 +147,12 @@ function getUrlParameter(sParam) {
         }
     }
 }
+
+/*
+
+NÃO MECHE DAQUI PRA BAIXO CRITOGRAFIA
+
+*/
 
 function handshake_status(){
     var handshakeCall = {
@@ -246,12 +257,4 @@ class AesCript{
 }
 $(document).ready(function(){
     handshake();
-    /*
-    temp start
-    */
-    console.log("chave: "+getCookie('handshake_key'));
-    console.log("iv: "+getCookie('handshake_iv'));
-    /*
-    temp end
-    */
 });

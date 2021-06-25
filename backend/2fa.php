@@ -1,5 +1,6 @@
 <?php
-require_once(dirname(__FILE__).'\team_lib\functions.php');
+require_once (dirname(__FILE__).'\team_lib\functions.php');
+require_once (dirname(__FILE__).'\team_lib\_criptoClasses.php');
 
 session_start();
 $JsonReturn = new stdClass();
@@ -17,6 +18,8 @@ if ($_SESSION['senha'] == FALSE){
 }
 
 $codigo = $_POST['codigo'];
+
+
 $codigo_db = get_2fa($_SESSION['user_name']);
 
 $codigo = hash('md5', $codigo);

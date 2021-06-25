@@ -1,5 +1,6 @@
 <?php
 require_once (dirname(__FILE__).'\team_lib\functions.php');
+require_once (dirname(__FILE__).'\team_lib\_criptoClasses.php');
 
 $JsonReturn = new stdClass();
 
@@ -9,11 +10,13 @@ if (!isset($_POST['codigo']) or !isset($_POST['apelido'])) {
     print(json_encode($JsonReturn));//retorno
     exit();
 }
-
+session_start();
 // pega as duas variaveis da url
 $codigo = $_POST['codigo'];
 $apelido = $_POST['apelido'];
-
+$rc = new AES_CRIPT();
+$codigo = $rc->decrypt($codigo);
+$apelido = $rc->decrypt($apelido);
 
 
 $dados = pesquisaUsuario($apelido); //pega as informacoes na DB pelo functions.php a partir do apelido

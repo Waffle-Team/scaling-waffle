@@ -2,18 +2,19 @@
 require_once (dirname(__FILE__).'\team_lib\functions.php');
 require_once (dirname(__FILE__).'\team_lib\mail.php');
 require_once (dirname(__FILE__).'\team_lib\filtro.php');
+require_once (dirname(__FILE__).'\team_lib\_criptoClasses.php');
 
-if( !isset($_POST['nome']) or 
-    !isset($_POST['sobrenome']) or 
-    !isset($_POST['email']) or 
-    !isset($_POST['apelido']) or 
-    !isset($_POST['telefone']) or 
+if( !isset($_POST['nome']) or
+    !isset($_POST['sobrenome']) or
+    !isset($_POST['email']) or
+    !isset($_POST['apelido']) or
+    !isset($_POST['telefone']) or
     !isset($_POST['senha'])){
         exit();
 }
 
 
-
+session_start();
 $valido = TRUE;
 
 
@@ -24,6 +25,13 @@ $post_apelido = $_POST['apelido'];
 $post_telefone = $_POST['telefone'];
 $post_senha = $_POST['senha'];
 
+$rc = new AES_CRIPT();
+$post_nome = $rc->decrypt($post_nome);
+$post_sobrenome = $rc->decrypt($post_sobrenome);
+$post_email = $rc->decrypt($post_email);
+$post_apelido = $rc->decrypt($post_apelido);
+$post_telefone = $rc->decrypt($post_telefone);
+$post_senha = $rc->decrypt($post_senha);
 
 
 $JsonReturn = new stdClass();
