@@ -212,7 +212,6 @@ function negociate_handshake(){
         */
         console.log("chave aceita: " + getCookie('handshake_key'));
         console.log("iv aceito: " + getCookie('handshake_iv'));
-
         /*
         temp end
         */
@@ -235,39 +234,24 @@ function handshake(){//handshake control
 //classes
 class AesCript{
     constructor(){
-        this.key = getCookie('handshake_key');
-        this.iv = getCookie('handshake_iv');
+        this.key = CryptoJS.enc.Utf8.parse(getCookie('handshake_key'));;
+        this.iv = CryptoJS.enc.Utf8.parse(getCookie('handshake_iv'));
     }
     encrypt(mensage){
-        return CryptoJS.AES.encrypt(mensage, this.key,{
-            iv: this.iv,
-            padding: CryptoJS.pad.NoPadding,
-            mode: CryptoJS.mode.CBC
-
-        }).toString();
+        return CryptoJS.AES.encrypt(mensage, this.key, {iv: this.iv}).toString();
     }
     decrypt(mensage){
-        return CryptoJS.AES.decrypt(mensage, this.key,{
-            iv: this.iv,
-            mode: CryptoJS.mode.CBC,
-            padding: CryptoJS.pad.NoPadding
-
-        }).toString(CryptoJS.enc.Utf8);
+        return CryptoJS.AES.decrypt(mensage, this.key,{iv: this.iv}).toString(CryptoJS.enc.Utf8);
     }
 }
 $(document).ready(function(){
     handshake();
+    /*
+    temp start
+    */
     console.log("chave: "+getCookie('handshake_key'));
     console.log("iv: "+getCookie('handshake_iv'));
-    //iv: db11ef716478972d
-    //key: 2f1b593b807bd12a8a152b4c1e47b7f7
-
-    var text = "Ola mundo";
-    var key = CryptoJS.enc.Utf8.parse('2f1b593b807bd12a8a152b4c1e47b7f7');
-    var iv = CryptoJS.enc.Utf8.parse('db11ef716478972d');
-    var encrypted = CryptoJS.AES.encrypt(text, key, {iv: iv});
-    console.log(encrypted.toString());
-
-
-
+    /*
+    temp end
+    */
 });

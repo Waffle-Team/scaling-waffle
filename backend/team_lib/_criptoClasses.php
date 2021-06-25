@@ -1,7 +1,22 @@
 <?php
-// DEBUG: dev here
-class AES_CRIPT{
+include (dirname(__FILE__).'\..\lib\esteganografia\decrypt_dbpass.php');
 
+class AES_CRIPT_Internal{
+
+    function __construct(){
+        $this->key = '2f1b593b807bd12a8a152b4c1e47b7f7';
+        $this->iv = 'db11ef716478972d';
+    }
+
+    public function encrypt($value){
+        return openssl_encrypt($value, "aes-256-cbc", $this->key, 0, $this->iv);
+    }
+    public function decrypt($value){
+        return openssl_decrypt($value, "aes-256-cbc", $this->key, 0, $this->iv);
+    }
+
+}
+class AES_CRIPT{
     function __construct(){
         if(!isset($_SESSION['AES_key'])){
             throw new Exception('$_SESSION["AES_key"] não existe');
@@ -24,8 +39,8 @@ class RSA_CRIPT{
     private $privkey;
 
     function __construct(){
-        //implementar gerenciamento de segredos
-        $this->privkey = fread(fopen('privateKey.pem', "r"), filesize("privateKey.pem"));
+        $c = new AES_CRIPT_Internal();
+        $this->privkey = $c->decrypt(fread(fopen(dirname(__FILE__).'\GenericBlob', "r"),filesize(dirname(__FILE__).'\GenericBlob')));//esteganografar a chave publica
         $this->pubkey = fread(fopen('publicKey.pem', "r"), filesize("publicKey.pem"));
     }
 

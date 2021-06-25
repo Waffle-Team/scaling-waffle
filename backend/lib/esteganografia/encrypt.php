@@ -50,5 +50,4 @@ function enig($msg, $src){
 
     imagedestroy($img); //get rid of it
 }
-
 ?>
