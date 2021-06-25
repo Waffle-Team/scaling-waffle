@@ -8,13 +8,7 @@ function handshake(){//handshake controler
     switch ($call) {
         case 'status':
             $JsonReturn->status = $_SESSION['handshake'];
-            /*
-            temp start
-            */
-                            //$JsonReturn->key = $_SESSION['AES_key'];
-            /*
-            temp end
-            */
+
             if($_SESSION['handshake_time'] >= time() + 3600){//pede a troca de chave a cada 1hr de uso da chave simetrica
                 $_SESSION['handshake'] = FALSE;
             }
@@ -30,6 +24,7 @@ function handshake(){//handshake controler
 
             $cripher_RSA = new RSA_CRIPT();//decripta chave simetrica que o usuario deseja usar para comunicação
             $secret_key = $cripher_RSA->decrypt($secret_key);
+            $iv = $cripher_RSA->decrypt($iv);
 
             $_SESSION['AES_key'] = $secret_key;//seta chave na seção do usuario
             $_SESSION['AES_iv'] = $iv;
@@ -53,8 +48,8 @@ function handshake(){//handshake controler
 */
 
 //temp start
-session_start();
-session_destroy();
+    //session_start();
+    //session_destroy();
 //temp end
 
 $JsonReturn = new stdClass();

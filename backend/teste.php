@@ -1,5 +1,8 @@
 <?php
+include (dirname(__FILE__).'\team_lib\_criptoClasses.php');
 session_start();
-print_r($_SESSION);
 
- ?>
+$a = new AES_CRIPT();
+
+
+?>

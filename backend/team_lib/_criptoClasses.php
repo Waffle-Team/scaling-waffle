@@ -1,8 +1,6 @@
 <?php
 // DEBUG: dev here
 class AES_CRIPT{
-    private $secret_key;
-    private $iv;
 
     function __construct(){
         if(!isset($_SESSION['AES_key'])){
@@ -11,17 +9,15 @@ class AES_CRIPT{
         if(!isset($_SESSION['AES_iv'])){
             throw new Exception('$_SESSION["AES_iv"] não existe');
         }
-        $this->secret_key = $_SESSION['AES_key'];
-        $this->secret_key = $_SESSION['AES_iv'];
     }
 
     public function encrypt($value){
-        $encrypted_data = openssl_encrypt($value, 'aes-256-cbc', $this->secret_key, OPENSSL_RAW_DATA, $this->iv);
+        $encrypted_data = openssl_encrypt($value, 'aes-256-cbc', $_SESSION['AES_key'], OPENSSL_RAW_DATA, $_SESSION['AES_iv']);
         return base64_encode($encrypted_data);
     }
     public function decrypt($value){
         $value = base64_decode($value);
-        $data = openssl_decrypt($value, 'aes-256-cbc', $this->secret_key, OPENSSL_RAW_DATA, $this->iv);
+        $data = openssl_decrypt($value, 'aes-256-cbc', $_SESSION['AES_key'], OPENSSL_RAW_DATA, $_SESSION['AES_iv']);
         return $data;
     }
 
@@ -32,8 +28,8 @@ class RSA_CRIPT{
 
     function __construct(){
         //implementar gerenciamento de segredos
-        $this->privkey = fread(fopen('privateKey.pem', "r"),filesize("privateKey.pem"));
-        $this->pubkey = fread(fopen('publicKey.pem', "r"),filesize("publicKey.pem"));
+        $this->privkey = fread(fopen('privateKey.pem', "r"), filesize("privateKey.pem"));
+        $this->pubkey = fread(fopen('publicKey.pem', "r"), filesize("publicKey.pem"));
     }
 
     public function getPubKey(){

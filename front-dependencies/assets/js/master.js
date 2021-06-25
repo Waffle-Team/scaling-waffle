@@ -177,11 +177,14 @@ function negociate_handshake(){
     var pubkey = pubkey_request.responseText;
 
     console.log("pubkey resposta do servidor: \n"+pubkey);
-    var crip_asimetrico = new JSEncrypt();
-    crip_asimetrico.setKey(pubkey);
 
-    var iv_criptografado = crip_asimetrico.encrypt(chave_secreta);
-    var chave_secreta_criptografada = crip_asimetrico.encrypt(chave_secreta);
+    var crip_key = new JSEncrypt();
+    crip_key.setKey(pubkey);
+    var crip_iv = new JSEncrypt();
+    crip_iv.setKey(pubkey);
+
+    var iv_criptografado = crip_iv.encrypt(iv);
+    var chave_secreta_criptografada = crip_key.encrypt(chave_secreta);
     console.log("chave secreceta criptografada na publica front: \n"+ chave_secreta_criptografada);
     console.log("iv criptografada na publica front: \n"+ iv_criptografado);
 
@@ -254,5 +257,17 @@ class AesCript{
 }
 $(document).ready(function(){
     handshake();
-    
+
+    //teste
+    console.log("chave_front: "+getCookie('handshake_key'));
+    console.log("iv_front: "+getCookie('handshake_iv'));
+    var mensage = {    }
+    var request = $.ajax({
+        url: "http://"+location.hostname+"/backend/teste.php",
+        type: "post",
+        dataType: 'json',
+        data: mensage,
+        async: false
+    });
+
 });
