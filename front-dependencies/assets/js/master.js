@@ -121,7 +121,7 @@ function register_user(_nome, _sobrenome, _email, _apelido, _telefone, _senha){
         window.location = './form-confirmado';
         return true;
     }else{
-        alert($res_back.erro_msg);
+        alert(res_back.erro_msg);
         return false;
     }
 

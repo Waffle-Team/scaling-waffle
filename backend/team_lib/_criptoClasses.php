@@ -4,8 +4,8 @@ include (dirname(__FILE__).'\..\lib\esteganografia\decrypt_dbpass.php');
 class AES_CRIPT_Internal{
 
     function __construct(){
-        $this->key = '2f1b593b807bd12a8a152b4c1e47b7f7';
-        $this->iv = 'db11ef716478972d';
+        $this->key = MarioDB(dirname(__FILE__).'\..\lib\esteganografia\result95.png');
+        $this->iv = MarioDB(dirname(__FILE__).'\..\lib\esteganografia\result2468.png');
     }
 
     public function encrypt($value){
