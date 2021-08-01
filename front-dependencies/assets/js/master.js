@@ -245,7 +245,7 @@ function handshake(){//handshake control
 //classes
 class AesCript{
     constructor(){
-        this.key = CryptoJS.enc.Utf8.parse(getCookie('handshake_key'));;
+        this.key = CryptoJS.enc.Utf8.parse(getCookie('handshake_key'));
         this.iv = CryptoJS.enc.Utf8.parse(getCookie('handshake_iv'));
     }
     encrypt(mensage){
